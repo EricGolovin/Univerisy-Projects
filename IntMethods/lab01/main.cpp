@@ -47,33 +47,40 @@ int main(int argc, char *argv[]) {
     
     long double initialResult = 0;
     double runtimeCalculation = 0;
-    double sumCalculation = 0;
+    double sumCalculation = calcMistakeArgument + 1;
     int index = 1;
     
     while (xArgument <= xArgumentLastValue) {
 
-        cout << endl << "--------------------------------------------> " << "X = " << xArgument << endl;
+        cout << "-------------------------------------------------" << endl;
         while (calcMistakeArgument < sumCalculation) {
             sumCalculation = pow(-1, index)  / (pow(xArgument, 2) - pow(index * M_PI, 2));
-            index += 1;
             runtimeCalculation += sumCalculation;
+            cout << "k = " << index;
+            cout << "\tu = " << sumCalculation;
+            cout << "\ts = " << runtimeCalculation;
+            index += 1;
         }
         
         initialResult = 1 / xArgument + 2 * xArgument * runtimeCalculation;
-        long double systemAcosResult = acos(xArgument);
-        
+        long double systemAcosResult = 1.0 / sin(xArgument); // acos(xArgument);
+
+        cout << endl << "\t\t\t\t\t\t |> " << "X = " << xArgument << endl;
+
         // printing results
         cout << "Our calculation result: " << initialResult << endl;
         cout << "System function result: " << systemAcosResult << endl;
         cout << "Fifference in calculation = ";
         if (initialResult < systemAcosResult) {
-            cout << systemAcosResult - initialResult;
+            cout << systemAcosResult - initialResult << endl;
         } else {
-            cout << initialResult - systemAcosResult;
+            cout << initialResult - systemAcosResult << endl;
         }
         xArgument += 0.1;
+        sumCalculation = calcMistakeArgument + 1;
 
-        cout << endl;
+        cout << "-------------------------------------------------" << endl;
+        cout << endl << endl;
     }
     
     
