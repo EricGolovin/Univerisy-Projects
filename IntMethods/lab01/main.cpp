@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     double sumCalculation = calcMistakeArgument + 1;
     int index = 1;
     
-    while (xArgument <= xArgumentLastValue) {
+    while ((int)(xArgument * 10) <= (int)(xArgumentLastValue * 10)) {
 
         cout << "-------------------------------------------------" << endl;
         while (calcMistakeArgument < sumCalculation) {
