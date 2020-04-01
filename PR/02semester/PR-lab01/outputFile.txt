@@ -1,0 +1,18 @@
+--------------------------------
+Index in the list: 4
+Detination Name: Dublin
+Flight number: 755
+--------------------------------
+--------------------------------
+Index in the list: 8
+Detination Name: Seattle
+Flight number: 326
+--------------------------------
+--------------------------------
+Index in the list: 9
+Detination Name: Seattle
+Flight number: 234
+--------------------------------
+--------------------------------
+This flight does not exist.
+--------------------------------
