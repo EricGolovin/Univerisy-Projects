@@ -77,6 +77,7 @@ int main(int argc, char *argv[]) {
             cout << initialResult - systemAcosResult << endl;
         }
         xArgument += 0.1;
+        index = 0;
         sumCalculation = calcMistakeArgument + 1;
 
         cout << "-------------------------------------------------" << endl;
