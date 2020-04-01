@@ -58,14 +58,14 @@ int main(int argc, char *argv[]) {
             runtimeCalculation += sumCalculation;
             cout << "k = " << index;
             cout << "\tu = " << sumCalculation;
-            cout << "\ts = " << runtimeCalculation;
+            cout << "\ts = " << runtimeCalculation << endl;
             index += 1;
         }
         
         initialResult = 1 / xArgument + 2 * xArgument * runtimeCalculation;
         long double systemAcosResult = 1.0 / sin(xArgument); // acos(xArgument);
 
-        cout << endl << "\t\t\t\t\t\t |> " << "X = " << xArgument << endl;
+        cout << "\t\t\t\t\t\t |> " << "X = " << xArgument << endl;
 
         // printing results
         cout << "Our calculation result: " << initialResult << endl;
