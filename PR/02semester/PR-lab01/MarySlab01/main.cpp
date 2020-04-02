@@ -10,20 +10,19 @@ typedef struct ZNAK {
     int birthDate[3];
 } ZNAK;
 
-string readFileData(string fileName, int *numOfFlights) {
+string readFileData(string fileName, int *numberOfSignes) {
     fstream outFile;
     stringstream stringStream;
     
     outFile.open(fileName, ios_base::in);
     
     if (outFile.is_open()) {
-        cout << "File opened successfuly." << endl << endl;
         string fileContent;
         
         while (outFile.good()) {
             getline(outFile, fileContent);
             stringStream << "-" << fileContent << endl;
-            *numOfFlights += 1;
+            *numberOfSignes += 1;
         }
         
         outFile.close();
@@ -32,7 +31,7 @@ string readFileData(string fileName, int *numOfFlights) {
     return stringStream.str();
 }
 
-string findByCityName(string nameToFind, ZNAK inArray[], int numOfElements) {
+string findName(string nameToFind, ZNAK inArray[], int numOfElements) {
     stringstream outputStringStream;
 
     for (int i = 0; i < numOfElements; i++) {
@@ -59,21 +58,20 @@ string findByCityName(string nameToFind, ZNAK inArray[], int numOfElements) {
 }
 
 int main(int argc, char *argv[]) {
-    int totalFlights = 0;
-    string fileData = readFileData("inputTestFile.txt", &totalFlights);
-    ZNAK arrayOfFlights[totalFlights];
+    int totalSignes = 0;
+    string fileData = readFileData("inputTestFile.txt", &totalSignes);
+    ZNAK arrayOfSignes[totalSignes];
     
     // adding data to array
-    for (int i = 0; i < totalFlights; i++) {
-        stringstream stringDateStream, stringMonthStream, stringYearStream;
+    for (int i = 0; i < totalSignes; i++) {
         string buffer;
         ZNAK someZNAK;
         int birthIndex = 0;
         
-        for (int index = 0, flag = 0, parameterNumber = 0; index < fileData.length() - 1; index++) {
+        for (int index = 0, flag = 0, indexer = 0; index < fileData.length() - 1; index++) {
             if (fileData[index] == '{') {
                 flag = 1;
-                parameterNumber++;
+                indexer++;
                 continue;
             } else if (fileData[index] == '}') {
                 flag = 0;
@@ -87,11 +85,11 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             if (flag) {
-                if (parameterNumber == 1) {
+                if (indexer == 1) {
                     someZNAK.nameAndSurname += fileData[index];
-                } else if (parameterNumber == 2) {
+                } else if (indexer == 2) {
                     someZNAK.zodiacSign += fileData[index];
-                } else if (parameterNumber == 3) {
+                } else if (indexer == 3) {
                     if (fileData[index] == '/') {
                         stringstream universalStream;
                         universalStream << buffer;
@@ -108,28 +106,28 @@ int main(int argc, char *argv[]) {
                 }
             }
         }
-        arrayOfFlights[i] = someZNAK;
+        arrayOfSignes[i] = someZNAK;
         fileData.erase(fileData.find('N'), fileData.find('\n'));
     }
 
     // sorting of array
 
-    for (int i = 0; i < totalFlights - 1; i++) {
-        for (int index = 0; index < totalFlights - 1 - i; index++) {
-            if (arrayOfFlights[index].birthDate[2] > arrayOfFlights[index + 1].birthDate[2]) {
-                ZNAK temp = arrayOfFlights[index];
-                arrayOfFlights[index] = arrayOfFlights[index + 1];
-                arrayOfFlights[index + 1] = temp;
-            } else if (arrayOfFlights[index].birthDate[2] == arrayOfFlights[index + 1].birthDate[2]) {
-                if (arrayOfFlights[index].birthDate[1] > arrayOfFlights[index + 1].birthDate[1]) {
-                    ZNAK temp = arrayOfFlights[index];
-                    arrayOfFlights[index] = arrayOfFlights[index + 1];
-                    arrayOfFlights[index + 1] = temp;
-                } else if (arrayOfFlights[index].birthDate[1] == arrayOfFlights[index + 1].birthDate[1]) {
-                    if (arrayOfFlights[index].birthDate[0] > arrayOfFlights[index + 1].birthDate[0]) {
-                        ZNAK temp = arrayOfFlights[index];
-                        arrayOfFlights[index] = arrayOfFlights[index + 1];
-                        arrayOfFlights[index + 1] = temp;
+    for (int i = 0; i < totalSignes - 1; i++) {
+        for (int index = 0; index < totalSignes - 1 - i; index++) {
+            if (arrayOfSignes[index].birthDate[2] > arrayOfSignes[index + 1].birthDate[2]) {
+                ZNAK temp = arrayOfSignes[index];
+                arrayOfSignes[index] = arrayOfSignes[index + 1];
+                arrayOfSignes[index + 1] = temp;
+            } else if (arrayOfSignes[index].birthDate[2] == arrayOfSignes[index + 1].birthDate[2]) {
+                if (arrayOfSignes[index].birthDate[1] > arrayOfSignes[index + 1].birthDate[1]) {
+                    ZNAK temp = arrayOfSignes[index];
+                    arrayOfSignes[index] = arrayOfSignes[index + 1];
+                    arrayOfSignes[index + 1] = temp;
+                } else if (arrayOfSignes[index].birthDate[1] == arrayOfSignes[index + 1].birthDate[1]) {
+                    if (arrayOfSignes[index].birthDate[0] > arrayOfSignes[index + 1].birthDate[0]) {
+                        ZNAK temp = arrayOfSignes[index];
+                        arrayOfSignes[index] = arrayOfSignes[index + 1];
+                        arrayOfSignes[index + 1] = temp;
                     }
                 }
             }
@@ -146,8 +144,8 @@ int main(int argc, char *argv[]) {
         cin >> searchParameter;
         cout << endl;
             
-        outputFile << findByCityName(searchParameter, arrayOfFlights, totalFlights);
-        cout << findByCityName(searchParameter, arrayOfFlights, totalFlights) << endl;
+        outputFile << findName(searchParameter, arrayOfSignes, totalSignes);
+        cout << findName(searchParameter, arrayOfSignes, totalSignes) << endl;
 
         string exitOption;
         cout << endl << "stop or next: ";
