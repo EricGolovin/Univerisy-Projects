@@ -2,7 +2,6 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-
 using namespace std;
 
 typedef struct ZNAK {
@@ -33,23 +32,6 @@ string readFileData(string fileName, int *numOfFlights) {
     return stringStream.str();
 }
 
-// string findByPlaneModel(string planeToFind, AEROFLOT inArray[], int numOfElements) {
-//     stringstream outputStringStream;
-//     for (int i = 0; i < numOfElements; i++) {
-//         if (planeToFind == inArray[i].planeModel) {
-//             outputStringStream << "Index: " << i + 1 << endl;
-//             outputStringStream << "Detination Name: " << inArray[i].destinationName << endl;
-//             outputStringStream << "Flight number: " << inArray[i].flightNumber << endl;
-//         }
-//     }
-    
-//     if (outputStringStream.str() == "") {
-//         return "\nThis person does not exist.\n\n";
-//     } else {
-//         return outputStringStream.str();
-//     }
-// } 
-
 string findByCityName(string nameToFind, ZNAK inArray[], int numOfElements) {
     stringstream outputStringStream;
 
@@ -58,7 +40,7 @@ string findByCityName(string nameToFind, ZNAK inArray[], int numOfElements) {
         string lowercasedSearch = nameToFind;
         transform(lowercasedName.begin(), lowercasedName.end(), lowercasedName.begin(), ::tolower);
         transform(lowercasedSearch.begin(), lowercasedSearch.end(), lowercasedSearch.begin(), ::tolower);
-        
+
         if (lowercasedName.find(lowercasedSearch) != string::npos) {
             outputStringStream << "Name: " << inArray[i].nameAndSurname << endl;
             outputStringStream << "Zodiac Sign: " << inArray[i].zodiacSign << endl;
@@ -70,7 +52,7 @@ string findByCityName(string nameToFind, ZNAK inArray[], int numOfElements) {
     }
     
     if (outputStringStream.str() == "") {
-        return "\nThis person does not exist.\n\n";
+        return "This person does not exist.\n";
     } else {
         return outputStringStream.str();
     }
@@ -81,6 +63,7 @@ int main(int argc, char *argv[]) {
     string fileData = readFileData("inputTestFile.txt", &totalFlights);
     ZNAK arrayOfFlights[totalFlights];
     
+    // adding data to array
     for (int i = 0; i < totalFlights; i++) {
         stringstream stringDateStream, stringMonthStream, stringYearStream;
         string buffer;
@@ -130,6 +113,7 @@ int main(int argc, char *argv[]) {
     }
 
     // sorting of array
+
     for (int i = 0; i < totalFlights - 1; i++) {
         for (int index = 0; index < totalFlights - 1 - i; index++) {
             if (arrayOfFlights[index].birthDate[2] > arrayOfFlights[index + 1].birthDate[2]) {
@@ -151,16 +135,9 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-
-    // for (int i = 0; i < totalFlights; i++) {
-    //     cout << arrayOfFlights[i].nameAndSurname << endl;
-    //     cout << arrayOfFlights[i].zodiacSign << endl;
-    //     cout << arrayOfFlights[i].birthDate[0] << ", ";
-    //     cout << arrayOfFlights[i].birthDate[1] << ", ";
-    //     cout << arrayOfFlights[i].birthDate[2];
-    //     cout << endl << endl;
-    // }
     
+    // searching for name 
+
     string searchParameter;
     ofstream outputFile("outputFile.txt");
     
