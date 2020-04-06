@@ -331,11 +331,21 @@ int main(int argc, char *argv[]) {
                 cout << endl;
             } else if (nameOfOperation == "remove-book") {
                 cout << endl;
-                string name, date;
+                string name, date, buffer;
                 cout << "Enter name of the Student: ";
                 cin >> name;
-                cout << "Enter date: " << endl;
-                cin >> date;
+                cout << "Enter date: ";
+                cout << "\tday: ";
+                cin >> buffer;
+                date += buffer;
+                date += " ";
+                cout << "\tmonth: ";
+                cin >> buffer;
+                date += buffer;
+                date += " ";
+                cout << "\tyear: ";
+                cin >> buffer;
+                date += buffer;
                 cout << methodBooksArray[currentBookIndex].removeBookFrom(name, date) << endl;
                 cout << endl;
             } else if (nameOfOperation == "get-extraDeb") {
