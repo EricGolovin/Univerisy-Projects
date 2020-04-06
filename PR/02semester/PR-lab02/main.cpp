@@ -4,13 +4,24 @@
 using namespace std;
 
 typedef struct {
+    int day;
+    int month;
+    int year;
+    string date(void) {
+        stringstream resultDate;
+        resultDate << day << "/" << month << "/" << year;
+        return resultDate.str();
+    }
+} Date;
+
+typedef struct {
     string name;
     string surname;
     string facultyTitle;
 } Author;
 
 typedef struct {
-    string debtDate;
+    vector <Date> debtDate;
     string studentNaming;
 } StudentLending;
 
@@ -80,21 +91,37 @@ class MethodBook {
     }
 
     string giveBookTo(string name, string date) {
+        int day, month, year;
         stringstream resultStringStream;
-        StudentLending newDebtor = {date, name};
+        stringstream dateStringStream(date);
+        
+        dateStringStream >> day;
+        dateStringStream >> month;
+        dateStringStream >> year;
+
+        Date newDate = {day, month, year};
+        StudentLending newDebtor;
+        newDebtor.studentNaming = name;
+        newDebtor.debtDate.push_back(newDate);
         
         studentsDebtsData.push_back(newDebtor);
 
         resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\tgiven to " << name << endl;
-        resultStringStream << "\tdate: " << date << endl;
+        resultStringStream << "\tgiven to " << newDebtor.studentNaming << endl;
+        resultStringStream << "\tdate: " << newDebtor.debtDate[0].date() << endl;
         resultStringStream << "-----------------------------------------" << endl;
 
         return resultStringStream.str();
     }
 
     string removeBookFrom(string name, string date) {
+        int day, month, year;
         stringstream resultStringStream;
+        stringstream dateStringStream(date);
+
+        dateStringStream >> day;
+        dateStringStream >> month;
+        dateStringStream >> year;
 
         for (int index = 0; index < studentsDebtsData.size(); index++) {
             string lowercasedName = studentsDebtsData[index].studentNaming;
@@ -103,10 +130,11 @@ class MethodBook {
             transform(lowercasedSearchedName.begin(), lowercasedSearchedName.end(), lowercasedSearchedName.begin(), ::tolower);
 
             if (lowercasedName.find(lowercasedSearchedName) != string::npos) {
-                if (studentsDebtsData[index].debtDate == date) {
+                Date studentDate = studentsDebtsData[index].debtDate[0];
+                if (studentDate.day == day && studentDate.month == month && studentDate.year == year) {
                     resultStringStream << "----------------------------Method book--" << endl;
                     resultStringStream << "\tgiven back from " << studentsDebtsData[index].studentNaming << endl;
-                    resultStringStream << "\tfrom date: " << studentsDebtsData[index].debtDate << endl;
+                    resultStringStream << "\tfrom date: " << studentsDebtsData[index].debtDate[0].date() << endl;
                     resultStringStream << "-----------------------------------------" << endl;
 
                     studentsDebtsData.erase(studentsDebtsData.begin() + index);
@@ -129,14 +157,18 @@ class MethodBook {
         vector <StudentLending> extraDebtors;
         
         for (int currentIndex = 0; currentIndex < studentsDebtsData.size(); currentIndex++) {
-            for (int index = currentIndex + 1, flag = 0; index < studentsDebtsData.size(); index++) {
+            for (int index = currentIndex , flag = 0; index < studentsDebtsData.size(); index++) {
                 if (studentsDebtsData[currentIndex].studentNaming == studentsDebtsData[index].studentNaming) {
                     for (int tempIndex = 0; tempIndex < extraDebtors.size(); tempIndex++) {
                         if (studentsDebtsData[currentIndex].studentNaming == extraDebtors[tempIndex].studentNaming) {
+                            if (studentsDebtsData[currentIndex].debtDate[0].date() != extraDebtors[tempIndex].debtDate[extraDebtors[tempIndex].debtDate.size() - 1].date()) {
+                                extraDebtors[tempIndex].debtDate.push_back(studentsDebtsData[currentIndex].debtDate[0]);
+                            } 
                             flag = 1;
                         }
                     }
                     if (flag) {
+                        flag = 0;
                         break;
                     } else {
                         extraDebtors.push_back(studentsDebtsData[currentIndex]);
@@ -145,15 +177,49 @@ class MethodBook {
             }
         }
 
+        for (int i = 0; i < extraDebtors.size(); i++) {
+            if (extraDebtors[i].debtDate.size() == 1) {
+                extraDebtors.erase(extraDebtors.begin() + i);
+            }
+        }
+
         resultStringStream << "----------------------------Method book--" << endl;
         for (int index = 0; index < extraDebtors.size(); index++) {
             resultStringStream << "\textra Debtor: " << extraDebtors[index].studentNaming << endl;
-            resultStringStream << "\tdate: " << extraDebtors[index].debtDate << endl;
+            resultStringStream << "\tdate: | ";
+            for (int i = 0; i < extraDebtors[index].debtDate.size(); i++) {
+                resultStringStream << extraDebtors[index].debtDate[i].date() << " | ";
+            }
             if (index + 1 < extraDebtors.size()) {
-                resultStringStream << "+++++++++++++++++++++++++++++++++++++++++" << endl;
+                resultStringStream << endl << "+++++++++++++++++++++++++++++++++++++++++" << endl;
             }
         }
-        resultStringStream << "-----------------------------------------" << endl;
+        resultStringStream << endl << "-----------------------------------------" << endl;
+
+        return resultStringStream.str();
+    }
+
+    string getDateCount(string date) {
+        int day, month, year, resultCount = 0;
+        string printableDate;
+        stringstream resultStringStream;
+        stringstream dateStringStream(date);
+
+        dateStringStream >> day;
+        dateStringStream >> month;
+        dateStringStream >> year;
+
+        for (int index = 0; index < studentsDebtsData.size(); index++) {
+            Date studentDate = studentsDebtsData[index].debtDate[0];
+            if (studentDate.day == day && studentDate.month == month && studentDate.year == year) {
+                resultCount += 1;
+                printableDate = studentDate.date();
+            }
+        }
+
+        resultStringStream << "----------------------------Method book--" << endl;
+        resultStringStream << "\t book was given to " << resultCount << " people on this " << printableDate << " date" << endl; 
+        resultStringStream << endl << "-----------------------------------------" << endl;
 
         return resultStringStream.str();
     }
@@ -170,21 +236,34 @@ int main(int argc, char *argv[]) {
     cout << someBook.getAuthor() << endl;
     cout << someBook.getNameSubjectFaculty() << endl;
     cout << someBook.getTotalNumberOfDebts() << endl;
+
     cout << endl << endl << endl;
-    cout << someBook.giveBookTo("Brews Delivan", "06-03-20") << endl;
-    cout << someBook.getTotalNumberOfDebts() << endl;
-    cout << endl << endl << endl;
-    cout << someBook.removeBookFrom("sam", "06-01-20") << endl;
+    cout << someBook.giveBookTo("Brews Delivan", "06 03 20") << endl;
     cout << someBook.getTotalNumberOfDebts() << endl;
 
     cout << endl << endl << endl;
-    cout << someBook.giveBookTo("Sam Oustin", "06-03-20") << endl;
-    cout << someBook.giveBookTo("Sam Oustin", "06-03-20") << endl;
-    cout << someBook.giveBookTo("Sam Oustin", "06-03-20") << endl;
-    cout << someBook.giveBookTo("Andrew Johnson", "06-03-20") << endl;
-    cout << someBook.giveBookTo("Andrew Johnson", "06-03-20") << endl;
+    cout << someBook.removeBookFrom("sam", "06 01 20") << endl;
+    cout << someBook.getTotalNumberOfDebts() << endl;
+
+    cout << endl << endl << endl;
+    cout << someBook.giveBookTo("Sam Oustin", "06 02 20") << endl;
+    cout << someBook.giveBookTo("Sam Oustin", "06 03 20") << endl;
+    cout << someBook.giveBookTo("Sam Oustin", "06 04 20") << endl;
+    cout << someBook.giveBookTo("Andrew Johnson", "06 03 20") << endl;
+    cout << someBook.giveBookTo("Andrew Johnson", "06 04 20") << endl;
+    cout << someBook.giveBookTo("Andrew Johnson", "06 09 20") << endl;
+    cout << someBook.giveBookTo("Andrew Johnson", "06 07 20") << endl;
     cout << someBook.getTotalNumberOfDebts() << endl;
     cout << someBook.findExtraDebtors() << endl;
+
+    cout << endl << endl << endl;
+    cout << someBook.giveBookTo("User1", "06 01 20") << endl;
+    cout << someBook.giveBookTo("User2", "06 01 20") << endl;
+    cout << someBook.giveBookTo("User3", "06 01 20") << endl;
+    cout << someBook.giveBookTo("User4", "06 01 20") << endl;
+    cout << someBook.giveBookTo("User5", "06 01 20") << endl;
+    cout << someBook.getDateCount("06 01 20") << endl;
+    
     
     return 0;
 }
