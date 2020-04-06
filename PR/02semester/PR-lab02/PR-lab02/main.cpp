@@ -186,13 +186,24 @@ public:
         }
         
         for (int i = 0; i < extraDebtors.size(); i++) {
+            cout << "Name: " << extraDebtors[i].studentNaming << endl;
+            for (int index = 0; index < extraDebtors[i].debtDate.size(); index++) {
+                cout << "\t date#" << index + 1 << " " << extraDebtors[i].debtDate[index].date() << endl;
+            }
+            cout << "\\\\\\\\" <<  endl;
+        }
+        
+        for (int i = 0; i < extraDebtors.size(); i++) {
             if (extraDebtors[i].debtDate.size() == 1) {
-                extraDebtors.erase(extraDebtors.begin() + i);
+                extraDebtors[i].studentNaming = "NoN";
             }
         }
         
         resultStringStream << "----------------------------Method book--" << endl;
         for (int index = 0; index < extraDebtors.size(); index++) {
+            if (extraDebtors[index].studentNaming == "NoN") {
+                continue;
+            }
             resultStringStream << "\textra Debtor: " << extraDebtors[index].studentNaming << endl;
             resultStringStream << "\tdate: | ";
             for (int i = 0; i < extraDebtors[index].debtDate.size(); i++) {
@@ -236,46 +247,86 @@ public:
 
 int main(int argc, char *argv[]) {
     
-    int numberOfBooks;
+    string names[10] = {"Gradhen", "Tim", "Steve", "Bill", "Andrew", "Elizabeth", "Michael", "Harvy", "Larry", "Gwen"};
+    string surnames[10] = {"Spectre", "Litt", "Marqes", "Dellywon", "Peitterman", "Literr", "Neuburg", "Nadella", "Gates", "Jobs"};
+    
+    int numberOfBooks, demoFlag = 0;
     
     cout << "Please, enter the number of method books you want to create: ";
     cin >> numberOfBooks;
     cout << "Starting initialisation of your request..." << endl << endl;
     
+    if (numberOfBooks == 0) {
+        numberOfBooks = 1;
+        demoFlag = 1;
+    }
+    
     MethodBook methodBooksArray[numberOfBooks];
     
-    for (int i = 0; i < numberOfBooks; i++) {
-        string authorName, authorSurname, authorFaculty;
-        string bookName, bookSubject;
-        
+    if (!demoFlag) {
+        for (int i = 0; i < numberOfBooks; i++) {
+            string authorName, authorSurname, authorFaculty;
+            string bookName, bookSubject;
+            
+            MethodBook someBook;
+            
+            cout << "----------------------------Configuring book #" << i + 1 << endl;
+            cout << "Enter Athor's Name: ";
+            cin >> authorName;
+            cout << "Enter Athor's Surname: ";
+            cin >> authorSurname;
+            cout << "Enter Athor's Faculty: ";
+            cin >> authorFaculty;
+            cout << "Enter Books's Name: ";
+            cin >> bookName;
+            cout << "Enter Books's Subject: ";
+            cin >> bookSubject;
+            cout << endl;
+            
+            someBook.setBookAuthor(authorSurname, authorName, authorFaculty);
+            someBook.setBookName(bookName);
+            someBook.setBookSubject(bookSubject);
+            
+            methodBooksArray[i] = someBook;
+        }
+    } else {
         MethodBook someBook;
+        someBook.setBookAuthor("David J. ", "Malan", "Computer Science");
+        someBook.setBookName("Harvard CS50");
+        someBook.setBookSubject("Computer Science Fundamentals");
+        methodBooksArray[0] = someBook;
         
-        cout << "----------------------------Configuring book #" << i + 1 << endl;
-        cout << "Enter Athor's Name: ";
-        cin >> authorName;
-        cout << "Enter Athor's Surname: ";
-        cin >> authorSurname;
-        cout << "Enter Athor's Faculty: ";
-        cin >> authorFaculty;
-        cout << "Enter Books's Name: ";
-        cin >> bookName;
-        cout << "Enter Books's Subject: ";
-        cin >> bookSubject;
-        cout << endl;
-        
-        someBook.setBookAuthor(authorSurname, authorName, authorFaculty);
-        someBook.setBookName(bookName);
-        someBook.setBookSubject(bookSubject);
-        
-        methodBooksArray[i] = someBook;
+        for (int index = 0; index < 100; index++) {
+            stringstream someStrStream;
+            string studentName, date;
+            
+            studentName += names[rand() % 10];
+            studentName += "-";
+            studentName += surnames[rand() % 10];
+            
+            someStrStream << rand() % 30 + 1;
+            someStrStream << " ";
+            someStrStream << rand() % 12 + 1;
+            someStrStream << " ";
+            someStrStream << 2020 - (rand() % 5 + 1);
+            
+            date = someStrStream.str();
+            
+            methodBooksArray[0].giveBookTo(studentName, date);
+        }
     }
-    //    cout << methodBooksArray[0].getAuthor() << endl;
     
     while (1) {
         int currentBookIndex;
         string nameOfOperation;
-        cout << "On which book you want to work on? (Enter Number)" << endl;
-        cin >> currentBookIndex;
+        
+        if (!demoFlag) {
+            cout << "On which book you want to work on? (Enter Number) // enter 0 to enable demo mode" << endl;
+            cin >> currentBookIndex;
+        } else {
+            currentBookIndex = 1;
+        }
+        
         if (currentBookIndex > numberOfBooks) {
             cout << "There is no book with this index, check your request" << endl << endl;
             continue;
@@ -378,43 +429,6 @@ int main(int argc, char *argv[]) {
             break;
         }
     }
-    
-    //    MethodBook someBook;
-    //    someBook.setBookAuthor("David J. ", "Malan", "Computer Science");
-    //    someBook.setBookName("Harvard CS50");
-    //    someBook.setBookSubject("Computer Science Fundamentals");
-    //
-    //    cout << someBook.getAuthor() << endl;
-    //    cout << someBook.getNameSubjectFaculty() << endl;
-    //    cout << someBook.getTotalNumberOfDebts() << endl;
-    //
-    //    cout << endl << endl << endl;
-    //    cout << someBook.giveBookTo("Brews Delivan", "06 03 20") << endl;
-    //    cout << someBook.getTotalNumberOfDebts() << endl;
-    //
-    //    cout << endl << endl << endl;
-    //    cout << someBook.removeBookFrom("sam", "06 01 20") << endl;
-    //    cout << someBook.getTotalNumberOfDebts() << endl;
-    //
-    //    cout << endl << endl << endl;
-    //    cout << someBook.giveBookTo("Sam Oustin", "06 02 20") << endl;
-    //    cout << someBook.giveBookTo("Sam Oustin", "06 03 20") << endl;
-    //    cout << someBook.giveBookTo("Sam Oustin", "06 04 20") << endl;
-    //    cout << someBook.giveBookTo("Andrew Johnson", "06 03 20") << endl;
-    //    cout << someBook.giveBookTo("Andrew Johnson", "06 04 20") << endl;
-    //    cout << someBook.giveBookTo("Andrew Johnson", "06 09 20") << endl;
-    //    cout << someBook.giveBookTo("Andrew Johnson", "06 07 20") << endl;
-    //    cout << someBook.getTotalNumberOfDebts() << endl;
-    //    cout << someBook.findExtraDebtors() << endl;
-    //
-    //    cout << endl << endl << endl;
-    //    cout << someBook.giveBookTo("User1", "06 01 20") << endl;
-    //    cout << someBook.giveBookTo("User2", "06 01 20") << endl;
-    //    cout << someBook.giveBookTo("User3", "06 01 20") << endl;
-    //    cout << someBook.giveBookTo("User4", "06 01 20") << endl;
-    //    cout << someBook.giveBookTo("User5", "06 01 20") << endl;
-    //    cout << someBook.getDateCount("06 01 20") << endl;
-    
     
     return 0;
 }
