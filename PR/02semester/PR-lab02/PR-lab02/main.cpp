@@ -186,14 +186,6 @@ public:
         }
         
         for (int i = 0; i < extraDebtors.size(); i++) {
-            cout << "Name: " << extraDebtors[i].studentNaming << endl;
-            for (int index = 0; index < extraDebtors[i].debtDate.size(); index++) {
-                cout << "\t date#" << index + 1 << " " << extraDebtors[i].debtDate[index].date() << endl;
-            }
-            cout << "\\\\\\\\" <<  endl;
-        }
-        
-        for (int i = 0; i < extraDebtors.size(); i++) {
             if (extraDebtors[i].debtDate.size() == 1) {
                 extraDebtors[i].studentNaming = "NoN";
             }
@@ -252,7 +244,7 @@ int main(int argc, char *argv[]) {
     
     int numberOfBooks, demoFlag = 0;
     
-    cout << "Please, enter the number of method books you want to create: ";
+    cout << "Please, enter the number of method books you want to create (enter 0 for demo mode): ";
     cin >> numberOfBooks;
     cout << "Starting initialisation of your request..." << endl << endl;
     
@@ -321,7 +313,7 @@ int main(int argc, char *argv[]) {
         string nameOfOperation;
         
         if (!demoFlag) {
-            cout << "On which book you want to work on? (Enter Number) // enter 0 to enable demo mode" << endl;
+            cout << "On which book you want to work on? (Enter Number)" << endl;
             cin >> currentBookIndex;
         } else {
             currentBookIndex = 1;
@@ -346,7 +338,7 @@ int main(int argc, char *argv[]) {
                 cout << "remove-book --> to remove Debtor from the list" << endl;
                 cout << "get-extraDeb --> to get extra Debtors" << endl;
                 cout << "find-date --> to find debtors by Date" << endl;
-                cout << "change-book --> to change working book index" << endl;
+                cout << "change-book --> to change working book index (not working in demo)" << endl;
                 cout << "stop --> to exit program" << endl << endl;
                 continue;
             } else if (nameOfOperation == "get-author") {
@@ -366,7 +358,7 @@ int main(int argc, char *argv[]) {
                 string name, date, buffer;
                 cout << "Enter name of the Student: ";
                 cin >> name;
-                cout << "Enter date: ";
+                cout << "Enter date: " << endl;
                 cout << "\tday: ";
                 cin >> buffer;
                 date += buffer;
@@ -385,7 +377,7 @@ int main(int argc, char *argv[]) {
                 string name, date, buffer;
                 cout << "Enter name of the Student: ";
                 cin >> name;
-                cout << "Enter date: ";
+                cout << "Enter date: " << endl;;
                 cout << "\tday: ";
                 cin >> buffer;
                 date += buffer;

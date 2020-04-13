@@ -22,16 +22,16 @@ int main(void) {
     
     if (array[0][0] < 0) {
         isNegative = 1;
-    } else {
+    } else if (array[0][0] > 0) {
         isNegative = 0;
     }
     
     for (int x = 0; x < m; x++) {
         for (int y = 0; y < n; y++) {
-            if (array[x][y] > 0 && isNegative == 0) {
-                isNegative = 1;
+            if (array[x][y] > 0 && isNegative != 0) {
+                isNegative = 0;
                 changeCounter++;
-            } else if (array[x][y] < 0 && isNegative == 1) {
+            } else if (array[x][y] < 0 && isNegative != 1) {
                 isNegative = 1;
                 changeCounter++;
             }
