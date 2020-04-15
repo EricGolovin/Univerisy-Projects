@@ -8,57 +8,60 @@
 
 #include "BaseClass.cpp"
 
-class CardDeck {
+class CardDeck: public Base<Card> {
     private:
-        vector<Card> cards;
+        //vector<Card> cards;
     public:
         string name;
         Manufacturer manufacturer;
         int numberOfCards;
 
         void printManufactureNameLocation() {
-            cout << "Manufacture name: " << manufacturer.name << endl;
-            cout << "Manufacure location(city: " << manufacturer.location.city << ", street: " << manufacturer.location.street << ", building: " << manufacturer.location.buildingNumber << ")" << endl;
+            stringstream convertStrStream;
+            convertStrStream << manufacturer.location.buildingNumber;
+            string outputArguments[4] = {manufacturer.name, manufacturer.location.city, manufacturer.location.street, convertStrStream.str()};
+            printWithStrArguments("Manufacturer name: ~ \nManufaturer location(city: ~, street: ~, building: ~)", outputArguments, 4);
         }
 
         void printNumberCardsOfSuit(CardSuit suit) {
             int result = 0;
 
-            for (int i = 0; i < cards.size(); i++) {
-                if (cards[i].suit == suit) {
+            for (int i = 0; i < numOfElements(); i++) {
+                if (getCardByIndex(i).suit == suit) {
                     ++result;
                 }
             }
 
-            cout << "There are " << result << " of cards of specified suit" << endl;
+            int argumentsForPrinting[1] = {result};
+            printWithArguments("There are ~ of cards of specified suit", argumentsForPrinting, 1);
         }
 
         void addCard(Card newCard) {
             int allowToAdd = 1;
-            for (int i = 0; i < cards.size(); i++) {
-                if (newCard.id == cards[i].id && newCard.suit == cards[i].suit) {
+            for (int i = 0; i < numOfElements(); i++) {
+                if (newCard.id == getCardByIndex(i).id && newCard.suit == getCardByIndex(i).suit) {
                     allowToAdd = 0;
                 }
             }
             if (allowToAdd) {
-                cards.push_back(newCard);
-                cout << "Added Card" << endl;
+                addElement(newCard);
+                print("Added Card");
             } else {
-                cout << "Cannot add Card, it already exists" << endl;
+                print("Card cannot be added, it already exists");
             }
         }
 
         void deleteCard(CardID id, CardSuit suit) {
             int deleted = 0;
-            for (int i = 0; i < cards.size(); i++) {
-                if (id == cards[i].id && suit == cards[i].suit) {
-                    cards.erase(cards.begin() + i);
+            for (int i = 0; i < numOfElements(); i++) {
+                if (id == getCardByIndex(i).id && suit == getCardByIndex(i).suit) {
+                    deleteElementByIndex(i);
                     deleted = 1;
                 }
             }
 
             if (deleted) {
-                cout << "Deleted Card" << endl;
+                print("Deleted Card");
             }
         }
 
@@ -66,8 +69,8 @@ class CardDeck {
             int kings = 0, queens = 0, jacks = 0, aces = 0;
             int ones = 0, twos = 0, threes = 0, fours = 0, fives = 0, sixs = 0, sevens = 0, eights = 0, nines = 0, tens = 0;
 
-            for (int i = 0; i < cards.size(); i++) {
-                switch (cards[i].id) {
+            for (int i = 0; i < numOfElements(); i++) {
+                switch (getCardByIndex(i).id) {
                     case king:
                         ++kings;
                         break;
@@ -116,18 +119,18 @@ class CardDeck {
                 }
             }
 
-            cout << "kingS: " << kings << ", queenS: " << queens << ", jackS: " << jacks << ", aceS: " << aces << endl;
-            cout << "oneS: " << ones << ", twoS: " << twos << ", threeS: " << threes << ", fourS: " << fours;
-            cout << ", fiveS: " << fives << ", sixS: " << sixs << ", sevenS: " << sevens << ", eightS: " << eights;
-            cout << ", nineS: " << nines << ", tenS: " << tens << endl;
+            int printingArguments[14] = {kings, queens, jacks, aces, ones, twos, threes, fours, fives, sixs, sevens, eights, nines, tens};
+            printWithArguments("kingS: ~, queenS: ~, jackS: ~, aceS: ~\noneS: ~, twoS: ~, threeS: ~, fourS: ~, fiveS: ~, sixS: ~, sevenS: ~, eightS: ~, nineS: ~, tenS: ~", printingArguments, 14);
         }
 
         void printNumberOfMissingCards() {
-            cout << "Number of missing cards: " << numberOfCards - cards.size() << endl;
+            int printingArguments[1] = {numberOfCards - numOfElements()};
+            printWithArguments("Number of missing cards: ~", printingArguments, 1);
         }
 
         void printPercentageOfExistingCards() {
-            cout << "Percentage of exisiting cards: " << cards.size() * 100 / numberOfCards << endl;
+            int printingArguments[1] = {numOfElements() * 100 / numberOfCards};
+            printWithArguments("Number of missing cards: ~", printingArguments, 1); 
         }
 };
 
