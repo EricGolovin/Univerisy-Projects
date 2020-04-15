@@ -6,39 +6,16 @@
 //  Copyright © 2020 Eric Golovin. All rights reserved.
 //
 
-#include <iostream>
-#include <vector>
-#include <sstream>
+#include "Basement.cpp"
 using namespace std;
 
-typedef struct {
-    int day;
-    int month;
-    int year;
-    string date(void) {
-        stringstream resultDate;
-        resultDate << day << "/" << month << "/" << year;
-        return resultDate.str();
-    }
-} Date;
+string markUp[2] = {"----------------------------Method book--\n", "----------------------------Method book--\n"};
 
-typedef struct {
-    string name;
-    string surname;
-    string facultyTitle;
-} Author;
-
-typedef struct {
-    vector <Date> debtDate;
-    string studentNaming;
-} StudentLending;
-
-class MethodBook {
+class MethodBook: public Basement<StudentLending> {
 private:
     Author bookAuthor;
     string bookName;
     string bookSubject;
-    vector <StudentLending> studentsDebtsData;
     
 public:
     
@@ -48,7 +25,8 @@ public:
             bookAuthor.surname = surname;
             bookAuthor.facultyTitle = faculty;
         } else {
-            cout << "Cannot set author, book's author already is " << bookAuthor.name << endl;
+            print("Cannot set author, book's author already is ");
+            print(bookAuthor.name + "\n");
         }
     }
     
@@ -56,7 +34,8 @@ public:
         if (bookName == "") {
             bookName = name;
         } else {
-            cout << "Cannot set name, book's name already is " << bookName << endl;
+            print("Cannot set name, book's name already is ");
+            print(bookName + "\n");
         }
     }
     
@@ -64,38 +43,24 @@ public:
         if (bookSubject == "") {
             bookSubject = subject;
         } else {
-            cout << "Cannot set subject, book's subject already is " << bookSubject << endl;
+            print("Cannot set subject, book's subject already is ");
+            print(bookSubject + "\n");
         }
     }
     
     string getAuthor(void) {
-        stringstream resultStringStream;
-        resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\tAuthor's name: " << bookAuthor.name << endl;
-        resultStringStream << "\tAuthor's surname: " << bookAuthor.surname << endl;
-        resultStringStream << "-----------------------------------------" << endl;
-        
-        return resultStringStream.str();
+        string arguments[2] = {bookAuthor.name, bookAuthor.surname};
+        return getStringWith_strs(markUp[1] + "\tAuthor's name: ~\n\tAuthor's surname: ~\n" + markUp[2], arguments, 2);
     }
     
     string getNameSubjectFaculty(void) {
-        stringstream resultStringStream;
-        resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\tname: " << bookName << endl;
-        resultStringStream << "\tsubject: " << bookSubject << endl;
-        resultStringStream << "\tfaculty: " << bookAuthor.facultyTitle << endl;
-        resultStringStream << "-----------------------------------------" << endl;
-        
-        return resultStringStream.str();
+        string arguments[3] = {bookName, bookSubject,  bookAuthor.facultyTitle};
+        return getStringWith_strs(markUp[1] + "\tname: ~\n\tsubject: ~\n\tfaculty: " + markUp[2], arguments, 3);
     }
     
     string getTotalNumberOfDebts(void) {
-        stringstream resultStringStream;
-        resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\tissued " << studentsDebtsData.size() << " times" << endl;
-        resultStringStream << "-----------------------------------------" << endl;
-        
-        return resultStringStream.str();
+        int arguments[1] = {numOfElements()};
+        return getStringWith_ints(markUp[1] + "\tissued: ~ times\n" + markUp[2], arguments, 1);
     }
     
     string giveBookTo(string name, string date) {
@@ -112,14 +77,10 @@ public:
         newDebtor.studentNaming = name;
         newDebtor.debtDate.push_back(newDate);
         
-        studentsDebtsData.push_back(newDebtor);
+        addElement(newDebtor);
         
-        resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\tgiven to " << newDebtor.studentNaming << endl;
-        resultStringStream << "\tdate: " << newDebtor.debtDate[0].date() << endl;
-        resultStringStream << "-----------------------------------------" << endl;
-        
-        return resultStringStream.str();
+        string arguments[2] = {newDebtor.studentNaming, newDebtor.debtDate[0].date()};
+        return getStringWith_strs(markUp[1] + "\tgiven to ~\n\tdate: ~\n" + markUp[2], arguments, 2);;
     }
     
     string removeBookFrom(string name, string date) {
@@ -131,46 +92,38 @@ public:
         dateStringStream >> month;
         dateStringStream >> year;
         
-        for (int index = 0; index < studentsDebtsData.size(); index++) {
-            string lowercasedName = studentsDebtsData[index].studentNaming;
+        for (int index = 0; index < numOfElements(); index++) {
+            string lowercasedName = getElementByIndex(index).studentNaming;
             string lowercasedSearchedName = name;
             transform(lowercasedName.begin(), lowercasedName.end(), lowercasedName.begin(), ::tolower);
             transform(lowercasedSearchedName.begin(), lowercasedSearchedName.end(), lowercasedSearchedName.begin(), ::tolower);
             
             if (lowercasedName.find(lowercasedSearchedName) != string::npos) {
-                Date studentDate = studentsDebtsData[index].debtDate[0];
+                Date studentDate = getElementByIndex(index).debtDate[0];
                 if (studentDate.day == day && studentDate.month == month && studentDate.year == year) {
-                    resultStringStream << "----------------------------Method book--" << endl;
-                    resultStringStream << "\tgiven back from " << studentsDebtsData[index].studentNaming << endl;
-                    resultStringStream << "\tfrom date: " << studentsDebtsData[index].debtDate[0].date() << endl;
-                    resultStringStream << "-----------------------------------------" << endl;
+                    deleteElementByIndex(index);
                     
-                    studentsDebtsData.erase(studentsDebtsData.begin() + index);
-                    
-                    return resultStringStream.str();
+                    string arguments[2] = {getElementByIndex(index).studentNaming, getElementByIndex(index).debtDate[0].date()};
+                    return getStringWith_strs(markUp[1] + "\tgiven back from ~\n\tfrom date: ~\n" + markUp[2], arguments, 2);;
                 }
             }
         }
         
-        resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\tno student with name " << name << endl;
-        resultStringStream << "\tdate: " << date << endl;
-        resultStringStream << "-----------------------------------------" << endl;
-        
-        return resultStringStream.str();
+        string arguments[2] = {name, date};
+        return getStringWith_strs(markUp[1] + "\tno student with name ~\n\tdate: ~\n" + markUp[2], arguments, 2);;
     }
     
     string findExtraDebtors() {
         stringstream resultStringStream;
         vector <StudentLending> extraDebtors;
         
-        for (int currentIndex = 0; currentIndex < studentsDebtsData.size(); currentIndex++) {
-            for (int index = currentIndex , flag = 0; index < studentsDebtsData.size(); index++) {
-                if (studentsDebtsData[currentIndex].studentNaming == studentsDebtsData[index].studentNaming) {
+        for (int currentIndex = 0; currentIndex < numOfElements(); currentIndex++) {
+            for (int index = currentIndex , flag = 0; index < numOfElements(); index++) {
+                if (getElementByIndex(currentIndex).studentNaming == getElementByIndex(index).studentNaming) {
                     for (int tempIndex = 0; tempIndex < extraDebtors.size(); tempIndex++) {
-                        if (studentsDebtsData[currentIndex].studentNaming == extraDebtors[tempIndex].studentNaming) {
-                            if (studentsDebtsData[currentIndex].debtDate[0].date() != extraDebtors[tempIndex].debtDate[extraDebtors[tempIndex].debtDate.size() - 1].date()) {
-                                extraDebtors[tempIndex].debtDate.push_back(studentsDebtsData[currentIndex].debtDate[0]);
+                        if (getElementByIndex(currentIndex).studentNaming == extraDebtors[tempIndex].studentNaming) {
+                            if (getElementByIndex(currentIndex).debtDate[0].date() != extraDebtors[tempIndex].debtDate[extraDebtors[tempIndex].debtDate.size() - 1].date()) {
+                                extraDebtors[tempIndex].debtDate.push_back(getElementByIndex(currentIndex).debtDate[0]);
                             }
                             flag = 1;
                         }
@@ -179,7 +132,7 @@ public:
                         flag = 0;
                         break;
                     } else {
-                        extraDebtors.push_back(studentsDebtsData[currentIndex]);
+                        extraDebtors.push_back(getElementByIndex(currentIndex));
                     }
                 }
             }
@@ -220,19 +173,17 @@ public:
         dateStringStream >> month;
         dateStringStream >> year;
         
-        for (int index = 0; index < studentsDebtsData.size(); index++) {
-            Date studentDate = studentsDebtsData[index].debtDate[0];
+        for (int index = 0; index < numOfElements(); index++) {
+            Date studentDate = getElementByIndex(index).debtDate[0];
             if (studentDate.day == day && studentDate.month == month && studentDate.year == year) {
                 resultCount += 1;
                 printableDate = studentDate.date();
             }
         }
-        
-        resultStringStream << "----------------------------Method book--" << endl;
-        resultStringStream << "\t book was given to " << resultCount << " people on this " << printableDate << " date" << endl;
-        resultStringStream << endl << "-----------------------------------------" << endl;
-        
-        return resultStringStream.str();
+        stringstream convertStrStream;
+        convertStrStream << resultCount;
+        string arguments[2] = {convertStrStream.str(), printableDate};
+        return getStringWith_strs(markUp[1] + "\t book was given to ~ people on this ~\n" + markUp[2], arguments, 2);;
     }
     
 };
