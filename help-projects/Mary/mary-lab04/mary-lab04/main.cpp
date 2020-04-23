@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     vector<vector<int> > mainVector;
-    int flag = 0; // change flag to 1 for demo mode
+    int flag = 0;
     int lineCounter = 1;
     
     cout << "(print <next> to move to the next Line; <stop> to end)" << endl;
@@ -48,22 +48,22 @@ int main(int argc, const char * argv[]) {
     }
     
     // demo mode
-    if (flag) {
-        for (int firstIndex = 0; firstIndex < 4; firstIndex++) {
-            vector <int> testVector1;
-            mainVector.push_back(testVector1);
-            for (int secondIndex = 0; secondIndex < 4; secondIndex++) {
-                mainVector[firstIndex].push_back(firstIndex - 1 - secondIndex);
-            }
-        }
-        for (int firstIndex = 0; firstIndex < mainVector.size(); firstIndex++) {
-            for (int secondIndex = 0; secondIndex < mainVector[firstIndex].size(); secondIndex++) {
-                cout << mainVector[firstIndex][secondIndex] << " ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-    }
+//    if (flag) {
+//        for (int firstIndex = 0; firstIndex < 4; firstIndex++) {
+//            vector <int> testVector1;
+//            mainVector.push_back(testVector1);
+//            for (int secondIndex = 0; secondIndex < 4; secondIndex++) {
+//                mainVector[firstIndex].push_back(firstIndex - 1 - secondIndex);
+//            }
+//        }
+//        for (int firstIndex = 0; firstIndex < mainVector.size(); firstIndex++) {
+//            for (int secondIndex = 0; secondIndex < mainVector[firstIndex].size(); secondIndex++) {
+//                cout << mainVector[firstIndex][secondIndex] << " ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//    }
     
     // do calculations
     for (int firstIndex = 0; firstIndex < mainVector.size(); firstIndex++) {
