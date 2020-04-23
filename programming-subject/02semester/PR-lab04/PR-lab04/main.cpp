@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     vector<vector<int> > mainVector;
-    int flag = 1;
+    int flag = 0;
     int lineCounter = 1;
     
     cout << "(print <next> to move to the next Line; <stop> to end)" << endl;
