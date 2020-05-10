@@ -1,20 +1,51 @@
+[
 {
+groupName: "ITINF-19-2"
 {
-    name: "Mary"
-    age: "19"
-    campusName: "Campus04"
-    professorsList: { "Mr.Markus" "Mrs.Elithabeth" }
+name: "Mary"
+age: "19"
+campusName: "Campus04"
+marks: { "1" "77" "95" }
+professorsList: { "Mr.Markus" "Mrs.Elithabeth" }
 }
 {
-    name: "Eric"
-    age: "18"
-    campusName: "Campus05"
-    professorsList: { "Mr.Tim" "Mrs.Evgen" }
+name: "Eric"
+age: "18"
+campusName: "Campus05"
+marks: { "87" "22" "95" }
+professorsList: { "Mr.Tim" "Mrs.Evgen" }
 }
 {
-    name: "Lixa"
-    age: "21"
-    campusName: "Campus10"
-    professorsList: { "Mr.Alex" "Mrs.Diana" }
+name: "Lixa"
+age: "21"
+campusName: "Campus10"
+marks: { "87" "33" "44" }
+professorsList: { "Mr.Alex" "Mrs.Diana" }
 }
 }
+
+{
+groupName: "ITINF-19-1"
+{
+name: "Goodwin"
+age: "19"
+campusName: "Campus04"
+marks: { "1" "77" "95" }
+professorsList: { "Mr.Markus" "Mrs.Elithabeth" }
+}
+{
+name: "Adam"
+age: "18"
+campusName: "Campus05"
+marks: { "87" "22" "95" }
+professorsList: { "Mr.Tim" "Mrs.Evgen" }
+}
+{
+name: "Olaf"
+age: "21"
+campusName: "Campus10"
+marks: { "87" "33" "44" }
+professorsList: { "Mr.Alex" "Mrs.Diana" }
+}
+}
+]
