@@ -1,0 +1,20 @@
+{
+{
+    name: "Mary"
+    age: "19"
+    campusName: "Campus04"
+    professorsList: { "Mr.Markus" "Mrs.Elithabeth" }
+}
+{
+    name: "Eric"
+    age: "18"
+    campusName: "Campus05"
+    professorsList: { "Mr.Tim" "Mrs.Evgen" }
+}
+{
+    name: "Lixa"
+    age: "21"
+    campusName: "Campus10"
+    professorsList: { "Mr.Alex" "Mrs.Diana" }
+}
+}

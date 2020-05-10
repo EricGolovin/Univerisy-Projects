@@ -79,7 +79,7 @@ int main(int argc, const char * argv[]) {
         if (numOfPositiveIntegers > 0) {
             mainVector[firstIndex][firstIndex] = numOfPositiveIntegers;
         } else {
-            sort(lineNegativeIntegers.begin(), lineNegativeIntegers.begin() + lineNegativeIntegers.size());
+            sort(lineNegativeIntegers.begin(), lineNegativeIntegers.end());
             mainVector[firstIndex][firstIndex] = lineNegativeIntegers.back();
         }
     }

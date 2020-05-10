@@ -47,24 +47,6 @@ int main(int argc, const char * argv[]) {
         mainVector.push_back(tempVector);
     }
     
-//    // demo mode
-//    if (flag) {
-//        for (int firstIndex = 0; firstIndex < 43; firstIndex++) {
-//            vector <int> testVector1;
-//            mainVector.push_back(testVector1);
-//            for (int secondIndex = 0; secondIndex < 6; secondIndex++) {
-//                mainVector[firstIndex].push_back(firstIndex + secondIndex);
-//            }
-//        }
-//        for (int firstIndex = 0; firstIndex < mainVector.size(); firstIndex++) {
-//            for (int secondIndex = 0; secondIndex < mainVector[firstIndex].size(); secondIndex++) {
-//                cout << mainVector[firstIndex][secondIndex] << " ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//    }
-    
     // caculations
     
     vector<int> resultVector;
