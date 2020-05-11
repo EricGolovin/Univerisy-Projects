@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E9277A772469912D00DFD15F /* outputFile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = outputFile.txt; sourceTree = "<group>"; };
 		E99022132468520D001855AC /* mary-lab05 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "mary-lab05"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99022162468520D001855AC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E990221D24685259001855AC /* inputFile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = inputFile.txt; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				E99022162468520D001855AC /* main.cpp */,
+				E9277A772469912D00DFD15F /* outputFile.txt */,
 				E990221D24685259001855AC /* inputFile.txt */,
 			);
 			path = "mary-lab05";
