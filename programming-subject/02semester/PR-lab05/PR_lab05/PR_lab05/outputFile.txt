@@ -1,0 +1,32 @@
+Group Name: ITINF-19-2
+Name: Mary Age: 19 Lives in: Campus04
+Lends: 5122015, 5122011, 5122012, 
+Professors: Mr.Markus, Mrs.Elithabeth, 
+
+Name: Eric Age: 18 Lives in: Campus05
+Lends: 4062015, 4062012, 4062011, 
+Professors: Mr.Tim, Mrs.Evgen, 
+
+Name: Lixa Age: 21 Lives in: Campus10
+Lends: 0, 
+Professors: Mr.Alex, Mrs.Diana, 
+
+Group with name 'ITINF-19-2' has 2 average Lends count
+------- 0 -------
+
+Group Name: ITINF-19-1
+Name: Goodwin Age: 19 Lives in: Campus04
+Lends: 30122015, 30122015, 30122015, 
+Professors: Mr.Markus, Mrs.Elithabeth, 
+
+Name: Adam Age: 18 Lives in: Campus05
+Lends: 22122015, 30092019, 30092020, 
+Professors: Mr.Tim, Mrs.Evgen, 
+
+Name: Olaf Age: 21 Lives in: Campus10
+Lends: 30092043, 20092043, 30032043, 
+Professors: Mr.Alex, Mrs.Diana, 
+
+Group with name 'ITINF-19-1' has 3 average Lends count
+------- 1 -------
+
