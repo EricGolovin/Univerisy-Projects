@@ -179,7 +179,6 @@ int main(int argc, const char * argv[]) {
     istream_iterator<string> start(is), end;
     
     vector<string> elements(start, end);
-//    cout << "Read " << elements.size() << " symbols" << endl;
     
     vector<GroupRegister> groups;
     
@@ -187,7 +186,6 @@ int main(int argc, const char * argv[]) {
     string buffer = "";
     
     do {
-//        cout << "1: " << elements[index] << endl;
         if (elements[index] == "start|" || elements[index] == "g{") {
             closeBracketsCounter += 1;
         } else if (elements[index] == "}g") {
@@ -196,16 +194,11 @@ int main(int argc, const char * argv[]) {
             GroupRegister bufferGroup;
             index += 1;
             
-//            buffer = elements[index];
-//            buffer.erase(remove(buffer.begin(), buffer.end(), '"'), buffer.end());
-            
             bufferGroup.authorsName = removerCharFrom('"', elements[index]);
             index += 1;
             while (elements[index] != "}g") {
-//                cout << "2: " << elements[index] << endl;
                 Student bufferStudent;
                 do {
-//                    cout << "3: " << elements[index] << endl;
                     if (elements[index] == "s{") {
                         closeBracketsCounter += 1;
                     } else if (elements[index] == "}s") {
