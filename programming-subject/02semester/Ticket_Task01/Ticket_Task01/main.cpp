@@ -1,29 +1,32 @@
 //
 //  main.cpp
-//  Mary-Ticket_Tasks01
+//  Ticket_Task01
+//
+//  Created by Eric Golovin on 6/27/20.
 //
 
 #include <iostream>
 using namespace std;
 
 class Rectangle {
+private:
+    int width = 10;
+    int height = 5;
 public:
     int leftCorner;
-    int width;
-    int height;
+    int rightCorner;
     
-    Rectangle(int corner, int nWidth, int nHeight) {
-        leftCorner = corner;
-        width = nWidth;
-        height = nHeight;
+    Rectangle(int lCorner, int rCorner) {
+        leftCorner = lCorner;
+        rightCorner = rCorner;
     }
     
-    void operator+(int value) {
+    void plus(int value) {
         width += value;
         height += value;
     }
     
-    void operator-(int value) {
+    void minus(int value) {
         width -= value;
         height -= value;
     }
@@ -49,13 +52,13 @@ public:
 };
 
 int main(int argc, const char * argv[]) {
-    Rectangle someRectangle(90, 10, 5);
+    Rectangle someRectangle(90, 90);
     someRectangle.show();
     
-    someRectangle + 5;
+    someRectangle.plus(3);
     someRectangle.show();
     
-    someRectangle - 5;
+    someRectangle.minus(1);
     someRectangle.show();
     
     return 0;

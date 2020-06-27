@@ -2,8 +2,6 @@
 //  main.cpp
 //  Mary-Ticket_Task02
 //
-//  Created by Eric Golovin on 6/27/20.
-//
 
 #include <iostream>
 #include <vector>
@@ -22,9 +20,8 @@ Student enterNames(string name, int mark) {
     return someStudent;
 }
 
-Student enterMarks(Student &student, int mark) {
-    student.averageMark = mark;
-    return student;
+bool sortByNames(Student first, Student second) {
+    return first.name < second.name;
 }
 
 int main(int argc, const char * argv[]) {
@@ -35,11 +32,16 @@ int main(int argc, const char * argv[]) {
     
     transform(names.begin(), names.end(), marks.begin(), students.begin(), enterNames);
     
+    cout << "Unsorted:" << endl;
     for (int i = 0; i < 10; i++) {
-        cout << students[i].averageMark << endl;
+        cout << students[i].name << endl;
     }
     
+    sort(students.begin(), students.end(), sortByNames);
     
-    
+    cout << "Sorted:" << endl;
+    for (int i = 0; i < 10; i++) {
+        cout << students[i].name << endl;
+    }
     return 0;
 }
