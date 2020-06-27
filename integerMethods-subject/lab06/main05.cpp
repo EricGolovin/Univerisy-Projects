@@ -7,7 +7,8 @@ long double F(long double x, long double y){
 }
 
 int main() {
-    long double a=0; long double b=1; long double h=0.1;
+    long double a=10; 
+    long double b=a; long double h=0.001;
     long double n=(b-a)/h;
     long double X[(int)n];
     long double Y1[(int)n];
@@ -16,7 +17,7 @@ int main() {
     long double Y4[(int)n];
     long double Y[(int)n];
     //calculate
-    X[0]=a; Y[0]=2;
+    X[0]=a; Y[0]=b;
     for(int i=1; i<=n; i++){
         X[i]=a+i*h;
         Y1[i]=h*F(X[i-1],Y[i-1]);
