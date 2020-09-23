@@ -1,0 +1,12 @@
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.csprojAssemblyReference.cache
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.AssemblyInfoInputs.cache
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.AssemblyInfo.cs
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.csproj.CoreCompileInputs.cache
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/bin/Debug/netcoreapp3.1/NET-lab01.deps.json
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/bin/Debug/netcoreapp3.1/NET-lab01.runtimeconfig.json
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/bin/Debug/netcoreapp3.1/NET-lab01.runtimeconfig.dev.json
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/bin/Debug/netcoreapp3.1/NET-lab01.dll
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/bin/Debug/netcoreapp3.1/NET-lab01.pdb
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.dll
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.pdb
+/Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.genruntimeconfig.cache
