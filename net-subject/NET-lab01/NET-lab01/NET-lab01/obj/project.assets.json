@@ -8,24 +8,26 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/Users/ericgolovin/.nuget/packages/": {}
+    "C:\\Users\\ericgolovin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ericgolovin/Developer/Univerisy-Projects/NET-lab01/NET-lab01/NET-lab01.csproj",
+      "projectUniqueName": "C:\\Users\\ericgolovin\\Developer\\Univerisy-Projects\\net-subject\\NET-lab01\\NET-lab01\\NET-lab01\\NET-lab01.csproj",
       "projectName": "NET-lab01",
-      "projectPath": "/Users/ericgolovin/Developer/Univerisy-Projects/NET-lab01/NET-lab01/NET-lab01.csproj",
-      "packagesPath": "/Users/ericgolovin/.nuget/packages/",
-      "outputPath": "/Users/ericgolovin/Developer/Univerisy-Projects/NET-lab01/NET-lab01/obj/",
+      "projectPath": "C:\\Users\\ericgolovin\\Developer\\Univerisy-Projects\\net-subject\\NET-lab01\\NET-lab01\\NET-lab01\\NET-lab01.csproj",
+      "packagesPath": "C:\\Users\\ericgolovin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ericgolovin\\Developer\\Univerisy-Projects\\net-subject\\NET-lab01\\NET-lab01\\NET-lab01\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/ericgolovin/.config/NuGet/NuGet.Config"
+        "C:\\Users\\ericgolovin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -56,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

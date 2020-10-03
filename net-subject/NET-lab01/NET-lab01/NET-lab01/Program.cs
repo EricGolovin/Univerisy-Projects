@@ -6,7 +6,11 @@ namespace NET_lab01
     {
         static void Main(string[] args)
         {
-            var matrixSize = 5;
+            var matrixSize = getMatrixSize_input();
+            if (matrixSize == -1)
+            {
+                return;
+            }
             Random random = new Random();
             int[,] intArray2D = new int[matrixSize, matrixSize];
 
@@ -44,6 +48,57 @@ namespace NET_lab01
                 Console.WriteLine("");
             }
             Console.WriteLine("");
+        }
+
+        static int getMatrixSize_input()
+        {
+            int numVal = -1;
+            bool repeat = true;
+
+            while (repeat)
+            {
+                Console.Write("Enter a number between −2,147,483,648 and +2,147,483,647 (inclusive): ");
+
+                string input = Console.ReadLine();
+
+                // ToInt32 can throw FormatException or OverflowException.
+                try
+                {
+                    numVal = Convert.ToInt32(input);
+                    if (numVal < Int32.MaxValue)
+                    {
+                        Console.WriteLine("The new value is {0}", ++numVal);
+                        repeat = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("numVal cannot be incremented beyond its current value");
+                        goAgain(ref repeat);
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                    goAgain(ref repeat);
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                    goAgain(ref repeat);
+                }
+
+
+            }
+            return numVal;
+        }
+        static void goAgain(ref bool flag)
+        {
+            Console.Write("Go again? Y/N: ");
+            string go = Console.ReadLine();
+            if (go.ToUpper() != "Y")
+            {
+                flag = false;
+            }
         }
     }
 }

@@ -18,10 +18,7 @@ namespace NET_lab01_02
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -38,15 +35,9 @@ namespace NET_lab01_02
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void textBox2_TextChanged(object sender, EventArgs e) { }
 
         private string change_my(string sentence, string word)
         {

@@ -1,0 +1,3 @@
+Numbers count = 7888
+min number = 2
+max number = 2146047

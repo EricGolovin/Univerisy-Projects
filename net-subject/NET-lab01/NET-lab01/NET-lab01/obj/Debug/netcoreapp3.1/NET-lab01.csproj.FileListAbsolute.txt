@@ -10,3 +10,16 @@
 /Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.dll
 /Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.pdb
 /Users/ericgolovin/Developer/University/NET-lab01/NET-lab01/obj/Debug/netcoreapp3.1/NET-lab01.genruntimeconfig.cache
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\bin\Debug\netcoreapp3.1\NET-lab01.exe
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\bin\Debug\netcoreapp3.1\NET-lab01.deps.json
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\bin\Debug\netcoreapp3.1\NET-lab01.runtimeconfig.json
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\bin\Debug\netcoreapp3.1\NET-lab01.runtimeconfig.dev.json
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\bin\Debug\netcoreapp3.1\NET-lab01.dll
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\bin\Debug\netcoreapp3.1\NET-lab01.pdb
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.csprojAssemblyReference.cache
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.AssemblyInfoInputs.cache
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.AssemblyInfo.cs
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.csproj.CoreCompileInputs.cache
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.dll
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.pdb
+C:\Users\ericgolovin\Developer\Univerisy-Projects\net-subject\NET-lab01\NET-lab01\NET-lab01\obj\Debug\netcoreapp3.1\NET-lab01.genruntimeconfig.cache
