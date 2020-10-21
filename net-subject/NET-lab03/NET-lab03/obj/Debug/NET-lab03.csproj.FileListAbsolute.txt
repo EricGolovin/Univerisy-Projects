@@ -1,0 +1,10 @@
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\bin\Debug\NET-lab03.exe.config
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\bin\Debug\NET-lab03.exe
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\bin\Debug\NET-lab03.pdb
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET-lab03.csprojAssemblyReference.cache
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET_lab03.Form1.resources
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET_lab03.Properties.Resources.resources
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET-lab03.csproj.GenerateResource.cache
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET-lab03.csproj.CoreCompileInputs.cache
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET-lab03.exe
+C:\Users\ericg\source\repos\EricGolovin\Univerisy-Projects\net-subject\NET-lab03\NET-lab03\obj\Debug\NET-lab03.pdb
