@@ -1,3 +1,0 @@
-Numbers count = 4543
-min number = 58
-max number = 2146969
