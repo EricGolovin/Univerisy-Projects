@@ -1,0 +1,10 @@
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04-Mary.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04_Mary.Form1.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04_Mary.Properties.Resources.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04-Mary.csproj.GenerateResource.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04-Mary.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\bin\Debug\DotNetLab04-Mary.exe.config
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\bin\Debug\DotNetLab04-Mary.exe
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\bin\Debug\DotNetLab04-Mary.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04-Mary.exe
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\DotNetLab04-Mary\obj\Debug\DotNetLab04-Mary.pdb
