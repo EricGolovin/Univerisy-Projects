@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BankData>
+  <Depositor>
+    <Name>SomeDepositor</Name>
+    <Date>5/1/2020 8:30:52 AM</Date>
+    <DebtAmount>4325</DebtAmount>
+    <DebtPercent>10</DebtPercent>
+  </Depositor>
+  <Depositor>
+    <Name>SomeDepositor</Name>
+    <Date>5/1/2020 8:30:52 AM</Date>
+    <DebtAmount>4325</DebtAmount>
+    <DebtPercent>10</DebtPercent>
+  </Depositor>
+  <Depositor>
+    <Name>SomeDepositor</Name>
+    <Date>5/1/2020 8:30:52 AM</Date>
+    <DebtAmount>4325</DebtAmount>
+    <DebtPercent>10</DebtPercent>
+  </Depositor>
+  <Depositor>
+    <Name>SomeDepositor</Name>
+    <Date>5/1/2020 8:30:52 AM</Date>
+    <DebtAmount>4325</DebtAmount>
+    <DebtPercent>10</DebtPercent>
+  </Depositor>
+  <Depositor>
+    <Name>SomeDepositor</Name>
+    <Date>5/1/2020 8:30:52 AM</Date>
+    <DebtAmount>4325</DebtAmount>
+    <DebtPercent>10</DebtPercent>
+  </Depositor>
+  <Depositor>
+    <Name>SomeDepositor</Name>
+    <Date>5/1/2020 8:30:52 AM</Date>
+    <DebtAmount>4325</DebtAmount>
+    <DebtPercent>10</DebtPercent>
+  </Depositor>
+  <Creditor>
+    <Name>SomeCreditor</Name>
+    <Date>10/4/2020 8:30:52 AM</Date>
+    <CreditAmount>444</CreditAmount>
+    <CreditPercent>10</CreditPercent>
+    <Balance>400</Balance>
+  </Creditor>
+  <Creditor>
+    <Name>SomeCreditor</Name>
+    <Date>10/4/2020 8:30:52 AM</Date>
+    <CreditAmount>44</CreditAmount>
+    <CreditPercent>10</CreditPercent>
+    <Balance>400</Balance>
+  </Creditor>
+  <Creditor>
+    <Name>SomeCreditor</Name>
+    <Date>10/4/2020 8:30:52 AM</Date>
+    <CreditAmount>444</CreditAmount>
+    <CreditPercent>10</CreditPercent>
+    <Balance>400</Balance>
+  </Creditor>
+  <Creditor>
+    <Name>SomeCreditor</Name>
+    <Date>10/4/2020 8:30:52 AM</Date>
+    <CreditAmount>44</CreditAmount>
+    <CreditPercent>10</CreditPercent>
+    <Balance>400</Balance>
+  </Creditor>
+  <Creditor>
+    <Name>SomeCreditor</Name>
+    <Date>10/4/2020 8:30:52 AM</Date>
+    <CreditAmount>444</CreditAmount>
+    <CreditPercent>10</CreditPercent>
+    <Balance>400</Balance>
+  </Creditor>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+  <Organisation>
+    <Name>SomeOrganisation</Name>
+    <Date>1/1/2015 8:30:51 AM</Date>
+    <BalanceNumber>2343264562324632</BalanceNumber>
+    <AmountOnAccount>6872312.34</AmountOnAccount>
+  </Organisation>
+</BankData>

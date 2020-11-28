@@ -1,0 +1,10 @@
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\bin\Debug\NET-lab04.exe.config
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\bin\Debug\NET-lab04.exe
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\bin\Debug\NET-lab04.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET-lab04.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET_lab04.Form1.resources
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET_lab04.Properties.Resources.resources
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET-lab04.csproj.GenerateResource.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET-lab04.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET-lab04.exe
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab04\NET-lab04\obj\Debug\NET-lab04.pdb
