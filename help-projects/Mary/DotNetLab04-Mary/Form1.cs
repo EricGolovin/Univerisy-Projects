@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DotNetLab04_Mary
 {
@@ -142,9 +144,11 @@ namespace DotNetLab04_Mary
 
         private void button2_Click(object sender, EventArgs e)
         {
+            List<object> myList = new List<object>();
+            /*
             textBox1.Text = "";
             Random rnd = new Random();
-            List<object> myList = new List<object>();
+           
             for (int i = 0; i < 10; i++)
             {
                 int newRandomPrice = rnd.Next(10, 100);
@@ -166,6 +170,46 @@ namespace DotNetLab04_Mary
                 SportEquipment newToy = new SportEquipment(newRandomPrice, $"toy{i + 1}", newRandomAge, $"{i * newRandomAge}-Corporation");
                 myList.Add(newToy);
             }
+            */
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("C:\\Users\\ericg\\Developer\\Univerisy-Projects\\help-projects\\Mary\\DotNetLab04-Mary\\ProductsData.xml");
+
+            XmlNodeList toys = xmlDoc.GetElementsByTagName("Toy");
+            XmlNodeList books = xmlDoc.GetElementsByTagName("Book");
+            XmlNodeList sportEquipment = xmlDoc.GetElementsByTagName("SportEquipment");
+
+            for (int i = 0; i < toys.Count; i++)
+            {
+                String manufacturer = toys[i].ChildNodes.Item(0).InnerText;
+                String material = toys[i].ChildNodes.Item(1).InnerText;
+                String price = toys[i].ChildNodes.Item(2).InnerText;
+                String name = toys[i].ChildNodes.Item(3).InnerText;
+                String age = toys[i].ChildNodes.Item(4).InnerText;
+                Toy newToy = new Toy(Convert.ToDouble(price), $"{name}-{i}", Convert.ToInt32(age), manufacturer, material);
+                myList.Add(newToy);
+            }
+
+            for (int i = 0; i < books.Count; i++)
+            {
+                String author = toys[i].ChildNodes.Item(0).InnerText;
+                String publisher = toys[i].ChildNodes.Item(1).InnerText;
+                String price = toys[i].ChildNodes.Item(2).InnerText;
+                String name = toys[i].ChildNodes.Item(3).InnerText;
+                String age = toys[i].ChildNodes.Item(4).InnerText;
+                Book newBook = new Book(Convert.ToDouble(price), $"{name}-{i}", Convert.ToInt32(age), author, publisher);
+                myList.Add(newBook);
+            }
+
+            for (int i = 0; i < sportEquipment.Count; i++)
+            {
+                String manufacturer = toys[i].ChildNodes.Item(0).InnerText;
+                String price = toys[i].ChildNodes.Item(2).InnerText;
+                String name = toys[i].ChildNodes.Item(3).InnerText;
+                String age = toys[i].ChildNodes.Item(4).InnerText;
+                SportEquipment newSportEquipment = new SportEquipment(Convert.ToDouble(price), $"{name}-{i}", Convert.ToInt32(age), manufacturer);
+                myList.Add(newSportEquipment);
+            }
+
             listOfProducts = myList.OrderBy(x => Guid.NewGuid()).ToList();
 
             string textBoxText = "";
