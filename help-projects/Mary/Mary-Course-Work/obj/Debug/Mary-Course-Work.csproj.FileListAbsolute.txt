@@ -1,0 +1,10 @@
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\bin\Debug\Mary-Course-Work.exe.config
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\bin\Debug\Mary-Course-Work.exe
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\bin\Debug\Mary-Course-Work.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary-Course-Work.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary_Course_Work.Form1.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary_Course_Work.Properties.Resources.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary-Course-Work.csproj.GenerateResource.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary-Course-Work.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary-Course-Work.exe
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\Mary-Course-Work\obj\Debug\Mary-Course-Work.pdb
