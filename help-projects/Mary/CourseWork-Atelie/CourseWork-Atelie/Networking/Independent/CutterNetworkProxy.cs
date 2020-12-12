@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace CourseWork_Atelie.Networking
+namespace CourseWork_Atelie.Networking.Independent
 {
-    class ClientNetworkProxy : Shared.NetworkRequest<List<Client>>
+    class CutterNetworkProxy 
     {
-        private readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
-        public List<Client> Get(string request)
+        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
+        public static List<Cutter> Get(string request)
         {
-            List<Client> resultList = new List<Client>();
+            List<Cutter> resultList = new List<Cutter>();
             try
             {
                 SqlDataReader reader = connection.Get(request);
@@ -20,10 +20,10 @@ namespace CourseWork_Atelie.Networking
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
                     string fullName = Convert.ToString(reader.GetValue(1));
-                    string phoneNumber = Convert.ToString(reader.GetValue(2));
-                    string email = Convert.ToString(reader.GetValue(3));
+                    double salary = Convert.ToDouble(reader.GetValue(2));
+                    int numberOfOrders = Convert.ToInt32(reader.GetValue(3));
 
-                    Client newObject = new Client(id, fullName, phoneNumber, email);
+                    Cutter newObject = new Cutter(id, fullName, salary, numberOfOrders);
                     resultList.Add(newObject);
                 }
             }
@@ -34,24 +34,24 @@ namespace CourseWork_Atelie.Networking
             }
             return resultList;
         }
-        public void Add(string request)
+        public static void Add(string request)
         {
             connection.Insert(request);
         }
     }
-    class Client
+    class Cutter
     {
         public int id;
         public string fullName;
-        public string phoneNumber;
-        public string email;
+        public double salary;
+        public int numberOfOrders;
 
-        public Client(int id, string fullName, string phoneNumber, string email)
+        public Cutter(int id, string fullName, double salary, int numberOfOrders)
         {
             this.id = id;
             this.fullName = fullName;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
+            this.salary = salary;
+            this.numberOfOrders = numberOfOrders;
         }
     }
 }

@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace CourseWork_Atelie.Networking
+namespace CourseWork_Atelie.Networking.Independent
 {
-    class ManufacturerNetworkProxy : Shared.NetworkRequest<List<Manufacturer>>
+    class ManufacturerNetworkProxy 
     {
-        private readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
-        public List<Manufacturer> Get(string request)
+        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
+        public static List<Manufacturer> Get(string request)
         {
             List<Manufacturer> resultList = new List<Manufacturer>();
             try
@@ -33,7 +33,7 @@ namespace CourseWork_Atelie.Networking
             }
             return resultList;
         }
-        public void Add(string request)
+        public static void Add(string request)
         {
             connection.Insert(request);
         }

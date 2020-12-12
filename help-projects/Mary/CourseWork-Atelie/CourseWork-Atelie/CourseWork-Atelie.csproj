@@ -67,10 +67,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Networking\ManufacturerNetworkProxy.cs" />
+    <Compile Include="Networking\SingleDependable\FabricNetworkProxy.cs" />
+    <Compile Include="Networking\MultipleDependable\RecommendationNetworkProxy.cs" />
+    <Compile Include="Networking\Independent\CutterNetworkProxy.cs" />
+    <Compile Include="Networking\Independent\ClientNetworkProxy.cs" />
+    <Compile Include="Networking\Independent\ManufacturerNetworkProxy.cs" />
     <Compile Include="Networking\Shared\NetworkRequestInterface.cs" />
     <Compile Include="Networking\Shared\SQLDatabaseConnetion.cs" />
-    <Compile Include="Networking\ModelNetworkProxy.cs" />
+    <Compile Include="Networking\Independent\ModelNetworkProxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -110,5 +114,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

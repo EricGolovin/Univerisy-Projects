@@ -9,6 +9,7 @@ namespace CourseWork_Atelie.Networking.Shared
 {
     class SQLDatabaseConnetion
     {
+        // Singleton
         public static readonly SQLDatabaseConnetion instance = new SQLDatabaseConnetion();
 
         private SQLDatabaseConnetion() { }
