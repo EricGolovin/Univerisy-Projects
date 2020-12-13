@@ -22,7 +22,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
                 while (reader.Read())
                 {
                     int modelId = Convert.ToInt32(reader.GetValue(0));
-                    int fabricId = Convert.ToInt32(reader.GetValue(0));
+                    int fabricId = Convert.ToInt32(reader.GetValue(1));
 
                     Independent.Model newModel = getModelById(modelId);
                     SingleDependable.Fabric newFabric = getFabricById(fabricId);
@@ -60,7 +60,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
     class Recommendation
     {
         public readonly Independent.Model model;
-        private readonly SingleDependable.Fabric fabric;
+        public readonly SingleDependable.Fabric fabric;
 
         public Recommendation(Independent.Model model, SingleDependable.Fabric fabric)
         {

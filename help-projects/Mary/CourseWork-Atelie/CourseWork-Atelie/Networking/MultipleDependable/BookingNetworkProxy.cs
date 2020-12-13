@@ -89,6 +89,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         public readonly Independent.Client client;
         public readonly Independent.Model model;
         public readonly SingleDependable.Fabric fabric;
+
         public Booking(int id, string creationDate, string expirationDate, string issueDate, double bookingSum, 
             Independent.Cutter cutter,
             Independent.Client client, 
