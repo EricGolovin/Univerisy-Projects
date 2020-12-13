@@ -10,7 +10,7 @@ namespace CourseWork_Atelie.Networking.SingleDependable
     class FabricNetworkProxy
     {
         private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
-        public static List<Fabric> Get(string request, Independent.Manufacturer manufacturer)
+        public static List<Fabric> Get(string request)
         {
             List<Fabric> resultList = new List<Fabric>();
             try
@@ -44,7 +44,7 @@ namespace CourseWork_Atelie.Networking.SingleDependable
 
         private static Independent.Manufacturer getManufacturerById(int id)
         {
-            string request = String.Format(Shared.RequestConsts.getCustomerRequest, id);
+            string request = String.Format(Shared.GetRequestConsts.getCustomerByIdRequest, id);
             List<Independent.Manufacturer> newManufacturers = Independent.ManufacturerNetworkProxy.Get(request);
             return newManufacturers.First();
         }

@@ -41,10 +41,10 @@ namespace CourseWork_Atelie.Networking.Independent
     }
     class Model
     {
-        int id;
-        string name;
-        int consumption;
-        double price;
+        public int id;
+        public string name;
+        public int consumption;
+        public double price;
         public Model(int id, string name, int consumption, double price)
         {
             this.id = id;
