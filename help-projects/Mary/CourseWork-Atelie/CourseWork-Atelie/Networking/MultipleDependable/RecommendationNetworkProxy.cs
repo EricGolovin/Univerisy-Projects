@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 /*
- * Will be implemented after Manager workflow Discussion
-
 namespace CourseWork_Atelie.Networking.MultipleDependable
 {
     class RecommendationNetworkProxy
@@ -44,10 +42,10 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
     }
     class Recommendation
     {
-        public SingleDependable.Model model;
-        private SingleDependable
+        public readonly Independent.Model model;
+        private readonly Sig.
 
-        public Client(int id, string fullName, string phoneNumber, string email)
+        public Recommendation(int id, string fullName, string phoneNumber, string email)
         {
             this.id = id;
             this.fullName = fullName;
@@ -56,5 +54,4 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         }
     }
 }
-
 */

@@ -5,9 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-/*
- * Will be implemented after Manager workflow Discussion
-
 namespace CourseWork_Atelie.Networking.SingleDependable
 {
     class FabricNetworkProxy
@@ -22,11 +19,14 @@ namespace CourseWork_Atelie.Networking.SingleDependable
                 while (reader.Read())
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
-                    string fullName = Convert.ToString(reader.GetValue(1));
-                    string phoneNumber = Convert.ToString(reader.GetValue(2));
-                    string email = Convert.ToString(reader.GetValue(3));
+                    string name = Convert.ToString(reader.GetValue(1));
+                    double width = Convert.ToDouble(reader.GetValue(2));
+                    double height = Convert.ToDouble(reader.GetValue(3));
+                    double price = Convert.ToDouble(reader.GetValue(3));
+                    int manufacturerId = Convert.ToInt32(reader.GetValue(4));
+                    Independent.Manufacturer newManufacturer = getManufacturerById(manufacturerId);
 
-                    Client newObject = new Client(id, fullName, phoneNumber, email);
+                    Fabric newObject = new Fabric(id, name, width, height, price, newManufacturer);
                     resultList.Add(newObject);
                 }
             }
@@ -41,16 +41,23 @@ namespace CourseWork_Atelie.Networking.SingleDependable
         {
             connection.Insert(request);
         }
+
+        private static Independent.Manufacturer getManufacturerById(int id)
+        {
+            string request = String.Format(Shared.RequestConsts.getCustomerRequest, id);
+            List<Independent.Manufacturer> newManufacturers = Independent.ManufacturerNetworkProxy.Get(request);
+            return newManufacturers.First();
+        }
     }
     class Fabric
     {
         public int id;
         public string name;
-        public float width;
-        public float height;
+        public double width;
+        public double height;
         public double price;
-        public Independent.Manufacturer manufacturer;
-        Fabric(int id, string name, float width, float height, double price, Independent.Manufacturer manufacturer)
+        public readonly Independent.Manufacturer manufacturer;
+        public Fabric(int id, string name, double width, double height, double price, Independent.Manufacturer manufacturer)
         {
             this.id = id;
             this.name = name;
@@ -59,7 +66,10 @@ namespace CourseWork_Atelie.Networking.SingleDependable
             this.price = price;
             this.manufacturer = manufacturer;
         } 
+
+        public int getManufacturerId()
+        {
+            return manufacturer.id;
+        }
     }
 }
-
-*/
