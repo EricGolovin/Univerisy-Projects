@@ -36,7 +36,9 @@ namespace CourseWork_Atelie.Networking.Independent
         }
         public static void Add(string request)
         {
-            connection.Insert(request);
+            // to change
+            string sqlExpressionInsert = "INSERT INTO CLIENT (IN_CLIENT, FIO_CLIENT, PHONE, EMAIL) VALUES (20, 'Tim', '+380653452897', 'HGFTGEHJ@gmail.com')";
+            connection.Insert(sqlExpressionInsert);
         }
     }
     class Client

@@ -19,7 +19,9 @@ namespace CourseWork_Atelie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Networking.Independent.ClientNetworkProxy.Add("");
+            List<Networking.Independent.Client> clientList = Networking.Independent.ClientNetworkProxy.Get("SELECT * FROM CLIENT");
+            Console.WriteLine(clientList);
         }
     }
 }

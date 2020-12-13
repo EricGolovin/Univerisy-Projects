@@ -14,11 +14,11 @@ namespace CourseWork_Atelie.Networking.Shared
 
         private SQLDatabaseConnetion() { }
 
-        private static string databaseConnectionConst = @"DataSource=.\SQLEXPRESS;InitialCatalog=Atelie;IntegratedSecurity=True";
-        private SqlConnection connection = new SqlConnection(databaseConnectionConst);
+        private string databaseConnectionConst = @"Data Source=.\SQLEXPRESS;Initial Catalog=atelie-mary;Integrated Security=True";
 
         public SqlDataReader Get(string command)
         {
+            SqlConnection connection = new SqlConnection(databaseConnectionConst);
             connection.Open();
             Console.WriteLine("Connection opened");
             SqlCommand newCommand = new SqlCommand(command, connection);
@@ -30,6 +30,7 @@ namespace CourseWork_Atelie.Networking.Shared
 
         public void Insert(string command)
         {
+            SqlConnection connection = new SqlConnection(databaseConnectionConst);
             int counter;
             try
             {
