@@ -67,6 +67,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Networking\MultipleDependable\BookingNetworkProxy.cs" />
     <Compile Include="Networking\Shared\RequestConsts.cs" />
     <Compile Include="Networking\SingleDependable\FabricNetworkProxy.cs" />
     <Compile Include="Networking\MultipleDependable\RecommendationNetworkProxy.cs" />

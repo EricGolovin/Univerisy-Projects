@@ -11,6 +11,8 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
     class RecommendationNetworkProxy
     {
         private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
+
+        // Is unnecessary method (to remove?)
         public static List<Recommendation> Get(string request)
         {
             List<Recommendation> resultList = new List<Recommendation>();
