@@ -9,9 +9,9 @@ namespace CourseWork_Atelie.Networking.Independent
 {
     public class ModelNetworkProxy
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Model> Get(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Model> resultList = new List<Model>();
             try
             {
@@ -38,6 +38,7 @@ namespace CourseWork_Atelie.Networking.Independent
         }
         public static void Add(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(request);
         }
 

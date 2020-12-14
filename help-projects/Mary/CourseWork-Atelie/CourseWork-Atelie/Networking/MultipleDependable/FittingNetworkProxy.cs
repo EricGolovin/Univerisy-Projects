@@ -10,10 +10,9 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 {
     class FittingNetworkProxy
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
-
         public static List<Fitting> Get(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Fitting> resultList = new List<Fitting>();
             try
             {
@@ -40,6 +39,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         }
         public static void Add(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(request);
         }
 

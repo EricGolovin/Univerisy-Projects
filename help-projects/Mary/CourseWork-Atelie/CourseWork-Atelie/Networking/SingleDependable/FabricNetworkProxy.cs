@@ -9,9 +9,9 @@ namespace CourseWork_Atelie.Networking.SingleDependable
 {
     public class FabricNetworkProxy
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Fabric> Get(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Fabric> resultList = new List<Fabric>();
             try
             {
@@ -29,17 +29,18 @@ namespace CourseWork_Atelie.Networking.SingleDependable
                     Fabric newObject = new Fabric(id, name, length, price, newManufacturer, photoLink);
                     resultList.Add(newObject);
                 }
+                connection.closeConnection();
             }
             catch (SqlException exception)
             {
                 Console.WriteLine(exception.Message);
                 Console.WriteLine("ModelList is Empty");
             }
-            connection.closeConnection();
             return resultList;
         }
         public static void Add(Fabric fabric)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             Independent.ManufacturerNetworkProxy.Add(fabric.manufacturer);
             connection.Insert(String.Format(Shared.RequestConsts.Put.Dependable.putFabricRequest, fabric.id, fabric.name, fabric.length, fabric.price, fabric.manufacturer.id, fabric.photoLink));
         }

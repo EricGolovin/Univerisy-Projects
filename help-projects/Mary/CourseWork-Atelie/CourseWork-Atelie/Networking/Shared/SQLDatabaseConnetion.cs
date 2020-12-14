@@ -9,20 +9,14 @@ namespace CourseWork_Atelie.Networking.Shared
 {
     class SQLDatabaseConnetion
     {
-        // Singleton
-        public static readonly SQLDatabaseConnetion instance = new SQLDatabaseConnetion();
-
-        private SQLDatabaseConnetion() { }
+        public SQLDatabaseConnetion() { }
 
         private static string databaseConnectionConst = @"Data Source=DESKTOP-SOKIGIV;Initial Catalog=atelie-mary;Integrated Security=True";
-        private static SqlConnection connection = new SqlConnection(databaseConnectionConst);
+        private SqlConnection connection = new SqlConnection(databaseConnectionConst);
 
         public SqlDataReader Get(string command)
         {
-            if (connection.State == System.Data.ConnectionState.Closed)
-            {
-                connection.Open();
-            }
+            connection.Open();
             Console.WriteLine("Connection opened");
             SqlCommand newCommand = new SqlCommand(command, connection);
             SqlDataReader reader = newCommand.ExecuteReader();
@@ -35,10 +29,7 @@ namespace CourseWork_Atelie.Networking.Shared
             int counter;
             try
             {
-                if (connection.State == System.Data.ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
+                connection.Open();
                 Console.WriteLine("Connection opened");
 
                 SqlCommand newCommand = new SqlCommand(command, connection);

@@ -10,9 +10,9 @@ namespace CourseWork_Atelie.Networking.Independent
 {
     class ClientNetworkProxy 
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Client> Get(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Client> resultList = new List<Client>();
             try
             {
@@ -39,6 +39,7 @@ namespace CourseWork_Atelie.Networking.Independent
 
         public static void Add(string fullName, string phoneNumber, string email)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             string formattedPhoneNumber = phoneNumber.RemoveWhitespace();
             string formattedEmail = email.RemoveWhitespace();
             int uniqueId = Guid.NewGuid().GetHashCode();
@@ -47,6 +48,7 @@ namespace CourseWork_Atelie.Networking.Independent
         }
         public static void Add(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(request);
         }
     }

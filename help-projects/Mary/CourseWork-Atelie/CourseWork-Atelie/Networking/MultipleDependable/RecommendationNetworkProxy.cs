@@ -10,11 +10,10 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 {
     public class RecommendationNetworkProxy
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
-
         // Is unnecessary method (to remove?)
         public static List<Recommendation> Get(string request, Independent.Model model, SingleDependable.Fabric fabric)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Recommendation> resultList = new List<Recommendation>();
             try
             {
@@ -41,11 +40,13 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         }
         public static void Add(Networking.Independent.Model model, Networking.SingleDependable.Fabric fabric) 
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(String.Format(Networking.Shared.RequestConsts.Put.Dependable.putRecomendationRequest, model.id, fabric.id));
         }
 
         public static List<Recommendation> GetAll()
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Recommendation> resultList = new List<Recommendation>();
             try
             {

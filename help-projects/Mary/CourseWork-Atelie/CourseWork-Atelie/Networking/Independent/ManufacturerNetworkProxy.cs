@@ -9,9 +9,9 @@ namespace CourseWork_Atelie.Networking.Independent
 {
     public class ManufacturerNetworkProxy 
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Manufacturer> Get(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Manufacturer> resultList = new List<Manufacturer>();
             try
             {
@@ -36,6 +36,7 @@ namespace CourseWork_Atelie.Networking.Independent
         }
         public static void Add(Manufacturer manufacturer)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putManufacturerRequest, manufacturer.id, manufacturer.firmName, manufacturer.country));
         }
     }

@@ -9,9 +9,9 @@ namespace CourseWork_Atelie.Networking.Independent
 {
     class CutterNetworkProxy 
     {
-        private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Cutter> Get(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             List<Cutter> resultList = new List<Cutter>();
             try
             {
@@ -37,6 +37,7 @@ namespace CourseWork_Atelie.Networking.Independent
         }
         public static void Add(string request)
         {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(request);
         }
     }
