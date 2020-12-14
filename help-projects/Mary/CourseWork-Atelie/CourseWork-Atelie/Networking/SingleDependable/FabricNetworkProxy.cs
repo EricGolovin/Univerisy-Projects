@@ -20,13 +20,13 @@ namespace CourseWork_Atelie.Networking.SingleDependable
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
                     string name = Convert.ToString(reader.GetValue(1));
-                    double width = Convert.ToDouble(reader.GetValue(2));
-                    double height = Convert.ToDouble(reader.GetValue(3));
+                    double length = Convert.ToDouble(reader.GetValue(2));
                     double price = Convert.ToDouble(reader.GetValue(3));
                     int manufacturerId = Convert.ToInt32(reader.GetValue(4));
+                    string photoLink = Convert.ToString(reader.GetValue(5));
                     Independent.Manufacturer newManufacturer = getManufacturerById(manufacturerId);
 
-                    Fabric newObject = new Fabric(id, name, width, height, price, newManufacturer);
+                    Fabric newObject = new Fabric(id, name, length, price, newManufacturer, photoLink);
                     resultList.Add(newObject);
                 }
             }
@@ -54,18 +54,18 @@ namespace CourseWork_Atelie.Networking.SingleDependable
     {
         public int id;
         public string name;
-        public double width;
-        public double height;
+        public double length;
         public double price;
         public readonly Independent.Manufacturer manufacturer;
-        public Fabric(int id, string name, double width, double height, double price, Independent.Manufacturer manufacturer)
+        public string photoLink;
+        public Fabric(int id, string name, double length, double price, Independent.Manufacturer manufacturer, string photoLink)
         {
             this.id = id;
             this.name = name;
-            this.width = width;
-            this.height = height;
+            this.length = length;
             this.price = price;
             this.manufacturer = manufacturer;
+            this.photoLink = photoLink;
         } 
 
         public int getManufacturerId()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using ExtensionMethods;
 
 namespace CourseWork_Atelie.Networking.MultipleDependable
 {
@@ -20,8 +21,8 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
                     string creationDate = Convert.ToString(reader.GetValue(1));
-                    string expiraionDate = Convert.ToString(reader.GetValue(2));
-                    string issueDate = Convert.ToString(reader.GetValue(3));
+                    string issueDate = Convert.ToString(reader.GetValue(2));
+                    Mark isMarked = new Mark(Convert.ToString(reader.GetValue(3)));
                     double bookingSum = Convert.ToDouble(reader.GetValue(4));
                     int cutterId = Convert.ToInt32(reader.GetValue(5));
                     int clientId = Convert.ToInt32(reader.GetValue(6));
@@ -33,7 +34,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
                     Independent.Model newModel = getModelById(modelId);
                     SingleDependable.Fabric newFabric = getFabricById(fabricId);
 
-                    Booking newObject = new Booking(id, creationDate, expiraionDate, issueDate, bookingSum, newCutter, newClient, newModel, newFabric);
+                    Booking newObject = new Booking(id, creationDate, isMarked, issueDate, bookingSum, newCutter, newClient, newModel, newFabric);
                     resultList.Add(newObject);
                 }
             }
@@ -83,7 +84,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
     {
         public int id;
         public string creationDate;
-        public string expiraionDate;
+        public Mark isMarked;
         public string issueDate;
         public double bookingSum;
         public readonly Independent.Cutter cutter;
@@ -91,7 +92,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         public readonly Independent.Model model;
         public readonly SingleDependable.Fabric fabric;
 
-        public Booking(int id, string creationDate, string expirationDate, string issueDate, double bookingSum, 
+        public Booking(int id, string creationDate, Mark isMarked, string issueDate, double bookingSum, 
             Independent.Cutter cutter,
             Independent.Client client, 
             Independent.Model model,
@@ -99,7 +100,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         {
             this.id = id;
             this.creationDate = creationDate;
-            this.expiraionDate = expirationDate;
+            this.isMarked = isMarked;
             this.issueDate = issueDate;
             this.bookingSum = bookingSum;
             this.cutter = cutter;
@@ -126,6 +127,31 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         public int getFabricId()
         {
             return fabric.id;
+        }
+    }
+
+    class Mark
+    {
+        private bool value;
+        public Mark(string mark)
+        {
+            if (mark.RemoveWhitespace() == "yes")
+            {
+                this.value = true;
+            } else
+            {
+                this.value = false;
+            }
+        }
+
+        public Mark(bool mark)
+        {
+            this.value = mark;
+        }
+
+        public string toString()
+        {
+            return value ? "yes" : "no";
         }
     }
 }

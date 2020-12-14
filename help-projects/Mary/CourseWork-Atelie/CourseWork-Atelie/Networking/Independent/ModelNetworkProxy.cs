@@ -22,8 +22,9 @@ namespace CourseWork_Atelie.Networking.Independent
                     string name = Convert.ToString(reader.GetValue(1));
                     int consumption = Convert.ToInt32(reader.GetValue(2));
                     double price = Convert.ToDouble(reader.GetValue(3));
+                    string photoLink = Convert.ToString(reader.GetValue(4));
 
-                    Model newObject = new Model(id, name, consumption, price);
+                    Model newObject = new Model(id, name, consumption, price, photoLink);
                     resultList.Add(newObject);
                 }
             }
@@ -46,12 +47,14 @@ namespace CourseWork_Atelie.Networking.Independent
         public string name;
         public int consumption;
         public double price;
-        public Model(int id, string name, int consumption, double price)
+        public string photoLink;
+        public Model(int id, string name, int consumption, double price, string photoLink)
         {
             this.id = id;
             this.name = name;
             this.consumption = consumption;
             this.price = price;
+            this.photoLink = photoLink;
         }
     }
 }
