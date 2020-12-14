@@ -12,9 +12,9 @@ C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\bin\Debug\CourseWork-Atelie.exe
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\bin\Debug\CourseWork-Atelie.pdb
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork-Atelie.csprojAssemblyReference.cache
-C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.Form1.resources
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.Properties.Resources.resources
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork-Atelie.csproj.GenerateResource.cache
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork-Atelie.csproj.CoreCompileInputs.cache
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork-Atelie.exe
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork-Atelie.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.AuthorizationForm.resources
