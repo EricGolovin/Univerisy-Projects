@@ -27,6 +27,7 @@ namespace CourseWork_Atelie
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

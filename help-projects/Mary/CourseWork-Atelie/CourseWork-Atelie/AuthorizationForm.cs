@@ -12,10 +12,14 @@ namespace CourseWork_Atelie
 {
     public partial class AuthorizationForm : Form
     {
+        private Models.AuthorizationFormModel model = new Models.AuthorizationFormModel();
+        private Color usernameTextBoxColor;
+        private Color passwordTextBoxColor;
         public AuthorizationForm()
         {
             InitializeComponent();
             setUpLayout();
+            model.load();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,6 +35,9 @@ namespace CourseWork_Atelie
                 Console.WriteLine(client.email);
                 Console.WriteLine("-------------------");
             }
+
+            usernameTextBoxColor = usernameTextBox.BackColor;
+            passwordTextBoxColor = passwordTextBox.BackColor;
         }
 
         private void setUpLayout()
@@ -39,16 +46,19 @@ namespace CourseWork_Atelie
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
+            passwordTextBox.Enabled = false;
         }
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.usernameGroupBox = new System.Windows.Forms.GroupBox();
-            this.passwordGroupBox = new System.Windows.Forms.GroupBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordGroupBox = new System.Windows.Forms.GroupBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.usernameGroupBox.SuspendLayout();
             this.passwordGroupBox.SuspendLayout();
@@ -88,6 +98,17 @@ namespace CourseWork_Atelie
             this.usernameGroupBox.TabStop = false;
             this.usernameGroupBox.Text = "Username";
             // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.Location = new System.Drawing.Point(3, 22);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(355, 35);
+            this.usernameTextBox.TabIndex = 0;
+            this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
+            // 
             // passwordGroupBox
             // 
             this.passwordGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -102,17 +123,6 @@ namespace CourseWork_Atelie
             this.passwordGroupBox.TabIndex = 1;
             this.passwordGroupBox.TabStop = false;
             this.passwordGroupBox.Text = "Password";
-            // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(3, 22);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(355, 35);
-            this.usernameTextBox.TabIndex = 0;
-            this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -141,6 +151,10 @@ namespace CourseWork_Atelie
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // AuthorizationForm
             // 
             this.AutoSize = true;
@@ -165,7 +179,8 @@ namespace CourseWork_Atelie
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            passwordTextBox.Text = "";
+            passwordTextBox.Enabled = model.UsernameExists(usernameTextBox.Text);
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
@@ -175,7 +190,26 @@ namespace CourseWork_Atelie
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            if (model.ValidateUser(usernameTextBox.Text) && model.ValidateUser(passwordTextBox.Text))
+            {
+                ChangeTextBoxesColor(Color.Green);
+            } else {
+                ChangeTextBoxesColor(Color.Red);
+            }
+            timer1.Interval = 2000;
+            timer1.Start();
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            usernameTextBox.BackColor = usernameTextBoxColor;
+            passwordTextBox.BackColor = passwordTextBoxColor;
+        }
+
+        private void ChangeTextBoxesColor(Color color)
+        {
+            usernameTextBox.BackColor = color;
+            passwordTextBox.BackColor = color;
         }
     }
 }

@@ -10,12 +10,14 @@ namespace CourseWork_Atelie.Services
     class AuthorizationService
     {
         public List<OnDeviceUser> savedUsers = AuthorizationConsts.users;
-        public string usernameToCheck = "";
+        private string usernameToCheck = "";
+        private bool isPasswordValid = false;
         public AuthorizationService() { }
 
         public bool UserExists(string username)
         {
             usernameToCheck = "";
+            isPasswordValid = false;
             usernameToCheck = username.RemoveWhitespace();
             bool resultBool = false;
             foreach(OnDeviceUser user in savedUsers)
@@ -29,14 +31,33 @@ namespace CourseWork_Atelie.Services
             return resultBool;
         }
 
-        public AccessType ValidatePassword(string password)
-        {
-            AccessType resultAccessType = AccessType.user;
+        public bool ValidatePassword(string password) {
             if (usernameToCheck != "")
             {
+                isPasswordValid = false;
                 foreach (OnDeviceUser user in savedUsers)
                 {
                     if (String.Equals(usernameToCheck, user.username, StringComparison.CurrentCulture) && String.Equals(password, user.password, StringComparison.CurrentCulture))
+                    {
+                        isPasswordValid = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: Password Validation - UsernameToCheck is EMPTY");
+            }
+            return isPasswordValid;
+        }
+        public AccessType GetUserAccessType()
+        {
+            AccessType resultAccessType = AccessType.user;
+            if (usernameToCheck != "" && isPasswordValid)
+            {
+                foreach (OnDeviceUser user in savedUsers)
+                {
+                    if (String.Equals(usernameToCheck, user.username, StringComparison.CurrentCulture))
                     {
                         resultAccessType = user.level;
                         break;
@@ -44,7 +65,14 @@ namespace CourseWork_Atelie.Services
                 }
             } else
             {
-                Console.WriteLine("Error: Password Validation AccessType - UsernameToCheck is EMPTY");
+                if (usernameToCheck == "")
+                {
+                    Console.WriteLine("Error: AccessType - UsernameToCheck is EMPTY");
+                }
+                if (!isPasswordValid)
+                {
+                    Console.WriteLine("Error: AccessType - Password is NOT VALID");
+                }
             }
             return resultAccessType;
         }
