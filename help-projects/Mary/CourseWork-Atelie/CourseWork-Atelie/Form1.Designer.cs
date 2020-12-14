@@ -20,6 +20,13 @@ namespace CourseWork_Atelie
             }
             base.Dispose(disposing);
         }
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox usernameGroupBox;
+        private System.Windows.Forms.GroupBox passwordGroupBox;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Button loginButton;
     }
 }
 

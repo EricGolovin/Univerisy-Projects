@@ -39,30 +39,141 @@ namespace CourseWork_Atelie
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.ShowDialog();
-            /*
-            usernameTextBox.AutoSize = false;
-            passwordTextBox.AutoSize = false;
-            usernameTextBox.Size = new System.Drawing.Size(435, 35);
-            passwordTextBox.Size = new System.Drawing.Size(435, 35);
-            */
         }
 
         private void InitializeComponent()
         {
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.usernameGroupBox = new System.Windows.Forms.GroupBox();
+            this.passwordGroupBox = new System.Windows.Forms.GroupBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.usernameGroupBox.SuspendLayout();
+            this.passwordGroupBox.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.usernameGroupBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.passwordGroupBox, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.loginButton, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(811, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(367, 744);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // usernameGroupBox
+            // 
+            this.usernameGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameGroupBox.AutoSize = true;
+            this.usernameGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.usernameGroupBox.Controls.Add(this.usernameTextBox);
+            this.usernameGroupBox.Location = new System.Drawing.Point(3, 292);
+            this.usernameGroupBox.Name = "usernameGroupBox";
+            this.usernameGroupBox.Size = new System.Drawing.Size(361, 49);
+            this.usernameGroupBox.TabIndex = 0;
+            this.usernameGroupBox.TabStop = false;
+            this.usernameGroupBox.Text = "Username";
+            // 
+            // passwordGroupBox
+            // 
+            this.passwordGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.passwordGroupBox.AutoSize = true;
+            this.passwordGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.passwordGroupBox.Controls.Add(this.passwordTextBox);
+            this.passwordGroupBox.Location = new System.Drawing.Point(3, 347);
+            this.passwordGroupBox.Name = "passwordGroupBox";
+            this.passwordGroupBox.Size = new System.Drawing.Size(361, 49);
+            this.passwordGroupBox.TabIndex = 1;
+            this.passwordGroupBox.TabStop = false;
+            this.passwordGroupBox.Text = "Password";
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.Location = new System.Drawing.Point(3, 22);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(355, 35);
+            this.usernameTextBox.TabIndex = 0;
+            this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.passwordTextBox.Location = new System.Drawing.Point(3, 22);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(355, 35);
+            this.passwordTextBox.TabIndex = 0;
+            this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
+            // 
+            // loginButton
+            // 
+            this.loginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginButton.AutoSize = true;
+            this.loginButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.loginButton.Location = new System.Drawing.Point(3, 402);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(361, 49);
+            this.loginButton.TabIndex = 2;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // AuthorizationForm
             // 
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1178, 744);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AuthorizationForm";
             this.Load += new System.EventHandler(this.AuthorizationForm_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.usernameGroupBox.ResumeLayout(false);
+            this.usernameGroupBox.PerformLayout();
+            this.passwordGroupBox.ResumeLayout(false);
+            this.passwordGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         private void AuthorizationForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
         {
 
         }
