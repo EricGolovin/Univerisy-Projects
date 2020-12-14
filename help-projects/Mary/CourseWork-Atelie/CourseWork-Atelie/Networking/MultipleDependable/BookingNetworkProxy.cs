@@ -42,6 +42,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
                 Console.WriteLine(exception.Message);
                 Console.WriteLine("ModelList is Empty");
             }
+            connection.closeConnection();
             return resultList;
         }
         public static void Add(string request)

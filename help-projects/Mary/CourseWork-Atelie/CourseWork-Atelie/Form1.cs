@@ -19,9 +19,12 @@ namespace CourseWork_Atelie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Networking.Independent.ClientNetworkProxy.Add("");
+            Networking.Independent.ClientNetworkProxy.Add("SET IDENTITY_INSERT CLIENT ON INSERT INTO CLIENT (IN_CLIENT, FIO_CLIENT, PHONE, EMAIL) VALUES (21, 'Eric', '+380653452897', 'HGFTGEHJ@gmail.com');");
             List<Networking.Independent.Client> clientList = Networking.Independent.ClientNetworkProxy.Get("SELECT * FROM CLIENT");
-            Console.WriteLine(clientList);
+            foreach(Networking.Independent.Client client in clientList)
+            {
+                Console.WriteLine(client.fullName);
+            }
         }
     }
 }

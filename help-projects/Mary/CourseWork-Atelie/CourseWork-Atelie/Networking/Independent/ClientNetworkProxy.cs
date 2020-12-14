@@ -32,13 +32,12 @@ namespace CourseWork_Atelie.Networking.Independent
                 Console.WriteLine(exception.Message);
                 Console.WriteLine("ModelList is Empty");
             }
+            connection.closeConnection();
             return resultList;
         }
         public static void Add(string request)
         {
-            // to change
-            string sqlExpressionInsert = "INSERT INTO CLIENT (IN_CLIENT, FIO_CLIENT, PHONE, EMAIL) VALUES (20, 'Tim', '+380653452897', 'HGFTGEHJ@gmail.com')";
-            connection.Insert(sqlExpressionInsert);
+            connection.Insert(request);
         }
     }
     class Client

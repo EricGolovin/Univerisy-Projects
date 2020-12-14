@@ -14,27 +14,31 @@ namespace CourseWork_Atelie.Networking.Shared
 
         private SQLDatabaseConnetion() { }
 
-        private string databaseConnectionConst = @"Data Source=.\SQLEXPRESS;Initial Catalog=atelie-mary;Integrated Security=True";
+        private static string databaseConnectionConst = @"Data Source=DESKTOP-SOKIGIV;Initial Catalog=atelie-mary;Integrated Security=True";
+        private static SqlConnection connection = new SqlConnection(databaseConnectionConst);
 
         public SqlDataReader Get(string command)
         {
-            SqlConnection connection = new SqlConnection(databaseConnectionConst);
-            connection.Open();
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
             Console.WriteLine("Connection opened");
             SqlCommand newCommand = new SqlCommand(command, connection);
             SqlDataReader reader = newCommand.ExecuteReader();
-            connection.Close();
             Console.WriteLine("Connection closed");
             return reader;
         }
 
         public void Insert(string command)
         {
-            SqlConnection connection = new SqlConnection(databaseConnectionConst);
             int counter;
             try
             {
-                connection.Open();
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
                 Console.WriteLine("Connection opened");
 
                 SqlCommand newCommand = new SqlCommand(command, connection);
@@ -49,6 +53,11 @@ namespace CourseWork_Atelie.Networking.Shared
             {
                 Console.WriteLine(exception.Message);
             }
+        }
+
+        public void closeConnection()
+        {
+            connection.Close();
         }
     }
 }
