@@ -45,7 +45,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 
         private static MultipleDependable.Booking getBookingById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getBookingByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getBookingByIdRequest, id);
             List<MultipleDependable.Booking> newBookings = MultipleDependable.BookingNetworkProxy.Get(request);
             return newBookings.First();
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using ExtensionMethods;
 
 namespace CourseWork_Atelie.Networking.Independent
 {
@@ -34,6 +35,15 @@ namespace CourseWork_Atelie.Networking.Independent
             }
             connection.closeConnection();
             return resultList;
+        }
+
+        public static void Add(string fullName, string phoneNumber, string email)
+        {
+            string formattedPhoneNumber = phoneNumber.RemoveWhitespace();
+            string formattedEmail = email.RemoveWhitespace();
+            int uniqueId = Guid.NewGuid().GetHashCode();
+            if (uniqueId < 0) { uniqueId = -uniqueId; }
+            connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putClientRequest, uniqueId, fullName, formattedPhoneNumber, formattedEmail));
         }
         public static void Add(string request)
         {

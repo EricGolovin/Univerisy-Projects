@@ -11,5 +11,10 @@ namespace CourseWork_Atelie.Models
         public UserRegistratioModel() { }
 
         public void load() { } 
+
+        public void sendUser(string name, string surname, string parentName, string email, string phoneNumber)
+        {
+            Networking.Independent.ClientNetworkProxy.Add($"{name} {surname} {parentName}", phoneNumber, email);
+        }
     }
 }

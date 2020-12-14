@@ -31,15 +31,16 @@ namespace CourseWork_Atelie
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.nameGroupBox = new System.Windows.Forms.GroupBox();
-            this.surnameGroupBox = new System.Windows.Forms.GroupBox();
-            this.parentNameGroupBox = new System.Windows.Forms.GroupBox();
-            this.emailGroupBox = new System.Windows.Forms.GroupBox();
-            this.phoneNumberGroupBox = new System.Windows.Forms.GroupBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.surnameGroupBox = new System.Windows.Forms.GroupBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
+            this.parentNameGroupBox = new System.Windows.Forms.GroupBox();
             this.parentNameTextBox = new System.Windows.Forms.TextBox();
+            this.emailGroupBox = new System.Windows.Forms.GroupBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNumberGroupBox = new System.Windows.Forms.GroupBox();
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.nextButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.nameGroupBox.SuspendLayout();
             this.surnameGroupBox.SuspendLayout();
@@ -63,6 +64,7 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel1.Controls.Add(this.parentNameGroupBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.emailGroupBox, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.phoneNumberGroupBox, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.nextButton, 2, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -93,6 +95,15 @@ namespace CourseWork_Atelie
             this.nameGroupBox.TabStop = false;
             this.nameGroupBox.Text = "Name";
             // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nameTextBox.Location = new System.Drawing.Point(3, 22);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(388, 26);
+            this.nameTextBox.TabIndex = 0;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
+            // 
             // surnameGroupBox
             // 
             this.surnameGroupBox.AutoSize = true;
@@ -105,6 +116,15 @@ namespace CourseWork_Atelie
             this.surnameGroupBox.TabIndex = 1;
             this.surnameGroupBox.TabStop = false;
             this.surnameGroupBox.Text = "Surname";
+            // 
+            // surnameTextBox
+            // 
+            this.surnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.surnameTextBox.Location = new System.Drawing.Point(3, 22);
+            this.surnameTextBox.Name = "surnameTextBox";
+            this.surnameTextBox.Size = new System.Drawing.Size(388, 26);
+            this.surnameTextBox.TabIndex = 0;
+            this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
             // 
             // parentNameGroupBox
             // 
@@ -119,6 +139,15 @@ namespace CourseWork_Atelie
             this.parentNameGroupBox.TabStop = false;
             this.parentNameGroupBox.Text = "Parent Name";
             // 
+            // parentNameTextBox
+            // 
+            this.parentNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.parentNameTextBox.Location = new System.Drawing.Point(3, 22);
+            this.parentNameTextBox.Name = "parentNameTextBox";
+            this.parentNameTextBox.Size = new System.Drawing.Size(388, 26);
+            this.parentNameTextBox.TabIndex = 0;
+            this.parentNameTextBox.TextChanged += new System.EventHandler(this.parentNameTextBox_TextChanged);
+            // 
             // emailGroupBox
             // 
             this.emailGroupBox.AutoSize = true;
@@ -131,6 +160,16 @@ namespace CourseWork_Atelie
             this.emailGroupBox.TabIndex = 3;
             this.emailGroupBox.TabStop = false;
             this.emailGroupBox.Text = "Email";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailTextBox.Location = new System.Drawing.Point(3, 22);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(388, 26);
+            this.emailTextBox.TabIndex = 0;
+            this.emailTextBox.Text = "@gmail.com";
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // phoneNumberGroupBox
             // 
@@ -145,42 +184,6 @@ namespace CourseWork_Atelie
             this.phoneNumberGroupBox.TabStop = false;
             this.phoneNumberGroupBox.Text = "Phone Number";
             // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameTextBox.Location = new System.Drawing.Point(3, 22);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(388, 26);
-            this.nameTextBox.TabIndex = 0;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
-            // 
-            // surnameTextBox
-            // 
-            this.surnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.surnameTextBox.Location = new System.Drawing.Point(3, 22);
-            this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(388, 26);
-            this.surnameTextBox.TabIndex = 0;
-            this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
-            // 
-            // parentNameTextBox
-            // 
-            this.parentNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.parentNameTextBox.Location = new System.Drawing.Point(3, 22);
-            this.parentNameTextBox.Name = "parentNameTextBox";
-            this.parentNameTextBox.Size = new System.Drawing.Size(388, 26);
-            this.parentNameTextBox.TabIndex = 0;
-            this.parentNameTextBox.TextChanged += new System.EventHandler(this.parentNameTextBox_TextChanged);
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailTextBox.Location = new System.Drawing.Point(3, 22);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(388, 26);
-            this.emailTextBox.TabIndex = 0;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
-            // 
             // phoneNumberTextBox
             // 
             this.phoneNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -188,7 +191,23 @@ namespace CourseWork_Atelie
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(388, 26);
             this.phoneNumberTextBox.TabIndex = 0;
+            this.phoneNumberTextBox.Text = "+380";
             this.phoneNumberTextBox.TextChanged += new System.EventHandler(this.phoneNumberTextBox_TextChanged);
+            // 
+            // nextButton
+            // 
+            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nextButton.AutoSize = true;
+            this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextButton.Location = new System.Drawing.Point(528, 672);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(120, 59);
+            this.nextButton.TabIndex = 5;
+            this.nextButton.Text = "Next";
+            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // UserRegistrationForm
             // 
@@ -229,5 +248,6 @@ namespace CourseWork_Atelie
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.GroupBox phoneNumberGroupBox;
         private System.Windows.Forms.TextBox phoneNumberTextBox;
+        private System.Windows.Forms.Button nextButton;
     }
 }

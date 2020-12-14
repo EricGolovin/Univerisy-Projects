@@ -8,7 +8,7 @@ namespace CourseWork_Atelie.Networking.Shared
 {
     class RequestConsts
     {
-        class Get
+        public class Get
         {
             public static string getManufacturerByIdRequest = "SELECT * FROM MANUFACTURER WHERE IN_FIRM LIKE {0};";
             public static string getFabricByIdRequest = "SELECT * FROM FABRIC WHERE IN_FABRIC LIKE {0};";
@@ -18,17 +18,17 @@ namespace CourseWork_Atelie.Networking.Shared
             public static string getBookingByIdRequest = "SELECT * FROM BOOKING WHERE IN_BOOKING LIKE {0};";
             public static string getRecommendationByIdRequest = "SELECT *  FROM RECOMENDATION WHERE IN_MODEL LIKE {0} AND IN_FABRIC LIKE {1};";
         }
-        class Put
+        public class Put
         {
-            class Independent
+            public class Independent
             {
-                public static string putClientRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO CLIENT(IN_CLIENT, FIO_CLIENT, PHONE, EMAIL) values(, ,'+380','@gmail.com');";
+                public static string putClientRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO CLIENT(IN_CLIENT, FIO_CLIENT, PHONE, EMAIL) values({0}, '{1}', '{2}','{3}');";
                 public static string putCutterRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO CUTTER(IN_CUTTER, FIO_CUTTER, SALARY, NUMBER_OF_ORDERS) values (,'NAME',,);";
                 public static string putManufacturerRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO MANUFACTURER(IN_FABRIC, NAME_FIRM, COUNTRY) values (,'','');";
-                public static string putModelRequest = "INSERT INTO MODEL(IN_MODEL, NAME_MODEL, CONSUMPTION, PRICE_MODEL, PHOTO_MODEL) values (,'NAME',,,'');";
+                public static string putModelRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO MODEL(IN_MODEL, NAME_MODEL, CONSUMPTION, PRICE_MODEL, PHOTO_MODEL) values (,'NAME',,,'');";
             }
 
-            class Dependable
+            public class Dependable
             {
                 public static string putFabricRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO FABRIC(IN_FABRIC, NAME_FABRIC, LENGTH_FABRIC, PRICE_FABRIC, IN_FIRM, PHOTO_FABRIC) values (,'NAME',,,,'');";
                 public static string putRecomendationRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO RECOMENDATION( IN_MODEL, IN_FABRIC) values(,);";

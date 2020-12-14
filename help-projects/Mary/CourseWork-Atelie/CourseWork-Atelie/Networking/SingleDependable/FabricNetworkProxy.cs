@@ -45,7 +45,7 @@ namespace CourseWork_Atelie.Networking.SingleDependable
 
         private static Independent.Manufacturer getManufacturerById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getCustomerByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getManufacturerByIdRequest, id);
             List<Independent.Manufacturer> newManufacturers = Independent.ManufacturerNetworkProxy.Get(request);
             return newManufacturers.First();
         }

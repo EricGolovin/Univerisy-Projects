@@ -52,28 +52,28 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 
         private static Independent.Cutter getCutterById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getCutterByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getCutterByIdRequest, id);
             List<Independent.Cutter> newCutters = Independent.CutterNetworkProxy.Get(request);
             return newCutters.First();
         }
 
         private static Independent.Client getClientById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getClientByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getClientByIdRequest, id);
             List<Independent.Client> newClients = Independent.ClientNetworkProxy.Get(request);
             return newClients.First();
         }
 
         private static Independent.Model getModelById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getModelByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getModelByIdRequest, id);
             List<Independent.Model> newModels = Independent.ModelNetworkProxy.Get(request);
             return newModels.First();
         }
 
         private static SingleDependable.Fabric getFabricById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getFabricByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getFabricByIdRequest, id);
             List<SingleDependable.Fabric> newFabrics = SingleDependable.FabricNetworkProxy.Get(request);
             return newFabrics.First();
         }

@@ -46,14 +46,14 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 
         private static Independent.Model getModelById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getModelByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getModelByIdRequest, id);
             List<Independent.Model> newModels = Independent.ModelNetworkProxy.Get(request);
             return newModels.First();
         }
 
         private static SingleDependable.Fabric getFabricById(int id)
         {
-            string request = String.Format(Shared.GetRequestConsts.getFabricByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.getFabricByIdRequest, id);
             List<SingleDependable.Fabric> newFabrics = SingleDependable.FabricNetworkProxy.Get(request);
             return newFabrics.First();
         }
