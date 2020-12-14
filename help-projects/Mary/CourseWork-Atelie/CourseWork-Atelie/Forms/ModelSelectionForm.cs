@@ -62,7 +62,7 @@ namespace CourseWork_Atelie
             modelPictureBox.BackColor = pictureBoxBackColor;
             try
             {
-                modelPictureBox.Load("imageUrl");
+                modelPictureBox.Load(imageUrl);
             } catch (SystemException exception)
             {
                 modelPictureBox.BackColor = Color.DarkRed;
