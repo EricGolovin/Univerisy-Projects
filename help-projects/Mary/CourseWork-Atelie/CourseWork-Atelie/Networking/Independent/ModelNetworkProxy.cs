@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace CourseWork_Atelie.Networking.Independent
 {
-    class ModelNetworkProxy
+    public class ModelNetworkProxy
     {
         private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Model> Get(string request)
@@ -46,7 +46,7 @@ namespace CourseWork_Atelie.Networking.Independent
             return Get(Shared.RequestConsts.Get.Model.getAllRequest);
         }
     }
-    class Model
+    public class Model
     {
         public int id;
         public string name;

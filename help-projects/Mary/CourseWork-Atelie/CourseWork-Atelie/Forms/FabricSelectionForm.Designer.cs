@@ -1,7 +1,7 @@
 ﻿
 namespace CourseWork_Atelie
 {
-    partial class ModelSelectionForm
+    partial class FabricSelectionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@ namespace CourseWork_Atelie
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.modelPictureBox = new System.Windows.Forms.PictureBox();
+            this.fabricPictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.nextButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.selectModelComboBox = new System.Windows.Forms.ComboBox();
+            this.selectFabricComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fabricPictureBox)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -52,7 +52,7 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Controls.Add(this.modelPictureBox, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.fabricPictureBox, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -63,18 +63,19 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1178, 744);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // modelPictureBox
+            // fabricPictureBox
             // 
-            this.modelPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modelPictureBox.Location = new System.Drawing.Point(592, 140);
-            this.modelPictureBox.Name = "modelPictureBox";
-            this.modelPictureBox.Size = new System.Drawing.Size(553, 394);
-            this.modelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.modelPictureBox.TabIndex = 1;
-            this.modelPictureBox.TabStop = false;
-            this.modelPictureBox.Click += new System.EventHandler(this.modelPictureBox_Click);
+            this.fabricPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fabricPictureBox.Location = new System.Drawing.Point(592, 140);
+            this.fabricPictureBox.Name = "fabricPictureBox";
+            this.fabricPictureBox.Size = new System.Drawing.Size(553, 394);
+            this.fabricPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fabricPictureBox.TabIndex = 1;
+            this.fabricPictureBox.TabStop = false;
+            this.fabricPictureBox.Click += new System.EventHandler(this.fabricPictureBox_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -134,7 +135,7 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.selectModelComboBox, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.selectFabricComboBox, 1, 1);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 121);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
@@ -144,19 +145,19 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel4.Size = new System.Drawing.Size(547, 270);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // selectModelComboBox
+            // selectFabricComboBox
             // 
-            this.selectModelComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectModelComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectModelComboBox.FormattingEnabled = true;
-            this.selectModelComboBox.ItemHeight = 29;
-            this.selectModelComboBox.Location = new System.Drawing.Point(176, 36);
-            this.selectModelComboBox.Name = "selectModelComboBox";
-            this.selectModelComboBox.Size = new System.Drawing.Size(194, 37);
-            this.selectModelComboBox.Sorted = true;
-            this.selectModelComboBox.TabIndex = 4;
-            this.selectModelComboBox.Text = "Select Model";
-            this.selectModelComboBox.SelectedIndexChanged += new System.EventHandler(this.selectModelComboBox_SelectedIndexChanged);
+            this.selectFabricComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.selectFabricComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectFabricComboBox.FormattingEnabled = true;
+            this.selectFabricComboBox.ItemHeight = 29;
+            this.selectFabricComboBox.Location = new System.Drawing.Point(176, 36);
+            this.selectFabricComboBox.Name = "selectFabricComboBox";
+            this.selectFabricComboBox.Size = new System.Drawing.Size(194, 37);
+            this.selectFabricComboBox.Sorted = true;
+            this.selectFabricComboBox.TabIndex = 4;
+            this.selectFabricComboBox.Text = "Select Fabric";
+            this.selectFabricComboBox.SelectedIndexChanged += new System.EventHandler(this.selectFabricComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -169,20 +170,20 @@ namespace CourseWork_Atelie
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(547, 118);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Select Model";
+            this.label1.Text = "Select Fabric";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ModelSelectionForm
+            // FabricSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 744);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ModelSelectionForm";
-            this.Text = "ModelSelectionForm";
-            this.Load += new System.EventHandler(this.ModelSelectionForm_Load);
+            this.Name = "FabricSelectionForm";
+            this.Text = "FabricSelectionForm";
+            this.Load += new System.EventHandler(this.FabricSelectionForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fabricPictureBox)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -195,12 +196,12 @@ namespace CourseWork_Atelie
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox modelPictureBox;
+        private System.Windows.Forms.PictureBox fabricPictureBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.ComboBox selectModelComboBox;
+        private System.Windows.Forms.ComboBox selectFabricComboBox;
         private System.Windows.Forms.Label label1;
     }
 }

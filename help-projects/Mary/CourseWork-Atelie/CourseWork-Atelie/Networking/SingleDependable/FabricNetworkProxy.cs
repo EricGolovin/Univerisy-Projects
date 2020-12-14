@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace CourseWork_Atelie.Networking.SingleDependable
 {
-    class FabricNetworkProxy
+    public class FabricNetworkProxy
     {
         private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Fabric> Get(string request)
@@ -38,9 +38,15 @@ namespace CourseWork_Atelie.Networking.SingleDependable
             connection.closeConnection();
             return resultList;
         }
-        public static void Add(string request)
+        public static void Add(Fabric fabric)
         {
-            connection.Insert(request);
+            Independent.ManufacturerNetworkProxy.Add(fabric.manufacturer);
+            connection.Insert(String.Format(Shared.RequestConsts.Put.Dependable.putFabricRequest, fabric.id, fabric.name, fabric.length, fabric.price, fabric.manufacturer.id, fabric.photoLink));
+        }
+
+        public static List<Fabric> GetAll()
+        {
+            return Get(Shared.RequestConsts.Get.Fabric.getAllRequest);
         }
 
         private static Independent.Manufacturer getManufacturerById(int id)
@@ -50,7 +56,7 @@ namespace CourseWork_Atelie.Networking.SingleDependable
             return newManufacturers.First();
         }
     }
-    class Fabric
+    public class Fabric
     {
         public int id;
         public string name;

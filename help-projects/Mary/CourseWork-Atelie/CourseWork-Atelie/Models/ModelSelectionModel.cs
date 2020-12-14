@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CourseWork_Atelie.Models
 {
-    class ModelSelectionModel : BaseModel
+    public class ModelSelectionModel : BaseModel
     {
         private List<Networking.Independent.Model> items = new List<Networking.Independent.Model>();
+        private Networking.Independent.Model selectedModel;
         public ModelSelectionModel() { }
 
         public void load() {
@@ -42,10 +43,16 @@ namespace CourseWork_Atelie.Models
             {
                 if (model.name == name)
                 {
+                    selectedModel = model;
                     return model.photoLink;
                 }
             }
             return "";
+        }
+
+        public Networking.Independent.Model getSelectedModel()
+        {
+            return selectedModel;
         }
     }
 }

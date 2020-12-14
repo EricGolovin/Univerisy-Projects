@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\StringExtension.cs" />
+    <Compile Include="Forms\FabricSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FabricSelectionForm.Designer.cs">
+      <DependentUpon>FabricSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ModelSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,7 @@
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthorizationFormModel.cs" />
+    <Compile Include="Models\FabricSelectionModel.cs" />
     <Compile Include="Models\ModelSelectionModel.cs" />
     <Compile Include="Models\UserRegistratioModel.cs" />
     <Compile Include="Models\Shared\BaseModel.cs" />
@@ -98,6 +105,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
+    <EmbeddedResource Include="Forms\FabricSelectionForm.resx">
+      <DependentUpon>FabricSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModelSelectionForm.resx">
       <DependentUpon>ModelSelectionForm.cs</DependentUpon>
     </EmbeddedResource>

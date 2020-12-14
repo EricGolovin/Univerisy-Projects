@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace CourseWork_Atelie.Networking.Independent
 {
-    class ManufacturerNetworkProxy 
+    public class ManufacturerNetworkProxy 
     {
         private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
         public static List<Manufacturer> Get(string request)
@@ -34,12 +34,12 @@ namespace CourseWork_Atelie.Networking.Independent
             connection.closeConnection();
             return resultList;
         }
-        public static void Add(string request)
+        public static void Add(Manufacturer manufacturer)
         {
-            connection.Insert(request);
+            connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putManufacturerRequest, manufacturer.id, manufacturer.firmName, manufacturer.country));
         }
     }
-    class Manufacturer
+    public class Manufacturer
     {
         public int id;
         public string firmName;

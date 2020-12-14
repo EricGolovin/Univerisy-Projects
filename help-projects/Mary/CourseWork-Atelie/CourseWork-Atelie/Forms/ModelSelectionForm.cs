@@ -13,11 +13,13 @@ namespace CourseWork_Atelie
     public partial class ModelSelectionForm : Form
     {
         private Models.ModelSelectionModel model = new Models.ModelSelectionModel();
+        private Color pictureBoxBackColor;
         public ModelSelectionForm()
         {
             InitializeComponent();
             setUpLayout();
             model.load();
+            pictureBoxBackColor = modelPictureBox.BackColor;
         }
 
         private void setUpLayout()
@@ -26,6 +28,7 @@ namespace CourseWork_Atelie
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
+            nextButton.Enabled = false;
         }
 
         private void ModelSelectionForm_Load(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace CourseWork_Atelie
             foreach(string title in model.getNames()) {
                 selectModelComboBox.Items.Add(title);
             }
-
+            nextButton.Enabled = true;
         }
 
         private void selectModelComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,17 +51,24 @@ namespace CourseWork_Atelie
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FabricSelectionForm fabricSelectionForm = new FabricSelectionForm();
+            fabricSelectionForm.SetSelectedModel(model.getSelectedModel());
+            fabricSelectionForm.Show();
         }
 
         private void changeImageTo(string imageUrl)
         {
-            modelPictureBox.Load("imageUrl");
-        }
-
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
+            modelPictureBox.BackColor = pictureBoxBackColor;
+            try
+            {
+                modelPictureBox.Load("imageUrl");
+            } catch (SystemException exception)
+            {
+                modelPictureBox.BackColor = Color.DarkRed;
+                Console.WriteLine(exception.Message);
+            }
+            
         }
     }
 }
