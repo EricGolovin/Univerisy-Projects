@@ -74,7 +74,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 
         private static SingleDependable.Fabric getFabricById(int id)
         {
-            string request = String.Format(Shared.RequestConsts.Get.getFabricByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.Fabric.getByIdRequest, id);
             List<SingleDependable.Fabric> newFabrics = SingleDependable.FabricNetworkProxy.Get(request);
             return newFabrics.First();
         }
