@@ -192,8 +192,19 @@ namespace CourseWork_Atelie
             if (model.ValidateUser(usernameTextBox.Text) && model.ValidateUser(passwordTextBox.Text))
             {
                 ChangeTextBoxesColor(Color.Green);
-                this.Hide();
-                new UserRegistrationForm().Show();
+                Services.AccessType userAccessType = model.GetUserLevel();
+
+                switch (userAccessType) {
+                    case Services.AccessType.user:
+                        this.Hide();
+                        new UserRegistrationForm().Show();
+                        break;
+                    case Services.AccessType.admin:
+                        this.Hide();
+                        new ModelSelectionForm().Show();
+                        break;
+                }
+                
             } else {
                 ChangeTextBoxesColor(Color.Red);
             }

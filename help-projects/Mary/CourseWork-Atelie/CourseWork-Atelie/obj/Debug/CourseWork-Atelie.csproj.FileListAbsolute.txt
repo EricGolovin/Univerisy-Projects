@@ -19,3 +19,4 @@ C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork-Atelie.pdb
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.AuthorizationForm.resources
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.UserRegistrationForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.ModelSelectionForm.resources

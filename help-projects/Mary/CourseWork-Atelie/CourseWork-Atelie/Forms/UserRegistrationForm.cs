@@ -34,10 +34,7 @@ namespace CourseWork_Atelie
             nextButton.Enabled = false;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
 
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -67,6 +64,9 @@ namespace CourseWork_Atelie
         private void nextButton_Click(object sender, EventArgs e)
         {
             model.sendUser(nameTextBox.Text, surnameTextBox.Text, parentNameTextBox.Text, emailTextBox.Text, phoneNumberTextBox.Text);
+            this.Hide();
+            new ModelSelectionForm().Show();
+
             List<Networking.Independent.Client> clientList = Networking.Independent.ClientNetworkProxy.Get("SELECT * FROM CLIENT");
             foreach (Networking.Independent.Client client in clientList)
             {

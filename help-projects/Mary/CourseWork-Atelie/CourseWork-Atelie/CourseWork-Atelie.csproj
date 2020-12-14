@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\StringExtension.cs" />
+    <Compile Include="Forms\ModelSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModelSelectionForm.Designer.cs">
+      <DependentUpon>ModelSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,7 @@
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthorizationFormModel.cs" />
+    <Compile Include="Models\ModelSelectionModel.cs" />
     <Compile Include="Models\UserRegistratioModel.cs" />
     <Compile Include="Models\Shared\BaseModel.cs" />
     <Compile Include="Networking\MultipleDependable\BookingNetworkProxy.cs" />
@@ -91,6 +98,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
+    <EmbeddedResource Include="Forms\ModelSelectionForm.resx">
+      <DependentUpon>ModelSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserRegistrationForm.resx">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
