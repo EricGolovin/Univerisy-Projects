@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExtensionMethods;
 
 namespace CourseWork_Atelie
 {
@@ -80,16 +81,16 @@ namespace CourseWork_Atelie
 
         private bool areTextBoxesEmpty()
         {
-            bool nameTextBoxIsEmpty = nameTextBox.Text == "";
-            bool surnameTextBoxIsEmpty = surnameTextBox.Text == "";
-            bool parentNameTextBoxIsEmpty = parentNameTextBox.Text == "";
-            bool emailTextBoxIsEmpty = emailTextBox.Text == "@gmail.com" || emailTextBox.Text == "";
-            bool phoneNumberTextBoxIsEmpty = phoneNumberTextBox.Text == "+380" || phoneNumberTextBox.Text == "";
-            return nameTextBoxIsEmpty && 
-                surnameTextBoxIsEmpty &&
-                parentNameTextBoxIsEmpty && 
-                emailTextBoxIsEmpty && 
-                emailTextBoxIsEmpty && 
+            bool nameTextBoxIsEmpty = nameTextBox.Text.RemoveWhitespace() == "";
+            bool surnameTextBoxIsEmpty = surnameTextBox.Text.RemoveWhitespace() == "";
+            bool parentNameTextBoxIsEmpty = parentNameTextBox.Text.RemoveWhitespace() == "";
+            bool emailTextBoxIsEmpty = emailTextBox.Text.RemoveWhitespace() == "@gmail.com" || emailTextBox.Text.RemoveWhitespace() == "";
+            bool phoneNumberTextBoxIsEmpty = phoneNumberTextBox.Text.RemoveWhitespace() == "+380" || phoneNumberTextBox.Text.RemoveWhitespace() == "";
+            return nameTextBoxIsEmpty ||
+                surnameTextBoxIsEmpty ||
+                parentNameTextBoxIsEmpty ||
+                emailTextBoxIsEmpty ||
+                emailTextBoxIsEmpty ||
                 phoneNumberTextBoxIsEmpty;
         }
     }
