@@ -53,12 +53,12 @@ namespace CourseWork_Atelie
 
         private void changeImageTo(string imageUrl)
         {
-            modelPictureBox.Load(imageUrl);
-            //Dim tClient as WebClient = new WebClient;
+            modelPictureBox.Load("imageUrl");
+        }
 
-            //Dim tImage as Bitmap = Bitmap.FromStream(New MemoryStream(tClient.DownloadData(url)));
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
 
-            //PictureBox1.Image = tImage;
         }
     }
 }
