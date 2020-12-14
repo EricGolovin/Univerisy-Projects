@@ -18,6 +18,7 @@ namespace CourseWork_Atelie
         {
             InitializeComponent();
             setUpLayout();
+            model.load();
         }
 
         private void Form1_Load(object sender, EventArgs e)

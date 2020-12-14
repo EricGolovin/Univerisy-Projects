@@ -94,7 +94,7 @@ namespace CourseWork_Atelie
             this.selectModelComboBox.Sorted = true;
             this.selectModelComboBox.TabIndex = 0;
             this.selectModelComboBox.Text = "Select Model";
-            this.selectModelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
+            this.selectModelComboBox.SelectedIndexChanged += new System.EventHandler(this.selectModelComboBox_SelectedIndexChanged);
             // 
             // modelPictureBox
             // 

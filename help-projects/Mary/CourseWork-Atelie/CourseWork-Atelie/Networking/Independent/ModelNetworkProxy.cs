@@ -40,6 +40,11 @@ namespace CourseWork_Atelie.Networking.Independent
         {
             connection.Insert(request);
         }
+
+        public static List<Model> GetAll()
+        {
+            return Get(Shared.RequestConsts.Get.Model.getAllRequest);
+        }
     }
     class Model
     {

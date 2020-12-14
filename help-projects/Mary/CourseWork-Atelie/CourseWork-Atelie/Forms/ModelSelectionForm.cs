@@ -12,10 +12,12 @@ namespace CourseWork_Atelie
 {
     public partial class ModelSelectionForm : Form
     {
+        private Models.ModelSelectionModel model = new Models.ModelSelectionModel();
         public ModelSelectionForm()
         {
             InitializeComponent();
             setUpLayout();
+            model.load();
         }
 
         private void setUpLayout()
@@ -28,12 +30,15 @@ namespace CourseWork_Atelie
 
         private void ModelSelectionForm_Load(object sender, EventArgs e)
         {
+            foreach(string title in model.getNames()) {
+                selectModelComboBox.Items.Add(title);
+            }
 
         }
 
-        private void modelComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void selectModelComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            changeImageTo(model.getImageUrlFor(selectModelComboBox.Text));
         }
 
         private void modelPictureBox_Click(object sender, EventArgs e)
@@ -44,6 +49,16 @@ namespace CourseWork_Atelie
         private void nextButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void changeImageTo(string imageUrl)
+        {
+            modelPictureBox.Load(imageUrl);
+            //Dim tClient as WebClient = new WebClient;
+
+            //Dim tImage as Bitmap = Bitmap.FromStream(New MemoryStream(tClient.DownloadData(url)));
+
+            //PictureBox1.Image = tImage;
         }
     }
 }
