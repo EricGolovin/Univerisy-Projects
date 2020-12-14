@@ -62,13 +62,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\StringExtension.cs" />
-    <Compile Include="AuthorizationForm.cs">
+    <Compile Include="Forms\UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AuthorizationForm.Designer.cs">
+    <Compile Include="Forms\UserRegistrationForm.Designer.cs">
+      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AuthorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthorizationFormModel.cs" />
+    <Compile Include="Models\UserRegistratioModel.cs" />
     <Compile Include="Models\Shared\BaseModel.cs" />
     <Compile Include="Networking\MultipleDependable\BookingNetworkProxy.cs" />
     <Compile Include="Networking\MultipleDependable\FittingNetworkProxy.cs" />
@@ -84,7 +91,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
-    <EmbeddedResource Include="AuthorizationForm.resx">
+    <EmbeddedResource Include="Forms\UserRegistrationForm.resx">
+      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

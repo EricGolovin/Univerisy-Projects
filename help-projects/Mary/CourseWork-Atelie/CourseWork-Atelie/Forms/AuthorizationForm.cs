@@ -193,6 +193,8 @@ namespace CourseWork_Atelie
             if (model.ValidateUser(usernameTextBox.Text) && model.ValidateUser(passwordTextBox.Text))
             {
                 ChangeTextBoxesColor(Color.Green);
+                this.Hide();
+                new UserRegistrationForm().Show();
             } else {
                 ChangeTextBoxesColor(Color.Red);
             }

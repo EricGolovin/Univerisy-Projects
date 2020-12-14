@@ -13,12 +13,12 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         private static readonly Shared.SQLDatabaseConnetion connection = Shared.SQLDatabaseConnetion.instance;
 
         // Is unnecessary method (to remove?)
-        public static List<Recommendation> Get(string request)
+        public static List<Recommendation> Get(string request, Independent.Model model, SingleDependable.Fabric fabric)
         {
             List<Recommendation> resultList = new List<Recommendation>();
             try
             {
-                SqlDataReader reader = connection.Get(request);
+                SqlDataReader reader = connection.Get(String.Format(request, model.id, fabric.id));
                 while (reader.Read())
                 {
                     int modelId = Convert.ToInt32(reader.GetValue(0));
