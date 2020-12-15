@@ -34,7 +34,9 @@ namespace CourseWork_Atelie.Models
 
         public void sendBooking()
         {
-            Networking.MultipleDependable.BookingNetworkProxy.Add(getBookingNumeralSum(), loadLowestCutter().id, configuredClient.id, configuredRecommendation.model.id, configuredRecommendation.fabric.id);
+            Networking.Independent.Cutter lowestCutter = loadLowestCutter();
+            Networking.MultipleDependable.BookingNetworkProxy.Add(getBookingNumeralSum(), lowestCutter.id, configuredClient.id, configuredRecommendation.model.id, configuredRecommendation.fabric.id);
+            Networking.Independent.CutterNetworkProxy.UpdateNumberOfOders(lowestCutter.numberOfOrders + 1, lowestCutter.id);
         }
 
         private double getBookingNumeralSum()

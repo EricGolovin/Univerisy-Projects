@@ -60,5 +60,10 @@ namespace CourseWork_Atelie.Networking.Shared
                 public static string putBookingRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO BOOKING(RECEPTION_DATE, ISSUE_DATE, MARK, SUM_BOOKING, IN_CUTTER, IN_CLIENT, IN_MODEL, IN_FABRIC) values ('{0}', '{1}', '{2}', {3}, {4}, {5}, {6}, {7});";
             }
         }
+
+        public class Update
+        {
+            public static string updateCutterNumOfOrdersByIdRequest = "SET IDENTITY_INSERT CLIENT ON UPDATE CUTTER SET NUMBER_OF_ORDERS = {0} WHERE IN_CUTTER = {1};";
+        }
     }
 }

@@ -45,6 +45,12 @@ namespace CourseWork_Atelie.Networking.Independent
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(request);
         }
+
+        public static void UpdateNumberOfOders(int id, int newValue)
+        {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
+            connection.Update(String.Format(Shared.RequestConsts.Update.updateCutterNumOfOrdersByIdRequest, newValue, id));
+        }
     }
     public class Cutter
     {

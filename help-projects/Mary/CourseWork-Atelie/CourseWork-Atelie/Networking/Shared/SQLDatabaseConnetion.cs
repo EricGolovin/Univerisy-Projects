@@ -46,6 +46,28 @@ namespace CourseWork_Atelie.Networking.Shared
             }
         }
 
+        public void Update(string command)
+        {
+            int counter;
+            try
+            {
+                connection.Open();
+                Console.WriteLine("Connection opened");
+
+                SqlCommand newCommand = new SqlCommand(command, connection);
+
+                counter = newCommand.ExecuteNonQuery();
+                Console.WriteLine($"Number of objects updated: {counter}");
+
+                connection.Close();
+                Console.WriteLine("Connection closed");
+            }
+            catch (SqlException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        }
+
         public void closeConnection()
         {
             connection.Close();
