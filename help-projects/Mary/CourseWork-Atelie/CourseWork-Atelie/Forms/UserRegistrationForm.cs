@@ -64,9 +64,11 @@ namespace CourseWork_Atelie
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            model.sendUser(nameTextBox.Text, surnameTextBox.Text, parentNameTextBox.Text, emailTextBox.Text, phoneNumberTextBox.Text);
+            
             this.Hide();
-            new ModelSelectionForm().Show();
+            ModelSelectionForm modelSelectionForm = new ModelSelectionForm();
+            modelSelectionForm.setClient(model.sendUser(nameTextBox.Text, surnameTextBox.Text, parentNameTextBox.Text, emailTextBox.Text, phoneNumberTextBox.Text));
+            modelSelectionForm.Show();
 
             List<Networking.Independent.Client> clientList = Networking.Independent.ClientNetworkProxy.Get("SELECT * FROM CLIENT");
             foreach (Networking.Independent.Client client in clientList)

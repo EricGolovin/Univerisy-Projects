@@ -8,9 +8,11 @@ namespace CourseWork_Atelie.Models
 {
     class FabricSelectionModel : BaseModel
     {
+        public Networking.Independent.Model selectedModel;
+        public Networking.Independent.Client configuredClient;
         private List<Networking.SingleDependable.Fabric> items = new List<Networking.SingleDependable.Fabric>();
         private Networking.SingleDependable.Fabric selectedFabric;
-        public Networking.Independent.Model selectedModel;
+
         public FabricSelectionModel() { }
 
         public void load()

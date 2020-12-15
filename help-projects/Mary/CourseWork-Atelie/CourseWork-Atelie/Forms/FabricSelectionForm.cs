@@ -24,6 +24,7 @@ namespace CourseWork_Atelie
         }
 
         public void SetSelectedModel(Networking.Independent.Model selectedModel) => model.selectedModel = selectedModel;
+        public void SetClient(Networking.Independent.Client client) => model.configuredClient = client;
 
         private void setUpLayout()
         {
@@ -58,6 +59,12 @@ namespace CourseWork_Atelie
         {
             model.sendData();
 
+            this.Hide();
+            SummaryForm summaryForm = new SummaryForm();
+            summaryForm.SetClient(model.configuredClient);
+            summaryForm.SetRecommendation(model.getReccomendation());
+            summaryForm.Show();
+
             List<Networking.MultipleDependable.Recommendation> resultList = Networking.MultipleDependable.RecommendationNetworkProxy.GetAll();
             foreach(Networking.MultipleDependable.Recommendation recommendation in resultList)
             {
@@ -72,7 +79,7 @@ namespace CourseWork_Atelie
             fabricPictureBox.BackColor = pictureBoxBackColor;
             try
             {
-                fabricPictureBox.Load("imageUrl");
+                fabricPictureBox.Load(imageUrl);
             }
             catch (SystemException exception)
             {

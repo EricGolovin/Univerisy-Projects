@@ -8,6 +8,7 @@ namespace CourseWork_Atelie.Models
 {
     public class ModelSelectionModel : BaseModel
     {
+        public Networking.Independent.Client configuredClient;
         private List<Networking.Independent.Model> items = new List<Networking.Independent.Model>();
         private Networking.Independent.Model selectedModel;
         public ModelSelectionModel() { }

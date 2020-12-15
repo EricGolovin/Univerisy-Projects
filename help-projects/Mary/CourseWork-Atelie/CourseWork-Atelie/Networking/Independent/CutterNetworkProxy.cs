@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace CourseWork_Atelie.Networking.Independent
 {
-    class CutterNetworkProxy 
+    public class CutterNetworkProxy 
     {
         public static List<Cutter> Get(string request)
         {
@@ -35,13 +35,18 @@ namespace CourseWork_Atelie.Networking.Independent
             connection.closeConnection();
             return resultList;
         }
+
+        public static List<Cutter> GetAll()
+        {
+            return Get(Shared.RequestConsts.Get.Cutter.getAllRequest);
+        }
         public static void Add(string request)
         {
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(request);
         }
     }
-    class Cutter
+    public class Cutter
     {
         public int id;
         public string fullName;

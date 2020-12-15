@@ -8,7 +8,7 @@ using ExtensionMethods;
 
 namespace CourseWork_Atelie.Networking.Independent
 {
-    class ClientNetworkProxy 
+    public class ClientNetworkProxy 
     {
         public static List<Client> Get(string request)
         {
@@ -37,14 +37,14 @@ namespace CourseWork_Atelie.Networking.Independent
             return resultList;
         }
 
-        public static void Add(string fullName, string phoneNumber, string email)
+        public static Client Add(string fullName, string phoneNumber, string email)
         {
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             string formattedPhoneNumber = phoneNumber.RemoveWhitespace();
             string formattedEmail = email.RemoveWhitespace();
-            int uniqueId = Guid.NewGuid().GetHashCode();
-            if (uniqueId < 0) { uniqueId = -uniqueId; }
-            connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putClientRequest, uniqueId, fullName, formattedPhoneNumber, formattedEmail));
+            Client newClient = new Client(Services.IdBuilderService.GetRandomId(), fullName, phoneNumber, email);
+            connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putClientRequest, newClient.id, fullName, formattedPhoneNumber, formattedEmail));
+            return newClient;
         }
         public static void Add(string request)
         {
@@ -52,7 +52,7 @@ namespace CourseWork_Atelie.Networking.Independent
             connection.Insert(request);
         }
     }
-    class Client
+    public class Client
     {
         public int id;
         public string fullName;

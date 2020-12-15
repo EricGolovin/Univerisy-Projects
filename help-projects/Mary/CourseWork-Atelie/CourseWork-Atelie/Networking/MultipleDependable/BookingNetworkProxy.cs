@@ -46,15 +46,31 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
             connection.closeConnection();
             return resultList;
         }
-        public static void Add(string request)
+
+        public static List<Booking> GetAll()
         {
+            return Get(Shared.RequestConsts.Get.Booking.getAllRequest);
+        }
+        public static void Add(double bookingSum, int cutterId, int clientId, int modelId, int fabricId)
+        {
+            string issueDate = DateTime.Today.AddDays(7).ToString("MM/dd/yyyy");
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
-            connection.Insert(request);
+            string bookingInsertRequest = String.Format(Shared.RequestConsts.Put.Dependable.putBookingRequest, 
+         //       Services.IdBuilderService.GetRandomId(),
+                DateTime.Today.ToString("MM/dd/yyyy"),
+                issueDate,
+                new Mark(false).ToString(),
+                bookingSum,
+                cutterId,
+                clientId,
+                modelId,
+                fabricId);
+            connection.Insert(bookingInsertRequest);
         }
 
         private static Independent.Cutter getCutterById(int id)
         {
-            string request = String.Format(Shared.RequestConsts.Get.getCutterByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.Cutter.getByIdRequest, id);
             List<Independent.Cutter> newCutters = Independent.CutterNetworkProxy.Get(request);
             return newCutters.First();
         }
@@ -150,7 +166,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
             this.value = mark;
         }
 
-        public string toString()
+        public string ToString()
         {
             return value ? "yes" : "no";
         }

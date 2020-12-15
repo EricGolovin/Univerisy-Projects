@@ -11,9 +11,7 @@ namespace CourseWork_Atelie.Networking.Shared
         public class Get
         {
             public static string getManufacturerByIdRequest = "SELECT * FROM MANUFACTURER WHERE IN_FIRM LIKE {0};";
-            public static string getClientByIdRequest = "SELECT * FROM CLIENT WHERE IN_CLINET LIKE {0};";
-            public static string getCutterByIdRequest = "SELECT * FROM CUTTER WHERE IN_CUTTER LIKE {0};";
-            public static string getBookingByIdRequest = "SELECT * FROM BOOKING WHERE IN_BOOKING LIKE {0};";
+            public static string getClientByIdRequest = "SELECT * FROM CLIENT WHERE IN_CLIENT LIKE {0};";
 
             public class Model
             {
@@ -29,8 +27,20 @@ namespace CourseWork_Atelie.Networking.Shared
 
             public class Recommendation
             {
-                public static string getRecommendationByIdsRequest = "SELECT *  FROM RECOMENDATION WHERE IN_MODEL LIKE {0} AND IN_FABRIC LIKE {1};";
-                public static string getAllRequest = "SELECT *  FROM RECOMENDATION";
+                public static string getByIdsRequest = "SELECT *  FROM RECOMENDATION WHERE IN_MODEL LIKE {0} AND IN_FABRIC LIKE {1};";
+                public static string getAllRequest = "SELECT * FROM RECOMENDATION";
+            }
+
+            public class Cutter
+            {
+                public static string getByIdRequest = "SELECT * FROM CUTTER WHERE IN_CUTTER LIKE {0};";
+                public static string getAllRequest = "SELECT * FROM CUTTER";
+            }
+
+            public class Booking
+            {
+                public static string getByIdRequest = "SELECT * FROM BOOKING WHERE IN_BOOKING LIKE {0};";
+                public static string getAllRequest = "SELECT * FROM BOOKING";
             }
         }
         public class Put
@@ -47,7 +57,7 @@ namespace CourseWork_Atelie.Networking.Shared
             {
                 public static string putFabricRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO FABRIC(IN_FABRIC, NAME_FABRIC, LENGTH_FABRIC, PRICE_FABRIC, IN_FIRM, PHOTO_FABRIC) values ({0}, '{1}', {2}, {3}, {4}, '{5}');";
                 public static string putRecomendationRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO RECOMENDATION(IN_MODEL, IN_FABRIC) values({0}, {1});";
-                public static string putBookingRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO BOOKING(RECEPTION_DATE, ISSUE_DATE, MARK, SUM_BOOKING, IN_CUTTER, IN_CLIENT, IN_MODEL, IN_FABRIC) values ('',,'',,,,,);";
+                public static string putBookingRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO BOOKING(RECEPTION_DATE, ISSUE_DATE, MARK, SUM_BOOKING, IN_CUTTER, IN_CLIENT, IN_MODEL, IN_FABRIC) values ('{0}', '{1}', '{2}', {3}, {4}, {5}, {6}, {7});";
             }
         }
     }

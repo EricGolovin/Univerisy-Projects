@@ -22,6 +22,17 @@ namespace CourseWork_Atelie
             pictureBoxBackColor = modelPictureBox.BackColor;
         }
 
+        public void setClient(Networking.Independent.Client client)
+        {
+            Console.WriteLine("---------");
+            Console.WriteLine($"{client.fullName}");
+            Console.WriteLine($"{client.id}");
+            Console.WriteLine($"{client.email}");
+            Console.WriteLine($"{client.phoneNumber}");
+            Console.WriteLine("---------");
+            model.configuredClient = client;
+        }
+
         private void setUpLayout()
         {
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -54,6 +65,7 @@ namespace CourseWork_Atelie
             this.Hide();
             FabricSelectionForm fabricSelectionForm = new FabricSelectionForm();
             fabricSelectionForm.SetSelectedModel(model.getSelectedModel());
+            fabricSelectionForm.SetClient(model.configuredClient);
             fabricSelectionForm.Show();
         }
 

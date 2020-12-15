@@ -12,9 +12,10 @@ namespace CourseWork_Atelie.Models
 
         public void load() { } 
 
-        public void sendUser(string name, string surname, string parentName, string email, string phoneNumber)
+        public Networking.Independent.Client sendUser(string name, string surname, string parentName, string email, string phoneNumber)
         {
-            Networking.Independent.ClientNetworkProxy.Add($"{name} {surname} {parentName}", phoneNumber, email);
+            string userFullName = $"{name} {surname} {parentName}";
+            return Networking.Independent.ClientNetworkProxy.Add(userFullName, phoneNumber, email);
         }
     }
 }

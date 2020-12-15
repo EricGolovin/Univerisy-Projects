@@ -11,10 +11,7 @@ namespace CourseWork_Atelie.Models
         private Services.AuthorizationService authorization = new Services.AuthorizationService();
         public AuthorizationFormModel() { }
 
-        public void load()
-        {
-
-        }
+        public void load() { }
 
         public bool UsernameExists(string username)
         {
