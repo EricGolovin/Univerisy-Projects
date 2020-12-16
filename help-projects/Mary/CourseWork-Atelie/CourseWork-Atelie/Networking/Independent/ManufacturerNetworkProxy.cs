@@ -39,6 +39,10 @@ namespace CourseWork_Atelie.Networking.Independent
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putManufacturerRequest, manufacturer.id, manufacturer.firmName, manufacturer.country));
         }
+        public static List<Manufacturer> GetAll()
+        {
+            return Get(Shared.RequestConsts.Get.Manufacturer.getAllRequest);
+        }
     }
     public class Manufacturer
     {

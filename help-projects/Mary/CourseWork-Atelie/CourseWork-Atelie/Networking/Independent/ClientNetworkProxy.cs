@@ -46,6 +46,11 @@ namespace CourseWork_Atelie.Networking.Independent
             connection.Insert(String.Format(Shared.RequestConsts.Put.Independent.putClientRequest, newClient.id, fullName, formattedPhoneNumber, formattedEmail));
             return newClient;
         }
+
+        public static List<Client> GetAll()
+        {
+            return Get(Shared.RequestConsts.Get.Client.getAllRequest);
+        }
         public static void Add(string request)
         {
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();

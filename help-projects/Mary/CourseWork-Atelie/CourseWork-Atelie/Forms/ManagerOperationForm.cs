@@ -33,6 +33,7 @@ namespace CourseWork_Atelie
 
         private void analyticsButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             new AnalyticsForm().Show();
         }
 

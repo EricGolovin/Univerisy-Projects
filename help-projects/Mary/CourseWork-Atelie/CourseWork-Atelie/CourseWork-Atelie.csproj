@@ -105,6 +105,7 @@
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthorizationFormModel.cs" />
+    <Compile Include="Models\AnalyticsFormModel.cs" />
     <Compile Include="Models\FabricSelectionModel.cs" />
     <Compile Include="Models\ModelSelectionModel.cs" />
     <Compile Include="Models\SummaryModel.cs" />

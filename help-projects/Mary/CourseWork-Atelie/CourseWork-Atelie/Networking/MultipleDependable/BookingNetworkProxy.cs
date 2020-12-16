@@ -20,8 +20,8 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
                 while (reader.Read())
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
-                    string creationDate = Convert.ToString(reader.GetValue(1));
-                    string issueDate = Convert.ToString(reader.GetValue(2));
+                    DateTime creationDate = DateTime.Parse(Convert.ToString(reader.GetValue(1)));
+                    DateTime issueDate = DateTime.Parse(Convert.ToString(reader.GetValue(2)));
                     Mark isMarked = new Mark(Convert.ToString(reader.GetValue(3)));
                     double bookingSum = Convert.ToDouble(reader.GetValue(4));
                     int cutterId = Convert.ToInt32(reader.GetValue(5));
@@ -56,7 +56,6 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
             string issueDate = DateTime.Today.AddDays(7).ToString("MM/dd/yyyy");
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             string bookingInsertRequest = String.Format(Shared.RequestConsts.Put.Dependable.putBookingRequest, 
-         //       Services.IdBuilderService.GetRandomId(),
                 DateTime.Today.ToString("MM/dd/yyyy"),
                 issueDate,
                 new Mark(false).ToString(),
@@ -77,7 +76,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
 
         private static Independent.Client getClientById(int id)
         {
-            string request = String.Format(Shared.RequestConsts.Get.getClientByIdRequest, id);
+            string request = String.Format(Shared.RequestConsts.Get.Client.getByIRequest, id);
             List<Independent.Client> newClients = Independent.ClientNetworkProxy.Get(request);
             return newClients.First();
         }
@@ -100,16 +99,16 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
     class Booking
     {
         public int id;
-        public string creationDate;
+        public DateTime creationDate;
         public Mark isMarked;
-        public string issueDate;
+        public DateTime issueDate;
         public double bookingSum;
         public readonly Independent.Cutter cutter;
         public readonly Independent.Client client;
         public readonly Independent.Model model;
         public readonly SingleDependable.Fabric fabric;
 
-        public Booking(int id, string creationDate, Mark isMarked, string issueDate, double bookingSum, 
+        public Booking(int id, DateTime creationDate, Mark isMarked, DateTime issueDate, double bookingSum, 
             Independent.Cutter cutter,
             Independent.Client client, 
             Independent.Model model,

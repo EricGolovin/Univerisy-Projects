@@ -10,8 +10,17 @@ namespace CourseWork_Atelie.Networking.Shared
     {
         public class Get
         {
-            public static string getManufacturerByIdRequest = "SELECT * FROM MANUFACTURER WHERE IN_FIRM LIKE {0};";
-            public static string getClientByIdRequest = "SELECT * FROM CLIENT WHERE IN_CLIENT LIKE {0};";
+            public class Client
+            {
+                public static string getAllRequest = "SELECT * FROM CLIENT;";
+                public static string getByIRequest = "SELECT * FROM CLIENT WHERE IN_CLIENT LIKE {0};";
+            }
+
+            public class Manufacturer
+            {
+                public static string getByIdRequest = "SELECT * FROM MANUFACTURER WHERE IN_FIRM LIKE {0};";
+                public static string getAllRequest = "SELECT * FROM MANUFACTURER;";
+            }
 
             public class Model
             {
