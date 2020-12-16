@@ -59,12 +59,19 @@ namespace CourseWork_Atelie.Models
 
         public void sendData()
         {
+            UpdateSelectedFabric();
             Networking.MultipleDependable.RecommendationNetworkProxy.Add(selectedModel, selectedFabric);
         }
 
         public Networking.MultipleDependable.Recommendation getReccomendation()
         {
             return new Networking.MultipleDependable.Recommendation(selectedModel, selectedFabric);
+        }
+
+        private void UpdateSelectedFabric()
+        {
+            selectedFabric.length -= selectedModel.consumption;
+            Networking.SingleDependable.FabricNetworkProxy.UpdateLengthValueById(selectedFabric.id, selectedFabric.length);
         }
     }
 }

@@ -63,7 +63,14 @@ namespace CourseWork_Atelie.Networking.Shared
 
         public class Update
         {
-            public static string updateCutterNumOfOrdersByIdRequest = "SET IDENTITY_INSERT CLIENT ON UPDATE CUTTER SET NUMBER_OF_ORDERS = {0} WHERE IN_CUTTER = {1};";
+            public class Cutter
+            {
+                public static string updateNumOfOrdersByIdRequest = "SET IDENTITY_INSERT CLIENT ON UPDATE CUTTER SET NUMBER_OF_ORDERS = {0} WHERE IN_CUTTER = {1};";
+            }
+            public class Fabric
+            {
+                public static string updateLenghtByIdRequest = "UPDATE FABRIC SET LENGTH_FABRIC = {0} WHERE IN_FABRIC = {1};";
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CourseWork_Atelie.Networking.Independent
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
                     string name = Convert.ToString(reader.GetValue(1));
-                    int consumption = Convert.ToInt32(reader.GetValue(2));
+                    double consumption = Convert.ToInt32(reader.GetValue(2));
                     double price = Convert.ToDouble(reader.GetValue(3));
                     string photoLink = Convert.ToString(reader.GetValue(4));
 
@@ -51,10 +51,10 @@ namespace CourseWork_Atelie.Networking.Independent
     {
         public int id;
         public string name;
-        public int consumption;
+        public double consumption;
         public double price;
         public string photoLink;
-        public Model(int id, string name, int consumption, double price, string photoLink)
+        public Model(int id, string name, double consumption, double price, string photoLink)
         {
             this.id = id;
             this.name = name;
