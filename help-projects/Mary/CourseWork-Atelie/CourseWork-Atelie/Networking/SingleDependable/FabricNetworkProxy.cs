@@ -50,7 +50,7 @@ namespace CourseWork_Atelie.Networking.SingleDependable
             return Get(Shared.RequestConsts.Get.Fabric.getAllRequest);
         }
 
-        public static void UpdateNumberLength(int id, double newValue)
+        public static void UpdateLengthValueById(int id, double newValue)
         {
             Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
             connection.Update(String.Format(Shared.RequestConsts.Update.Fabric.updateLenghtByIdRequest, newValue, id));

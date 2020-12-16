@@ -201,7 +201,7 @@ namespace CourseWork_Atelie
                         break;
                     case Services.AccessType.admin:
                         this.Hide();
-                        new ModelSelectionForm().Show();
+                        new ManagerOperationForm().Show();
                         break;
                 }
                 
