@@ -1,0 +1,13 @@
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\bin\Debug\netcoreapp3.1\EricTest.exe
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\bin\Debug\netcoreapp3.1\EricTest.deps.json
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\bin\Debug\netcoreapp3.1\EricTest.runtimeconfig.json
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\bin\Debug\netcoreapp3.1\EricTest.runtimeconfig.dev.json
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\bin\Debug\netcoreapp3.1\EricTest.dll
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\bin\Debug\netcoreapp3.1\EricTest.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.AssemblyInfoInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.AssemblyInfo.cs
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.dll
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\EricTest\obj\Debug\netcoreapp3.1\EricTest.genruntimeconfig.cache
