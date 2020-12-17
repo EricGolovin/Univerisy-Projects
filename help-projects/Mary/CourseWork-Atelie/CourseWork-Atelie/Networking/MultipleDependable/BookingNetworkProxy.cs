@@ -8,7 +8,7 @@ using ExtensionMethods;
 
 namespace CourseWork_Atelie.Networking.MultipleDependable
 {
-    class BookingNetworkProxy
+    public class BookingNetworkProxy
     {
         public static List<Booking> Get(string request)
         {
@@ -96,7 +96,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         }
     }
 
-    class Booking
+    public class Booking
     {
         public int id;
         public DateTime creationDate;
@@ -146,7 +146,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         }
     }
 
-    class Mark
+    public class Mark
     {
         private bool value;
         public Mark(string mark)

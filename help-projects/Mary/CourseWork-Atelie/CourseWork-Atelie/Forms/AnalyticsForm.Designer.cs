@@ -60,7 +60,7 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -501,7 +501,7 @@ namespace CourseWork_Atelie
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.07692F));
             this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel14, 1, 0);
-            this.tableLayoutPanel12.Controls.Add(this.button1, 2, 0);
+            this.tableLayoutPanel12.Controls.Add(this.exitButton, 2, 0);
             this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 0, 0);
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 667);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -549,16 +549,17 @@ namespace CourseWork_Atelie
             this.label10.Text = "End Date";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button1
+            // exitButton
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(445, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Exit to Main Menu";
-            this.button1.UseVisualStyleBackColor = true;
+            this.exitButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(445, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(129, 62);
+            this.exitButton.TabIndex = 0;
+            this.exitButton.Text = "Exit to Main Menu";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // tableLayoutPanel13
             // 
@@ -660,7 +661,7 @@ namespace CourseWork_Atelie
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.RichTextBox resultRichTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

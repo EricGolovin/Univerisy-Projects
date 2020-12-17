@@ -51,6 +51,12 @@ namespace CourseWork_Atelie.Networking.Shared
                 public static string getByIdRequest = "SELECT * FROM BOOKING WHERE IN_BOOKING LIKE {0};";
                 public static string getAllRequest = "SELECT * FROM BOOKING";
             }
+
+            public class Fitting
+            {
+                public static string getByIdRequest = "SELECT * FROM FITTING WHERE IN_FITTING LIKE {0};";
+                public static string getAllRequest = "SELECT * FROM FITTING";
+            }
         }
         public class Put
         {
@@ -67,6 +73,7 @@ namespace CourseWork_Atelie.Networking.Shared
                 public static string putFabricRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO FABRIC(IN_FABRIC, NAME_FABRIC, LENGTH_FABRIC, PRICE_FABRIC, IN_FIRM, PHOTO_FABRIC) values ({0}, '{1}', {2}, {3}, {4}, '{5}');";
                 public static string putRecomendationRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO RECOMENDATION(IN_MODEL, IN_FABRIC) values({0}, {1});";
                 public static string putBookingRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO BOOKING(RECEPTION_DATE, ISSUE_DATE, MARK, SUM_BOOKING, IN_CUTTER, IN_CLIENT, IN_MODEL, IN_FABRIC) values ('{0}', '{1}', '{2}', {3}, {4}, {5}, {6}, {7});";
+                public static string putFittingRequest = "SET IDENTITY_INSERT CLIENT ON INSERT INTO FITTING(IN_BOOKING, IN_FITTING, COMMENT) values ({0}, {1}, '{2}');";
             }
         }
 
@@ -79,6 +86,14 @@ namespace CourseWork_Atelie.Networking.Shared
             public class Fabric
             {
                 public static string updateLenghtByIdRequest = "UPDATE FABRIC SET LENGTH_FABRIC = {0} WHERE IN_FABRIC = {1};";
+            }
+        }
+
+        public class Delete
+        {
+            public class Fitting
+            {
+                public static string deleteByIdRequest = $"DELETE FROM FITTING WHERE IN_FITTING LIKE({0});";
             }
         }
     }

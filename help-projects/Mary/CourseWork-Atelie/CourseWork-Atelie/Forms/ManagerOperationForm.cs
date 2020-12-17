@@ -44,7 +44,8 @@ namespace CourseWork_Atelie
 
         private void operationsOnFittingButton_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            new Forms.FittingOperationsForm().Show();
         }
     }
 }

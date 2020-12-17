@@ -24,3 +24,6 @@ C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.SummaryForm.resources
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.AnalyticsForm.resources
 C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.ManagerOperationForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.Forms.FittingOperationsForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.Forms.AddFittingForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\CourseWork-Atelie\CourseWork-Atelie\obj\Debug\CourseWork_Atelie.Forms.DeleteFittingForm.resources

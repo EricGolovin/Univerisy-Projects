@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-
 namespace CourseWork_Atelie.Networking.MultipleDependable
 {
-    class FittingNetworkProxy
+    using Services;
+    using ExtensionMethods;
+    public class FittingNetworkProxy
     {
         public static List<Fitting> Get(string request)
         {
@@ -20,8 +21,8 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
                 while (reader.Read())
                 {
                     int id = Convert.ToInt32(reader.GetValue(0));
-                    string comment = Convert.ToString(reader.GetValue(1));
-                    int bookingId = Convert.ToInt32(reader.GetValue(2));
+                    int bookingId = Convert.ToInt32(reader.GetValue(1));
+                    string comment = Convert.ToString(reader.GetValue(2));
 
                     MultipleDependable.Booking newBooking = getBookingById(bookingId);
 
@@ -43,6 +44,27 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
             connection.Insert(request);
         }
 
+        public static void Add(int bookingId, string comment)
+        {
+            string request = String.Format(Shared.RequestConsts.Put.Dependable.putFittingRequest, 
+                bookingId, 
+                Services.IdBuilderService.GetRandomId(), 
+                comment.RemoveWhitespace());
+            Add(request);
+        }
+
+        public static List<Fitting> GetAll()
+        {
+            return Get(Shared.RequestConsts.Get.Fitting.getAllRequest);
+        }
+
+        public static void Delete(int id)
+        {
+            Shared.SQLDatabaseConnetion connection = new Shared.SQLDatabaseConnetion();
+            string request = String.Format(Shared.RequestConsts.Delete.Fitting.deleteByIdRequest, id);
+            connection.Insert(request);
+        }
+
         private static MultipleDependable.Booking getBookingById(int id)
         {
             string request = String.Format(Shared.RequestConsts.Get.Booking.getByIdRequest, id);
@@ -51,7 +73,7 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         }
     }
 
-    class Fitting
+    public class Fitting
     {
         public int id;
         public string comment;

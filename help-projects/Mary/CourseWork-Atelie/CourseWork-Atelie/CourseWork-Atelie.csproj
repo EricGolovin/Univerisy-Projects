@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\StringExtension.cs" />
+    <Compile Include="Forms\DeleteFittingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteFittingForm.Designer.cs">
+      <DependentUpon>DeleteFittingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FabricSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,18 @@
     </Compile>
     <Compile Include="Forms\AnalyticsForm.Designer.cs">
       <DependentUpon>AnalyticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FittingOperationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FittingOperationsForm.Designer.cs">
+      <DependentUpon>FittingOperationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddFittingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddFittingForm.Designer.cs">
+      <DependentUpon>AddFittingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ManagerOperationForm.cs">
       <SubType>Form</SubType>
@@ -104,9 +122,12 @@
     <Compile Include="Forms\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddFittingModel.cs" />
     <Compile Include="Models\AuthorizationFormModel.cs" />
     <Compile Include="Models\AnalyticsFormModel.cs" />
+    <Compile Include="Models\DeleteFittingModel.cs" />
     <Compile Include="Models\FabricSelectionModel.cs" />
+    <Compile Include="Models\FittingOperationsModel.cs" />
     <Compile Include="Models\ModelSelectionModel.cs" />
     <Compile Include="Models\SummaryModel.cs" />
     <Compile Include="Models\UserRegistratioModel.cs" />
@@ -129,8 +150,17 @@
     <EmbeddedResource Include="Forms\AnalyticsForm.resx">
       <DependentUpon>AnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteFittingForm.resx">
+      <DependentUpon>DeleteFittingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FabricSelectionForm.resx">
       <DependentUpon>FabricSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FittingOperationsForm.resx">
+      <DependentUpon>FittingOperationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddFittingForm.resx">
+      <DependentUpon>AddFittingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagerOperationForm.resx">
       <DependentUpon>ManagerOperationForm.cs</DependentUpon>

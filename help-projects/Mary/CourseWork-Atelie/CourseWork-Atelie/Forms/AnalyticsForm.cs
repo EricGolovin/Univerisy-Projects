@@ -89,5 +89,11 @@ namespace CourseWork_Atelie
         {
             startDateTimePicker.MaxDate = endDateTimePicker.Value;
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new ManagerOperationForm().Show();
+        }
     }
 }
