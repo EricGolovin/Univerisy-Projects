@@ -1,0 +1,13 @@
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\bin\Debug\netcoreapp3.1\MaryTesting.exe
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\bin\Debug\netcoreapp3.1\MaryTesting.deps.json
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\bin\Debug\netcoreapp3.1\MaryTesting.runtimeconfig.json
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\bin\Debug\netcoreapp3.1\MaryTesting.runtimeconfig.dev.json
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\bin\Debug\netcoreapp3.1\MaryTesting.dll
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\bin\Debug\netcoreapp3.1\MaryTesting.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.AssemblyInfoInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.AssemblyInfo.cs
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.dll
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\help-projects\Mary\MaryTesting\obj\Debug\netcoreapp3.1\MaryTesting.genruntimeconfig.cache
