@@ -64,6 +64,8 @@ namespace CourseWork_Atelie
         private void finishButton_Click(object sender, EventArgs e)
         {
             model.sendBooking();
+            Hide();
+            new AuthorizationForm().Show();
         }
 
         private void loadPicturesToPictureBoxes()

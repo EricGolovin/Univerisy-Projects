@@ -71,5 +71,10 @@ namespace CourseWork_Atelie.Networking.Independent
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
+
+        public string GetDescription()
+        {
+            return $"Client: {id}, {fullName}, {phoneNumber}, {email}";
+        }
     }
 }

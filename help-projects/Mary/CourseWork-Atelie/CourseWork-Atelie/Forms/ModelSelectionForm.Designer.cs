@@ -71,9 +71,10 @@ namespace CourseWork_Atelie
             this.modelPictureBox.Location = new System.Drawing.Point(592, 140);
             this.modelPictureBox.Name = "modelPictureBox";
             this.modelPictureBox.Size = new System.Drawing.Size(553, 394);
-            this.modelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.modelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.modelPictureBox.TabIndex = 1;
             this.modelPictureBox.TabStop = false;
+            this.modelPictureBox.WaitOnLoad = true;
             this.modelPictureBox.Click += new System.EventHandler(this.modelPictureBox_Click);
             // 
             // tableLayoutPanel3

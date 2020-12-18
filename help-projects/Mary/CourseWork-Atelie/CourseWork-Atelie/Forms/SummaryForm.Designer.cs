@@ -43,10 +43,10 @@ namespace CourseWork_Atelie
             this.finishButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.fabricPictureLabel = new System.Windows.Forms.Label();
+            this.fabricPictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.modelPictureLabel = new System.Windows.Forms.Label();
             this.modelPictureBox = new System.Windows.Forms.PictureBox();
-            this.fabricPictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.nameGroupBox.SuspendLayout();
             this.modelNameGroupBox.SuspendLayout();
@@ -54,9 +54,9 @@ namespace CourseWork_Atelie
             this.orderDateGroupBox.SuspendLayout();
             this.fabricNameGroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fabricPictureBox)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fabricPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -249,6 +249,17 @@ namespace CourseWork_Atelie
             this.fabricPictureLabel.Text = "Fabric Picture";
             this.fabricPictureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // fabricPictureBox
+            // 
+            this.fabricPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fabricPictureBox.Location = new System.Drawing.Point(100, 33);
+            this.fabricPictureBox.Name = "fabricPictureBox";
+            this.fabricPictureBox.Size = new System.Drawing.Size(194, 165);
+            this.fabricPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fabricPictureBox.TabIndex = 1;
+            this.fabricPictureBox.TabStop = false;
+            this.fabricPictureBox.Click += new System.EventHandler(this.fabricPictureBox_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.AutoSize = true;
@@ -285,19 +296,10 @@ namespace CourseWork_Atelie
             this.modelPictureBox.Location = new System.Drawing.Point(100, 33);
             this.modelPictureBox.Name = "modelPictureBox";
             this.modelPictureBox.Size = new System.Drawing.Size(194, 165);
+            this.modelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.modelPictureBox.TabIndex = 1;
             this.modelPictureBox.TabStop = false;
             this.modelPictureBox.Click += new System.EventHandler(this.modelPictureBox_Click);
-            // 
-            // fabricPictureBox
-            // 
-            this.fabricPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fabricPictureBox.Location = new System.Drawing.Point(100, 33);
-            this.fabricPictureBox.Name = "fabricPictureBox";
-            this.fabricPictureBox.Size = new System.Drawing.Size(194, 165);
-            this.fabricPictureBox.TabIndex = 1;
-            this.fabricPictureBox.TabStop = false;
-            this.fabricPictureBox.Click += new System.EventHandler(this.fabricPictureBox_Click);
             // 
             // SummaryForm
             // 
@@ -322,10 +324,10 @@ namespace CourseWork_Atelie
             this.fabricNameGroupBox.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fabricPictureBox)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.modelPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fabricPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

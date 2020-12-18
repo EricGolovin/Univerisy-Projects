@@ -90,5 +90,11 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         {
             return booking.id;
         }
+
+        public string GetDescription()
+        {
+            return $"Fitting: {id}, {comment}\n " +
+                $"--------{booking.GetDescription()}";
+        }
     }
 }

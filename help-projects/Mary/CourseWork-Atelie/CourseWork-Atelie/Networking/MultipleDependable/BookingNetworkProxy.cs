@@ -144,6 +144,15 @@ namespace CourseWork_Atelie.Networking.MultipleDependable
         {
             return fabric.id;
         }
+
+        public string GetDescription()
+        {
+            return $"Booking: {id}, {creationDate.ToString()}, {isMarked.ToString()}, {issueDate.ToString()}, {bookingSum}\n " +
+                $"--------{cutter.GetDescription()}\n" +
+                $"--------{client.GetDescription()}\n" +
+                $"--------{model.GetDescription()}\n" +
+                $"--------{fabric.GetDescription()}";
+        }
     }
 
     public class Mark

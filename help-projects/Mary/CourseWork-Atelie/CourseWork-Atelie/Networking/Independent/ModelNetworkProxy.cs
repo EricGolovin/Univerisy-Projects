@@ -62,5 +62,10 @@ namespace CourseWork_Atelie.Networking.Independent
             this.price = price;
             this.photoLink = photoLink;
         }
+
+        public string GetDescription()
+        {
+            return $"Model: {id}, {name}, {consumption}, {price}, {photoLink}";
+        }
     }
 }

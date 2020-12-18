@@ -56,5 +56,10 @@ namespace CourseWork_Atelie.Networking.Independent
             this.firmName = firmName;
             this.country = country;
         }
+
+        public string GetDescription()
+        {
+            return $"Manufacturer: {id}, {firmName}, {country}";
+        }
     }
 }

@@ -85,5 +85,11 @@ namespace CourseWork_Atelie.Networking.SingleDependable
         {
             return manufacturer.id;
         }
+
+        public string GetDescription()
+        {
+            return $"Fabric: {id}, {name}, {length}, {price}, {photoLink}\n " +
+                $"--------{manufacturer.GetDescription()}";
+        }
     }
 }

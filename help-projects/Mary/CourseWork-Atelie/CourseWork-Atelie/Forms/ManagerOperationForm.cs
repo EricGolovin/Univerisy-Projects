@@ -33,19 +33,26 @@ namespace CourseWork_Atelie
 
         private void analyticsButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             new AnalyticsForm().Show();
         }
 
         private void insertionAndDeletionButton_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            new Forms.GetInfoForm().Show();
         }
 
         private void operationsOnFittingButton_Click(object sender, EventArgs e)
         {
             Hide();
             new Forms.FittingOperationsForm().Show();
+        }
+
+        private void finishButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new AuthorizationForm().Show();
         }
     }
 }

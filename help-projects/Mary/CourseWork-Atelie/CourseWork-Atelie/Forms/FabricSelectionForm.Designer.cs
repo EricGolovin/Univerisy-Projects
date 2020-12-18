@@ -72,7 +72,7 @@ namespace CourseWork_Atelie
             this.fabricPictureBox.Location = new System.Drawing.Point(592, 140);
             this.fabricPictureBox.Name = "fabricPictureBox";
             this.fabricPictureBox.Size = new System.Drawing.Size(553, 394);
-            this.fabricPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fabricPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fabricPictureBox.TabIndex = 1;
             this.fabricPictureBox.TabStop = false;
             this.fabricPictureBox.Click += new System.EventHandler(this.fabricPictureBox_Click);

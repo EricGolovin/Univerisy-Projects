@@ -66,5 +66,10 @@ namespace CourseWork_Atelie.Networking.Independent
             this.salary = salary;
             this.numberOfOrders = numberOfOrders;
         }
+
+        public string GetDescription()
+        {
+            return $"Cutter: {id}, {fullName}, {salary}, {numberOfOrders}";
+        }
     }
 }

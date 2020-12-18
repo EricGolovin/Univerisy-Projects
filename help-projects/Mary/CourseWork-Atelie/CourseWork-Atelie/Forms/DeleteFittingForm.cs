@@ -46,6 +46,9 @@ namespace CourseWork_Atelie.Forms
         private void deleteButton_Click(object sender, EventArgs e)
         {
             model.DeleteObject();
+            Hide();
+            new Forms.DeleteFittingForm().Show();
+
         }
 
         private void resultRichTextBox_TextChanged(object sender, EventArgs e)
