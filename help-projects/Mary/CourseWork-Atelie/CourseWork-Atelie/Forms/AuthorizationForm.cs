@@ -224,7 +224,7 @@ namespace CourseWork_Atelie
             } else {
                 ChangeTextBoxesColor(Color.Red);
             }
-            timer1.Interval = 2000;
+            timer1.Interval = 6000;
             timer1.Start();
         }
 

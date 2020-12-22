@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseWork_Atelie.Networking.Shared
 {
-    class RequestConsts
+    class RequestConsts  
     {
         public class Get
         {
@@ -96,5 +96,14 @@ namespace CourseWork_Atelie.Networking.Shared
                 public static string deleteByIdRequest = $"DELETE FROM FITTING WHERE IN_FITTING LIKE({0});";
             }
         }
+
+        public static string spasificValueRecvest01 = "SELECT FIO_CUTTER, case when NUMBER_OF_ORDERS >=5 then 'Cannot accept order' when NUMBER_OF_ORDERS >=4 then 'Free for one order' when NUMBER_OF_ORDERS >=1 then 'Ready to take order' 50 else 'Free' end as OPPORTUNITY from CUTTER;";
+        public static string spasificValueRecvest02 = "SELECT MANUFACTURER.NAME_FIRM,COUNT(FABRIC.IN_FIRM) FROM MANUFACTURER INNER JOIN FABRIC ON MANUFACTURER.IN_FIRM = FABRIC.IN_FIRM GROUP BY MANUFACTURER.NAME_FIRM ORDER BY COUNT(FABRIC.IN_FIRM) DESC;";
+        public static string spasificValueRecvest03 = "SELECT FABRIC.NAME_FABRIC,COUNT(RECOMENDATION.IN_FABRIC) FROM FABRIC INNER JOIN RECOMENDATION ON FABRIC.IN_FABRIC = RECOMENDATION.IN_FABRIC GROUP BY FABRIC.NAME_FABRIC ORDER BY COUNT(RECOMENDATION.IN_FABRIC) DESC;";
+        public static string spasificValueRecvest04 = "SELECT MODEL.NAME_MODEL,COUNT(RECOMENDATION.IN_MODEL) FROM MODEL INNER JOIN RECOMENDATION ON MODEL.IN_MODEL = RECOMENDATION.IN_MODEL GROUP BY MODEL.NAME_MODEL  ORDER BY COUNT(RECOMENDATION.IN_MODEL) DESC;";
+        public static string spasificValueRecvest05 = "SELECT FIO_CLIENT,(SELECT COUNT(IN_CLIENT) FROM BOOKING WHERE CLIENT.IN_CLIENT = BOOKING.IN_CLIENT) FROM CLIENT;";
+        public static string spasificValueRecvest06 = "SELECT FIO_CUTTER,NUMBER_OF_ORDERS FROM CUTTER ORDER BY NUMBER_OF_ORDERS DESC;";
+        public static string spasificValueRecvest07 = $"SELECT COUNT(IN_BOOKING) FROM BOOKING WHERE RECEPTION_DATE BETWEEN {0} AND {1} ;";
+        public static string spasificValueRecvest08 = $"SELECT COUNT(SUM_BOOKING) FROM BOOKING WHERE RECEPTION_DATE BETWEEN {0} AND {1} ;";
     }
 }

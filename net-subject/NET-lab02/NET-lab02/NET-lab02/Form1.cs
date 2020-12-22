@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace NET_lab02
 {
     public partial class Form1 : Form
     {
+        private List<int> numberList = new List<int>();
+        private List<string> wordList = new List<string>();
+
+        private List<char> lettersToCount = new List<char>() {'a', 'e', 'i', 'o', 'u'};
         public Form1()
         {
             InitializeComponent();
@@ -30,52 +35,16 @@ namespace NET_lab02
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Text = "";
-                FileInfo test_file = new FileInfo(openFileDialog1.FileName);
-                FileStream fs = test_file.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                StreamReader reader = new StreamReader(fs);
-                string str = reader.ReadToEnd();
-                reader.Close();
-                fs.Close();
-                char[] separator = { ' ', ';' };
-                string[] words;
-                words = str.Split(separator);
-                int count = 0;
-                int max = Int32.MinValue, min = Int32.MaxValue;
-                foreach (String word in words)
-                {
-                    Console.WriteLine(word);
-                    if (word != "")
-                        if ((word[0] >= '0') && (word[0] <= '9'))
-                        {
-                            count++;
-                            if (max < Convert.ToInt32(word))
-                                max = Convert.ToInt32(word);
-                            else if (min > Convert.ToInt32(word))
-                                min = Convert.ToInt32(word);
-                        }
-                        else textBox1.Text += word + " ";
-                }
-                str = openFileDialog1.FileName;
-                int i = str.Length - 1;
-                for (; (i >= 0) && (str[i] != '\\'); i--) ;
-                str = str.Remove(i + 1);
-                str += "numbersResult.txt";
-                fs = File.Open(str, FileMode.Create);
-                StreamWriter writer = new StreamWriter(fs);
-                writer.WriteLine("Numbers count = " + count.ToString());
-                writer.Close();
-                fs.Close();
-                fs = File.Open(str, FileMode.Append);
-                writer = new StreamWriter(fs);
-                writer.WriteLine("min number = " + min.ToString());
-                writer.WriteLine("max number = " + max.ToString());
-                writer.Close();
-                fs.Close();
+            parseDataToLists();
 
-            }
+            ThreadStart numbersThreadReference = new ThreadStart(WriteMinMaxNumbers);
+            Thread numbersThread = new Thread(numbersThreadReference);
+
+            ThreadStart wordThreadReference = new ThreadStart(WriteWords);
+            Thread wordsThread = new Thread(wordThreadReference);
+
+            numbersThread.Start();
+            wordsThread.Start();
         }
 
         private void generatefile()
@@ -106,8 +75,99 @@ namespace NET_lab02
                 writer.Close();
                 fs.Close();
             }
+        }
 
+        private void WriteMinMaxNumbers()
+        {
+            int minNumber = numberList.Last();
+            int maxNumber = numberList.First();
 
+            foreach(int number in numberList)
+            {
+                if (minNumber > number)
+                {
+                    minNumber = number;
+                }
+                if (maxNumber < number)
+                {
+                    maxNumber = number;
+                }
+            }
+            WriteToTextBox($"minNumber=({minNumber}) _ maxNumber=({maxNumber})");
+        }
+
+        private void WriteWords()
+        {
+            List<KeyValuePair<string, int>> newWordPair = new List<KeyValuePair<string, int>>();
+
+            KeyValuePair<string, int> resultWord = new KeyValuePair<string, int>("", 0);
+
+            foreach (string word in wordList)
+            {
+                int vowelsCounter = 0;
+                for (int i = 0; i < word.Length; i++)
+                {
+                    if (lettersToCount.Contains(word[i]))
+                    {
+                        vowelsCounter++;
+                    }
+                }
+                newWordPair.Add(new KeyValuePair<string, int>(word, vowelsCounter));
+            }
+
+            foreach(KeyValuePair<string, int> wordPair in newWordPair)
+            {
+                if (wordPair.Value > resultWord.Value)
+                {
+                    resultWord = wordPair;
+                }
+            }
+
+            WriteToTextBox($"LargestWord=({resultWord.Key}) _ VovelsNumber=({resultWord.Value})");
+        }
+
+        private void parseDataToLists()
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                char[] separator = { ' ', ';' };
+                string[] words;
+
+                FileInfo test_file = new FileInfo(openFileDialog1.FileName);
+                FileStream fs = test_file.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                StreamReader reader = new StreamReader(fs);
+
+                string str = reader.ReadToEnd();
+
+                reader.Close();
+                fs.Close();
+
+                words = str.Split(separator);
+
+                foreach (String word in words)
+                {
+                    if (word != "")
+                    {
+                        if ((word[0] >= '0') && (word[0] <= '9'))
+                        {
+                            numberList.Add(Convert.ToInt32(word));
+                        }
+                        else
+                        {
+                            wordList.Add(word);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void WriteToTextBox(string str)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                var oldText = textBox1.Text;
+                textBox1.Text = $"{oldText} _________ {str}\r";
+            });
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
