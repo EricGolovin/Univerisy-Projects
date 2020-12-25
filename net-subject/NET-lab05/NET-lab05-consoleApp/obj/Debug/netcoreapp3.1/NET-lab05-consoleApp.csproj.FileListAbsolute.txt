@@ -1,0 +1,13 @@
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.AssemblyInfoInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.AssemblyInfo.cs
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\bin\Debug\netcoreapp3.1\NET-lab05-consoleApp.exe
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\bin\Debug\netcoreapp3.1\NET-lab05-consoleApp.deps.json
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\bin\Debug\netcoreapp3.1\NET-lab05-consoleApp.runtimeconfig.json
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\bin\Debug\netcoreapp3.1\NET-lab05-consoleApp.runtimeconfig.dev.json
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\bin\Debug\netcoreapp3.1\NET-lab05-consoleApp.dll
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\bin\Debug\netcoreapp3.1\NET-lab05-consoleApp.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.dll
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\NET-lab05\NET-lab05-consoleApp\obj\Debug\netcoreapp3.1\NET-lab05-consoleApp.genruntimeconfig.cache
