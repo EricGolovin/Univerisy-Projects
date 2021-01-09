@@ -7,9 +7,19 @@ using System.Data.SqlClient;
 
 namespace CourseWork_BusSchedule.Networking.Models
 {
-    public class IntineraryProxy
+    public class ItineraryProxy
     {
-        public static List<Itinerary> Get(string request)
+        public static List<Itinerary> GetAll()
+        {
+            return Get(RequestConsts.Get.Itinerary.getAll);
+        }
+
+        public static List<Itinerary> Get(int id)
+        {
+            return Get(request: String.Format(RequestConsts.Get.Itinerary.getById, id));
+        }
+
+        private static List<Itinerary> Get(string request)
         {
             List<Itinerary> resultList = new List<Itinerary>();
             try
@@ -36,7 +46,7 @@ namespace CourseWork_BusSchedule.Networking.Models
             return resultList;
         }
 
-        public static void Put(string request)
+        private static void Put(string request)
         {
             DatabaseConnection.shared.Put(request);
         }
@@ -57,6 +67,11 @@ namespace CourseWork_BusSchedule.Networking.Models
             this.routeLength = routeLength;
             this.averageTime = averageTime;
             this.routesNumber = routesNumber;
+        }
+
+        public string GetDescription()
+        {
+            return $"Itinerary: \r\tid=({id}), \r\titinerary=({itinerary}), \r\trouteLength=({routeLength}), \r\taverageTime=({averageTime}), \r\troutesNumber=({routesNumber})\r\r";
         }
     }
 }

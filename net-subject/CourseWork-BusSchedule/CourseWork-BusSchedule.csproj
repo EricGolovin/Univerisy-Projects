@@ -53,7 +53,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Networking\DatabaseConnection.cs" />
+    <Compile Include="Networking\Models\BusProxy.cs" />
+    <Compile Include="Networking\Models\CredentialsInfoProxy.cs" />
+    <Compile Include="Networking\Models\ItineraryProxy.cs" />
     <Compile Include="Networking\Models\PersonInfoProxy.cs" />
+    <Compile Include="Networking\Models\RouteSheetProxy.cs" />
+    <Compile Include="Networking\RequestConsts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

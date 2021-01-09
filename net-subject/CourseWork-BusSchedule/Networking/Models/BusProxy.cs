@@ -9,7 +9,17 @@ namespace CourseWork_BusSchedule.Networking.Models
 {
     public class BusProxy
     {
-        public static List<Bus> Get(string request)
+        public static List<Bus> GetAll()
+        {
+            return Get(RequestConsts.Get.Bus.getAll);
+        }
+
+        public static List<Bus> Get(int id)
+        {
+            return Get(request: String.Format(RequestConsts.Get.Bus.getById, id));
+        }
+
+        private static List<Bus> Get(string request)
         {
             List<Bus> resultList = new List<Bus>();
             try
@@ -38,7 +48,7 @@ namespace CourseWork_BusSchedule.Networking.Models
             return resultList;
         }
 
-        public static void Put(string request)
+        private static void Put(string request)
         {
             DatabaseConnection.shared.Put(request);
         }
@@ -61,6 +71,11 @@ namespace CourseWork_BusSchedule.Networking.Models
             this.subId = subId;
             this.totalDistanceDriven = totalDistanceDriven;
             this.releaseDate = releaseDate;
+        }
+
+        public string GetDescription()
+        {
+            return $"Bus: \r\tid=({id}), \r\tbrand=({brand}), \r\tsubId=({subId}), \r\ttotalDistanceDriven=({totalDistanceDriven}), \r\treleaseDate=({releaseDate})\r\r";
         }
     }
 }

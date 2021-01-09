@@ -9,7 +9,17 @@ namespace CourseWork_BusSchedule.Networking.Models
 {
     public class PersonInfoProxy
     {
-        public static List<Person> Get(string request)
+        public static List<Person> GetAll()
+        {
+            return Get(RequestConsts.Get.Person.getAll);
+        }
+
+        public static List<Person> Get(int personId)
+        {
+            return Get(String.Format(RequestConsts.Get.Person.getById, personId));
+        }
+
+        private static List<Person> Get(string request)
         {
             List<Person> resultList = new List<Person>();
             try
@@ -17,7 +27,7 @@ namespace CourseWork_BusSchedule.Networking.Models
                 SqlDataReader reader = DatabaseConnection.shared.Get(request);
                 while (reader.Read())
                 {
-                    string personalPhoneNumber = Convert.ToString(reader.GetValue(0));
+                    int id = Convert.ToInt32(reader.GetValue(0));
                     string name = Convert.ToString(reader.GetValue(1));
                     string address = Convert.ToString(reader.GetValue(2));
                     string homePhoneNumber = Convert.ToString(reader.GetValue(3));
@@ -26,11 +36,11 @@ namespace CourseWork_BusSchedule.Networking.Models
 
                     DateTime birthdayDateTime = DateTime.Parse(birthdayDate);
 
-                    Person newPerson = new Person(personalPhoneNumber, name, address, homePhoneNumber, workPhoneNumber, birthdayDateTime);
+                    Person newPerson = new Person(id, name, address, homePhoneNumber, workPhoneNumber, birthdayDateTime);
                     resultList.Add(newPerson);
                 }
                 DatabaseConnection.shared.CloseLastConnection();
-            } 
+            }
             catch (SqlException exception)
             {
                 Console.WriteLine(exception.Message);
@@ -39,20 +49,24 @@ namespace CourseWork_BusSchedule.Networking.Models
             return resultList;
         }
 
+        private static void Put(string request)
+        {
+            DatabaseConnection.shared.Put(request);
+        }
     }
 
     public class Person
     {
-        public string personalPhoneNumber;
+        public int id;
         public string name;
         public string address;
         public string homePhoneNumber;
         public string workPhoneNumber;
         public DateTime birthdayDate;
 
-        public Person(string personalPhoneNumber, string name, string address, string homePhoneNumber, string workPhoneNumber, DateTime birthdayDate)
+        public Person(int id, string name, string address, string homePhoneNumber, string workPhoneNumber, DateTime birthdayDate)
         {
-            this.personalPhoneNumber = personalPhoneNumber;
+            this.id = id;
             this.name = name;
             this.address = address;
             this.homePhoneNumber = homePhoneNumber;
@@ -62,7 +76,7 @@ namespace CourseWork_BusSchedule.Networking.Models
 
         public string GetDescription()
         {
-            return $"Person: \r\tname=({name}), \r\taddress=({address}), \r\thomePhoneNumber=({homePhoneNumber}), \r\tworkPhoneNumber=({workPhoneNumber}), \r\tbirthdayDate=({birthdayDate.ToString("MM-dd-yy")})\r\r";
+            return $"Person: \r\tid=({id})\r\tname=({name}), \r\taddress=({address}), \r\thomePhoneNumber=({homePhoneNumber}), \r\tworkPhoneNumber=({workPhoneNumber}), \r\tbirthdayDate=({birthdayDate.ToString("MM-dd-yy")})\r\r";
         }
     }
 }
