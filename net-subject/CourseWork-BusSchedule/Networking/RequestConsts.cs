@@ -32,6 +32,11 @@ namespace CourseWork_BusSchedule.Networking
                 public static string getAll = "SELECT * FROM Credentials_Info;";
                 public static string getById = $"SELECT * FROM Credentials_Info WHERE Personnel_Number = {0};";
             }
+
+            public class RouteSheet
+            {
+                public static string getAll = "SELECT * FROM Route_Sheet;";
+            }
         }
 
         public class Put

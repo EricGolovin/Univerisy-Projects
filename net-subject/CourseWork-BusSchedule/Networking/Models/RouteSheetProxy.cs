@@ -9,6 +9,11 @@ namespace CourseWork_BusSchedule.Networking.Models
 {
     public class RouteSheetProxy
     {
+        public static List<RouteSheet> GetAll()
+        {
+            return Get(RequestConsts.Get.RouteSheet.getAll);
+        }
+
         private static List<RouteSheet> Get(string request)
         {
             List<RouteSheet> resultList = new List<RouteSheet>();
