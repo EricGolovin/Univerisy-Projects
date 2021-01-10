@@ -49,6 +49,7 @@
     <Compile Include="Builders\UserBuilder.cs" />
     <Compile Include="Extensions\WordFormattingExtension.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\DetailsModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Networking\DatabaseConnection.cs" />
     <Compile Include="Networking\Models\BusProxy.cs" />
@@ -66,6 +67,12 @@
     <Compile Include="Views\Registration\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserFlow\DetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserFlow\DetailsForm.Designer.cs">
+      <DependentUpon>DetailsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Registration\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserFlow\DetailsForm.resx">
+      <DependentUpon>DetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

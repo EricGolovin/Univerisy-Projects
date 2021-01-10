@@ -53,8 +53,8 @@ namespace CourseWork_BusSchedule.Views.Registration
         {
             if (model.ValidateUser())
             {
-                // TODO: Implement Activity Flow
-                Console.WriteLine("Login");
+                Networking.Models.CredentialsInfo credentialInfo = model.GetLoggedUser();
+
             } else
             {
                 StartFailureFlow();

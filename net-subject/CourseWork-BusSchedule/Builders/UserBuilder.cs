@@ -10,7 +10,7 @@ namespace CourseWork_BusSchedule.Builders
 {
     class UserBuilder
     {
-        public static Dictionary<string, string> BuildUserFrom(Networking.Models.CredentialsInfo userInfo)
+        public static Dictionary<string, string> BuildFrom(Networking.Models.CredentialsInfo userInfo)
         {
             Dictionary<string, string> dataDictionary = new Dictionary<string, string>();
 
@@ -29,6 +29,26 @@ namespace CourseWork_BusSchedule.Builders
             }
 
             return dataDictionary;
+        }
+    }
+
+    class PositionBuilder
+    {
+        public static List<Position.PositionType> BuildFrom(CredentialsManagerService.AccessLevel accessLevel)
+        {
+            List<Position.PositionType> resultList = new List<Position.PositionType>();
+            switch (accessLevel)
+            {
+                case CredentialsManagerService.AccessLevel.Admin:
+                    resultList.Add(Position.PositionType.Manager);
+                    return resultList;
+                case CredentialsManagerService.AccessLevel.User:
+                    resultList.Add(Position.PositionType.Driver);
+                    resultList.Add(Position.PositionType.Conductor);
+                    return resultList;
+            }
+            Console.WriteLine("PositionBuilder Error: resultList is empty, should not happen");
+            return resultList;
         }
     }
 

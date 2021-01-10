@@ -64,6 +64,7 @@ namespace CourseWork_BusSchedule.Networking.Models
         {
             DatabaseConnection.shared.Put(request);
         }
+
         private static Bus GetBus(int busId)
         {
             return BusProxy.Get(busId).First();
@@ -93,6 +94,11 @@ namespace CourseWork_BusSchedule.Networking.Models
             this.firstWorkDayDate = firstWorkDayDate;
             this.person = person;
         }
+
+        public CredentialsInfo()
+        {
+            this.id = -1;
+        } 
 
         public string GetDescription()
         {

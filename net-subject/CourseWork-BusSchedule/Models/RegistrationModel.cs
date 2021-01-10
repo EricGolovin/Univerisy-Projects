@@ -20,12 +20,7 @@ namespace CourseWork_BusSchedule.Models
 
         private string name = "";
         private string password = "";
-        public override void Load()
-        {
-            CredentialsManagerService.shared.AddUser("Alex", "", "1");
-            CredentialsManagerService.shared.AddUser("Antonio", "admin", "2");
-        }
-
+        private List<Networking.Models.CredentialsInfo> usersCredentials;
         public string GetUsername()
         {
             return name;
@@ -47,6 +42,11 @@ namespace CourseWork_BusSchedule.Models
             password = newPassword;
         }
 
+        public override void Load()
+        {
+            SetupUsers();
+        }
+
         public bool PasswordRequired()
         {
             return CheckUserStatus() == UserType.Unknown ? true : false;
@@ -66,6 +66,57 @@ namespace CourseWork_BusSchedule.Models
             return userStatus == UserType.Admin || userStatus == UserType.User;
         }
 
+        public Networking.Models.CredentialsInfo GetLoggedUser()
+        {
+            if (ValidateUser())
+            {
+                foreach (Networking.Models.CredentialsInfo credentialInfo in usersCredentials)
+                {
+                    bool usernameEqual = credentialInfo.person.name.RemoveWhitespaces() == name.RemoveWhitespaces();
+                    
+                    List<Networking.Models.Position.PositionType> userPositions = Builders.PositionBuilder.BuildFrom(CredentialsManagerService.shared.ValidateUser(name, password));
+                    bool positionEqual = false;
+                    foreach (Networking.Models.Position.PositionType position in userPositions)
+                    {
+                        if (credentialInfo.position.type == position)
+                        {
+                            positionEqual = true;
+                            break;
+                        }
+                    }
+                    if (usernameEqual && positionEqual)
+                    {
+                        return credentialInfo;
+                    }
+                }
+            }
+            Networking.Models.CredentialsInfo failedCredentialsInfo = new Networking.Models.CredentialsInfo();
+            return failedCredentialsInfo;
+        }
+
+        private void SetupUsers()
+        {
+            usersCredentials = Networking.Models.CredentialsInfoProxy.GetAll();
+
+            foreach (Networking.Models.CredentialsInfo credentialInfo in usersCredentials)
+            {
+                Dictionary<string, string> userData = Builders.UserBuilder.BuildFrom(credentialInfo);
+                string username = "";
+                string password = "";
+                string accessLevel = "";
+                try
+                {
+                    userData.TryGetValue(Builders.UserDataKeys.kUsername, out username);
+                    userData.TryGetValue(Builders.UserDataKeys.kPassword, out password);
+                    userData.TryGetValue(Builders.UserDataKeys.kAccessLevel, out accessLevel);
+                } catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+                CredentialsManagerService.shared.AddUser(username, password, accessLevel);
+            }
+
+        }
         private UserType CheckUserStatus()
         {
             switch (CredentialsManagerService.shared.ValidateUser(name, password))
@@ -80,6 +131,4 @@ namespace CourseWork_BusSchedule.Models
             return UserType.NoUser;
         }
     }
-
-
 }
