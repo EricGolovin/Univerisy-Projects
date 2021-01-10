@@ -20,7 +20,7 @@ namespace CourseWork_BusSchedule.Services
                 if (user.ValidateUsername(username))
                 {
                     Console.WriteLine($"CredentialManagerService Error: User with ({username}) already exists");
-                    return AccessLevel.unknown;
+                    return AccessLevel.Unknown;
                 }
             }
             KeyValuePair<string, string> userData = ConvertCredentials(username, password);
@@ -43,7 +43,7 @@ namespace CourseWork_BusSchedule.Services
                 counter += 1;
             }
             Console.WriteLine($"CredentialManagerService Error: No user exists with ({username})");
-            return AccessLevel.unknown;
+            return AccessLevel.Unknown;
         }
 
         public AccessLevel ValidateUser(string username, string password)
@@ -55,9 +55,20 @@ namespace CourseWork_BusSchedule.Services
                     return user.accessLevel;
                 }
             }
-            return AccessLevel.unknown;
+            return AccessLevel.Unknown;
         }
 
+        public bool UserExists(string username)
+        {
+            foreach (User user in allUsers)
+            {
+                if (user.ValidateUsername(username))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private KeyValuePair<String, String> ConvertCredentials(string username, string password)
         {
@@ -69,9 +80,9 @@ namespace CourseWork_BusSchedule.Services
     {
         public enum AccessLevel : ushort
         {
-            unknown = 0,
-            user = 1,
-            admin = 2
+            Unknown = 0,
+            User = 1,
+            Admin = 2
         }
         private struct User
         {

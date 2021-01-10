@@ -19,11 +19,11 @@ namespace CourseWork_BusSchedule.Builders
             {
                 case Position.PositionType.Driver:
                 case Position.PositionType.Conductor:
-                    dataDictionary.Add(UserDataKeys.kAccessLevel, Convert.ToString((int)CredentialsManagerService.AccessLevel.user));
+                    dataDictionary.Add(UserDataKeys.kAccessLevel, Convert.ToString((int)CredentialsManagerService.AccessLevel.User));
                     dataDictionary.Add(UserDataKeys.kPassword, "");
                     break;
                 case Position.PositionType.Manager:
-                    dataDictionary.Add(UserDataKeys.kAccessLevel, Convert.ToString((int)CredentialsManagerService.AccessLevel.admin));
+                    dataDictionary.Add(UserDataKeys.kAccessLevel, Convert.ToString((int)CredentialsManagerService.AccessLevel.Admin));
                     dataDictionary.Add(UserDataKeys.kPassword, "admin");
                     break;
             }

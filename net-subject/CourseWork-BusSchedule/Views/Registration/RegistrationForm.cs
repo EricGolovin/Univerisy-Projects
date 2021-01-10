@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CourseWork_BusSchedule.Extensions;
 
 namespace CourseWork_BusSchedule.Views.Registration
 {
@@ -37,34 +36,17 @@ namespace CourseWork_BusSchedule.Views.Registration
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
+            // TODO: Move logic to model and create reactive setter for \.Enabled
             model.SetName(usernameTextBox.Text);
-            passwordMaskedTextBox.Text = "";
-
-            Models.UserType validationResult = model.ValidateUser();
-
-            switch (validationResult)
-            {
-                case Models.UserType.User:
-                    loginButton.Enabled = true;
-                    passwordMaskedTextBox.Enabled = false;
-                    return;
-                case Models.UserType.Admin:
-                case Models.UserType.NoUser:
-                    passwordMaskedTextBox.Enabled = usernameTextBox.Text.RemoveWhitespaces() != "";
-                    return;
-            }
-
-            loginButton.Enabled = false;
-            passwordMaskedTextBox.Enabled = false;
+            passwordMaskedTextBox.Text = model.GetPassword();
+            passwordMaskedTextBox.Enabled = model.PasswordRequired();
+            loginButton.Enabled = model.LoginAllowed();
         }
-
-            
 
         private void passwordMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             model.SetPassword(passwordMaskedTextBox.Text);
-            Console.WriteLine(passwordMaskedTextBox.Text);
-            loginButton.Enabled = passwordMaskedTextBox.Text.RemoveWhitespaces() != "";
+            loginButton.Enabled = model.LoginAllowed();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -72,6 +54,7 @@ namespace CourseWork_BusSchedule.Views.Registration
             if (model.ValidateUser())
             {
                 // TODO: Implement Activity Flow
+                Console.WriteLine("Login");
             } else
             {
                 StartFailureFlow();

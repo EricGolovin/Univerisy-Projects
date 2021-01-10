@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\UserBuilder.cs" />
     <Compile Include="Extensions\WordFormattingExtension.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
