@@ -54,6 +54,10 @@ namespace CourseWork_BusSchedule.Views.Registration
             if (model.ValidateUser())
             {
                 Networking.Models.CredentialsInfo credentialInfo = model.GetLoggedUser();
+                if (credentialInfo.id == -1) 
+                {
+                    StartFailureFlow();
+                }
 
             } else
             {

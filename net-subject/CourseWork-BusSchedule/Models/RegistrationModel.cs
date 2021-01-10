@@ -66,6 +66,7 @@ namespace CourseWork_BusSchedule.Models
             return userStatus == UserType.Admin || userStatus == UserType.User;
         }
 
+        // Execute only after User Validation success
         public Networking.Models.CredentialsInfo GetLoggedUser()
         {
             if (ValidateUser())
@@ -90,6 +91,7 @@ namespace CourseWork_BusSchedule.Models
                     }
                 }
             }
+            Console.WriteLine("GetLoggedUser Error: GetLoggedUser was executed before ValidateUser method, should not happen");
             Networking.Models.CredentialsInfo failedCredentialsInfo = new Networking.Models.CredentialsInfo();
             return failedCredentialsInfo;
         }
