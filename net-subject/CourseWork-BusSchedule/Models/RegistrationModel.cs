@@ -19,6 +19,7 @@ namespace CourseWork_BusSchedule.Models
         public void SetName(string newName)
         {
             name = newName;
+            password = "";
         }
 
         public void SetPassword(string newPassword)
@@ -26,9 +27,25 @@ namespace CourseWork_BusSchedule.Models
             password = newPassword;
         }
 
-        public bool ValidateUser()
+        public UserType ValidateUser()
         {
-            return CredentialsManagerService.shared.ValidateUser(name, password);
+            switch (CredentialsManagerService.shared.ValidateUser(name, password))
+            {
+                case CredentialsManagerService.AccessLevel.Admin:
+                    return UserType.Admin;
+                case CredentialsManagerService.AccessLevel.User:
+                    return UserType.User;
+                case CredentialsManagerService.AccessLevel.Unknown:
+                    return UserType.NoUser;
+            }
+            return UserType.NoUser;
         }
+    }
+
+    public enum UserType
+    {
+        User,
+        Admin,
+        NoUser
     }
 }

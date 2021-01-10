@@ -30,15 +30,22 @@ namespace CourseWork_BusSchedule.Networking.Models
                     int id = Convert.ToInt32(reader.GetValue(0));
                     int busId = Convert.ToInt32(reader.GetValue(1));
                     string categoryString = Convert.ToString(reader.GetValue(2));
-                    string position = Convert.ToString(reader.GetValue(3));
+                    string positionString = Convert.ToString(reader.GetValue(3));
                     string firstWorkDayDateString = Convert.ToString(reader.GetValue(4));
                     int personId = Convert.ToInt32(reader.GetValue(5));
 
                     Bus bus = GetBus(busId);
                     Category category = new Category(categoryString);
+                    Position position = new Position(positionString);
                     Person person = GetPerson(personId);
 
                     DateTime firstWorkDayDate = DateTime.Parse(firstWorkDayDateString);
+
+                    if (position.type == Position.PositionType.Undentified)
+                    {
+                        Console.WriteLine($"Data Corruption Error: Position is Undentified for id({person.id}) - name({person.name})");
+                        continue;
+                    }
 
                     CredentialsInfo newCredentialsInfo = new CredentialsInfo(id, bus, category, position, firstWorkDayDate, person);
                     resultList.Add(newCredentialsInfo);
@@ -73,11 +80,11 @@ namespace CourseWork_BusSchedule.Networking.Models
         public int id;
         public Bus bus;
         public Category category;
-        public string position;
+        public Position position;
         public DateTime firstWorkDayDate;
         public Person person;
 
-        public CredentialsInfo(int id, Bus bus, Category category, string position, DateTime firstWorkDayDate, Person person)
+        public CredentialsInfo(int id, Bus bus, Category category, Position position, DateTime firstWorkDayDate, Person person)
         {
             this.id = id;
             this.bus = bus;
@@ -89,7 +96,7 @@ namespace CourseWork_BusSchedule.Networking.Models
 
         public string GetDescription()
         {
-            return $"CredentialsInfo: \r\tid=({id}), \r\tbus=({bus.GetDescription()}), \r\tcategory=({category.ToString()}), \r\tposition=({position}), \r\tfirstWorkDayDate=({firstWorkDayDate.ToString("MM-dd-yy")}), \r\tperson=({person.GetDescription()})\r\r";
+            return $"CredentialsInfo: \r\tid=({id}), \r\tbus=({bus.GetDescription()}), \r\tcategory=({category.ToString()}), \r\tposition=({position.ToString()}), \r\tfirstWorkDayDate=({firstWorkDayDate.ToString("MM-dd-yy")}), \r\tperson=({person.GetDescription()})\r\r";
         }
     }
 
@@ -129,6 +136,54 @@ namespace CourseWork_BusSchedule.Networking.Models
                 default:
                     return $"Category({type})";
             }
+        }
+    }
+
+    public struct Position
+    {
+        public enum PositionType
+        {
+            Undentified,
+            Driver,
+            Conductor,
+            Manager
+        }
+
+        public readonly PositionType type;
+
+        public Position(string position)
+        {
+            switch (position)
+            {
+                case "driver":
+                    type = PositionType.Driver;
+                    break;
+                case "conductor":
+                    type = PositionType.Conductor;
+                    break;
+                case "manager":
+                    type = PositionType.Manager;
+                    break;
+                default:
+                    type = PositionType.Undentified;
+                    break;
+            }
+        }
+
+        public override string ToString()
+        {
+            switch (type)
+            {
+                case PositionType.Driver:
+                    return "Position=(Driver)";
+                case PositionType.Conductor:
+                    return "Position=(Conductor)";
+                case PositionType.Manager:
+                    return "Position=(Manager)";
+                case PositionType.Undentified:
+                    return "Position=(Unknown)";
+            }
+            return "Position Error: Should not invoked";
         }
     }
 }

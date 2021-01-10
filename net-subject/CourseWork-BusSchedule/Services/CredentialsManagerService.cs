@@ -13,21 +13,24 @@ namespace CourseWork_BusSchedule.Services
         private CredentialsManagerService() { }
 
         private List<User> allUsers = new List<User>();
-        public bool AddUser(string username, string password)
+        public AccessLevel AddUser(string username, string password, string accessLevelValue)
         {
             foreach (User user in allUsers)
             {
                 if (user.ValidateUsername(username))
                 {
                     Console.WriteLine($"CredentialManagerService Error: User with ({username}) already exists");
-                    return false;
+                    return AccessLevel.unknown;
                 }
             }
-            allUsers.Add(new User(ConvertCredentials(username, password)));
-            return true;
+            KeyValuePair<string, string> userData = ConvertCredentials(username, password);
+            AccessLevel accessLevel = (AccessLevel) Enum.Parse(typeof(AccessLevel), accessLevelValue);
+            User newUser = new User(userData.Key, userData.Value, accessLevel);
+            allUsers.Add(newUser);
+            return newUser.accessLevel;
         }
 
-        public bool RemoveUser(string username)
+        public AccessLevel RemoveUser(string username)
         {
             int counter = 0;
             foreach (User user in allUsers)
@@ -35,25 +38,26 @@ namespace CourseWork_BusSchedule.Services
                 if (user.ValidateUsername(username))
                 {
                     allUsers.RemoveAt(counter);
-                    return true;
+                    return user.accessLevel;
                 }
                 counter += 1;
             }
             Console.WriteLine($"CredentialManagerService Error: No user exists with ({username})");
-            return false;
+            return AccessLevel.unknown;
         }
 
-        public bool ValidateUser(string username, string password)
+        public AccessLevel ValidateUser(string username, string password)
         {
             foreach (User user in allUsers)
             {
                 if (user.Validate(ConvertCredentials(username, password)))
                 {
-                    return true;
+                    return user.accessLevel;
                 }
             }
-            return false;
+            return AccessLevel.unknown;
         }
+
 
         private KeyValuePair<String, String> ConvertCredentials(string username, string password)
         {
@@ -63,21 +67,23 @@ namespace CourseWork_BusSchedule.Services
 
     partial class CredentialsManagerService
     {
+        public enum AccessLevel : ushort
+        {
+            unknown = 0,
+            user = 1,
+            admin = 2
+        }
         private struct User
         {
-            string username;
-            string password;
+            private string username;
+            private string password;
+            public readonly AccessLevel accessLevel;
 
-            public User(string username, string password)
+            public User(string username, string password, AccessLevel accessLevel)
             {
                 this.username = username;
                 this.password = password;
-            }
-            
-            public User(KeyValuePair<string, string> pair)
-            {
-                this.username = pair.Key;
-                this.password = pair.Value;
+                this.accessLevel = accessLevel;
             }
 
             public bool Validate(string username, string password)

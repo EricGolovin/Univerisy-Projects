@@ -38,16 +38,27 @@ namespace CourseWork_BusSchedule.Views.Registration
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
             model.SetName(usernameTextBox.Text);
-            if (usernameTextBox.Text.RemoveWhitespaces() == "")
+            passwordMaskedTextBox.Text = "";
+
+            Models.UserType validationResult = model.ValidateUser();
+
+            switch (validationResult)
             {
-                passwordMaskedTextBox.Enabled = false;
-                passwordMaskedTextBox.Text = "";
-                
-            } else
-            {
-                passwordMaskedTextBox.Enabled = true;
+                case Models.UserType.User:
+                    loginButton.Enabled = true;
+                    passwordMaskedTextBox.Enabled = false;
+                    return;
+                case Models.UserType.Admin:
+                case Models.UserType.NoUser:
+                    passwordMaskedTextBox.Enabled = usernameTextBox.Text.RemoveWhitespaces() != "";
+                    return;
             }
+
+            loginButton.Enabled = false;
+            passwordMaskedTextBox.Enabled = false;
         }
+
+            
 
         private void passwordMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
