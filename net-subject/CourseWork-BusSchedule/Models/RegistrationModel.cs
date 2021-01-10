@@ -10,7 +10,7 @@ namespace CourseWork_BusSchedule.Models
 {
     class RegistrationModel : BaseModel
     {
-        private enum UserType
+        public enum UserType
         {
             User,
             Admin,
@@ -119,7 +119,7 @@ namespace CourseWork_BusSchedule.Models
             }
 
         }
-        private UserType CheckUserStatus()
+        public UserType CheckUserStatus()
         {
             switch (CredentialsManagerService.shared.ValidateUser(name, password))
             {

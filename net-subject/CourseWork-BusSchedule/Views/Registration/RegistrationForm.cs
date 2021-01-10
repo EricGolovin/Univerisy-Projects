@@ -26,7 +26,7 @@ namespace CourseWork_BusSchedule.Views.Registration
             loginButton.Enabled = false;
         }
 
-        protected void SetupLayout()
+        private void SetupLayout()
         {
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -53,12 +53,14 @@ namespace CourseWork_BusSchedule.Views.Registration
         {
             if (model.ValidateUser())
             {
-                Networking.Models.CredentialsInfo credentialInfo = model.GetLoggedUser();
-                if (credentialInfo.id == -1) 
+                Networking.Models.CredentialsInfo credentialsInfo = model.GetLoggedUser();
+                if (credentialsInfo.id == -1) 
                 {
                     StartFailureFlow();
+                } else
+                {
+                    StartNavigation(credentialsInfo);
                 }
-
             } else
             {
                 StartFailureFlow();
@@ -80,6 +82,21 @@ namespace CourseWork_BusSchedule.Views.Registration
             passwordMaskedTextBox.BackColor = passwordBackColor;
         }
 
-
+        private void StartNavigation(Networking.Models.CredentialsInfo credentialsInfo)
+        {
+            if (model.CheckUserStatus() == Models.RegistrationModel.UserType.Admin)
+            {
+                Hide();
+                AdminFlow.AdminOperationsForm newForm = new AdminFlow.AdminOperationsForm();
+                newForm.SetCurrentCredentialsInfo(credentialsInfo);
+                newForm.Show();
+            } else if (model.CheckUserStatus() == Models.RegistrationModel.UserType.User)
+            {
+                Hide();
+                UserFlow.DetailsForm newForm = new UserFlow.DetailsForm();
+                newForm.SetCurrentCredentialsInfo(credentialsInfo);
+                newForm.Show();
+            }
+        }
     }
 }

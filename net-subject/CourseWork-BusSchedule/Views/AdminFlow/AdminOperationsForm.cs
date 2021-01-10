@@ -8,17 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourseWork_BusSchedule.Views.UserFlow
+namespace CourseWork_BusSchedule.Views.AdminFlow
 {
-
-    public partial class DetailsForm : Form
+    public partial class AdminOperationsForm : Form
     {
         private struct Consts
         {
             public static string kGreeting = "Hello, {0}";
         }
-        Models.DetailsModel model = new Models.DetailsModel();
-        public DetailsForm()
+        Models.AdminOperationsModel model = new Models.AdminOperationsModel();
+        public AdminOperationsForm()
         {
             InitializeComponent();
             SetupLayout();
@@ -42,14 +41,22 @@ namespace CourseWork_BusSchedule.Views.UserFlow
 
         private void SetupControls()
         {
-
-            dateTimePicker.Value = DateTime.Now;
-            greetingLabel.Text = String.Format(Consts.kGreeting, model.GetUserPositionAndName());
+            foreach(string title in model.allModels)
+            {
+                comboBox.Items.Add(title);
+            }
+            comboBox.Text = model.GetCurrentSelectedModelName();
+            greetingLabel.Text = String.Format(Consts.kGreeting, model.GetAdminName());
         }
 
-        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void printButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Text = model.GetItineraryForDate(dateTimePicker.Value);
+            richTextBox.Text = model.GetDataForSelectedModel();
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            model.SetCurrentSelectedModelName(comboBox.Text);
         }
 
         private void exitButton_Click(object sender, EventArgs e)

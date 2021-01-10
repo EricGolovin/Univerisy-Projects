@@ -95,6 +95,7 @@ namespace CourseWork_BusSchedule.Networking.Models
             this.person = person;
         }
 
+        // Only for mocking data or to report costruction failure
         public CredentialsInfo()
         {
             this.id = -1;
@@ -188,6 +189,22 @@ namespace CourseWork_BusSchedule.Networking.Models
                     return "Position=(Manager)";
                 case PositionType.Undentified:
                     return "Position=(Unknown)";
+            }
+            return "Position Error: Should not invoked";
+        }
+
+        public string GetTypeDescription()
+        {
+            switch (type)
+            {
+                case PositionType.Driver:
+                    return "Driver";
+                case PositionType.Conductor:
+                    return "Conductor";
+                case PositionType.Manager:
+                    return "Manager";
+                case PositionType.Undentified:
+                    return "Unknown";
             }
             return "Position Error: Should not invoked";
         }

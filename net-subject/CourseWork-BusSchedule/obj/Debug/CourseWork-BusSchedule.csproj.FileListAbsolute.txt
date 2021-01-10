@@ -9,3 +9,4 @@ C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\o
 C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork-BusSchedule.pdb
 C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Views.Registration.RegistrationForm.resources
 C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Views.UserFlow.DetailsForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Views.AdminFlow.AdminOperationsForm.resources
