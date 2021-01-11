@@ -37,14 +37,14 @@ namespace CourseWork_BusSchedule.Views.AdminFlow
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
+            foreach (string title in model.allModels)
+            {
+                comboBox.Items.Add(title);
+            }
         }
 
         private void SetupControls()
         {
-            foreach(string title in model.allModels)
-            {
-                comboBox.Items.Add(title);
-            }
             comboBox.Text = model.GetCurrentSelectedModelName();
             greetingLabel.Text = String.Format(Consts.kGreeting, model.GetAdminName());
         }
