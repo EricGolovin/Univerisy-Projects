@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace CourseWork_Atelie.Networking.Shared
+namespace CourseWork.Networking.Shared
 {
     class SQLDatabaseConnetion
     {
