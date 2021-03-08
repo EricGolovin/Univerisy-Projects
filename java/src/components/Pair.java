@@ -8,4 +8,9 @@ public class Pair<FirstType, SecondType> {
         this.first = firstValue;
         this.second = secondValue;
     }
+
+    @Override
+    public String toString() {
+        return String.format("(%s, %s)", first, second);
+    }
 }

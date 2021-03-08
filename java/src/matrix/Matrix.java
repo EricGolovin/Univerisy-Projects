@@ -3,7 +3,7 @@ package matrix;
 import matrix.util.MatrixRotationDegree;
 import services.NumberGeneratorService;
 
-public class Matrix {
+public abstract class Matrix {
     protected int[][] elementsGrid;
     private int[][] initialElementsGrid = null;
 
@@ -34,14 +34,10 @@ public class Matrix {
                 rotateByOne();
                 break;
             case TWO_ROTATIONS:
-                for (int i = 0; i < 2; i++) {
-                    rotateByOne();
-                }
+                for (int i = 0; i < 2; i++) { rotateByOne(); }
                 break;
             case THREE_ROTATIONS:
-                for (int i = 0; i < 3; i++) {
-                    rotateByOne();
-                }
+                for (int i = 0; i < 3; i++) {  rotateByOne(); }
                 break;
             default:
                 break;
