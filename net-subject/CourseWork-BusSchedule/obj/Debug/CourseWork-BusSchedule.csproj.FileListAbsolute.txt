@@ -1,0 +1,12 @@
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\bin\Debug\CourseWork-BusSchedule.exe.config
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\bin\Debug\CourseWork-BusSchedule.exe
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\bin\Debug\CourseWork-BusSchedule.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork-BusSchedule.csprojAssemblyReference.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Properties.Resources.resources
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork-BusSchedule.csproj.GenerateResource.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork-BusSchedule.csproj.CoreCompileInputs.cache
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork-BusSchedule.exe
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork-BusSchedule.pdb
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Views.Registration.RegistrationForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Views.UserFlow.DetailsForm.resources
+C:\Users\ericg\Developer\Univerisy-Projects\net-subject\CourseWork-BusSchedule\obj\Debug\CourseWork_BusSchedule.Views.AdminFlow.AdminOperationsForm.resources

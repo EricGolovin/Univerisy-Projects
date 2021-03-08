@@ -13,7 +13,7 @@ namespace CourseWork_BusSchedule.Networking
         private DatabaseConnection() { }
 
         // TODO: Change to correct url link
-        private static string databaseConnectionConst = @"Data Source=DESKTOP-BOOTCAMP7633;Initial Catalog=Transportation;Integrated Security=True";
+        private static string databaseConnectionConst = @"Data Source=DESKTOP-HBF1LDR\SQLEXPRESS;Initial Catalog=BBBB;Integrated Security=True";
         private List<SqlConnection> connections = new List<SqlConnection>();
 
         public SqlDataReader Get(string command)
